@@ -10,7 +10,7 @@ import Foundation
 public protocol ResponseRequestable: Requestable {
     associatedtype Response
     
-    var responseDecoder: ResponseDecoder { get }
+    var responseDecoder: ResponseDecoderType { get }
 }
 
 public protocol Requestable {
@@ -24,7 +24,7 @@ public protocol Requestable {
     var bodyParameters: [String: Any] { get }
     var bodyEncoding: BodyEncoding { get }
     
-    func urlRequest(with networkConfig: NetworkConfigurable) throws -> URLRequest
+    func urlRequest(with networkConfig: NetworkConfigurableType) throws -> URLRequest
 }
 
 public enum BodyEncoding {
@@ -34,9 +34,7 @@ public enum BodyEncoding {
 
 public enum HTTPMethodType: String {
     case get     = "GET"
-    case head    = "HEAD"
     case post    = "POST"
     case put     = "PUT"
-    case patch   = "PATCH"
     case delete  = "DELETE"
 }
