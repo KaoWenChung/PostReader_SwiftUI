@@ -14,6 +14,7 @@
 		210F85442925991600B0EDB1 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F85432925991600B0EDB1 /* NetworkService.swift */; };
 		210F85462925994000B0EDB1 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F85452925994000B0EDB1 /* Endpoint.swift */; };
 		210F8548292599D600B0EDB1 /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F8547292599D600B0EDB1 /* NetworkConfig.swift */; };
+		210F854B2925AC4500B0EDB1 /* CoreDataStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 210F85492925AC4500B0EDB1 /* CoreDataStorage.xcdatamodeld */; };
 		2DBA14523B0FC3A3D13330EE /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1E2729C46B346322DC92 /* Post.swift */; };
 		2DBA1538DD51C3A2D5EBD794 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA16F2DEE19C649103CF3A /* PostTableViewCell.swift */; };
 		2DBA17176A2BF0E7EB6CC6F9 /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA159C9B8196391E6CDAF0 /* PostDetailsViewController.swift */; };
@@ -46,6 +47,7 @@
 		210F85432925991600B0EDB1 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		210F85452925994000B0EDB1 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		210F8547292599D600B0EDB1 /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
+		210F854A2925AC4500B0EDB1 /* CoreDataStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataStorage.xcdatamodel; sourceTree = "<group>"; };
 		2DBA148B4700A0CDF70F769A /* PostListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostListViewController.swift; sourceTree = "<group>"; };
 		2DBA159C9B8196391E6CDAF0 /* PostDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
 		2DBA16D23FC107B1F813F82D /* Post+Fetching.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Post+Fetching.swift"; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				210F853D2925985200B0EDB1 /* CoreDataStorage.swift */,
+				210F85492925AC4500B0EDB1 /* CoreDataStorage.xcdatamodeld */,
 			);
 			path = CoreDataStorage;
 			sourceTree = "<group>";
@@ -178,11 +181,11 @@
 			isa = PBXGroup;
 			children = (
 				FA166B8425ED248300A85D66 /* AppDelegate.swift */,
-				210F853F2925989F00B0EDB1 /* Infrastructure */,
 				FA166B8A25ED248300A85D66 /* Main.storyboard */,
 				FA166B8D25ED248300A85D66 /* Assets.xcassets */,
 				FA166B8F25ED248300A85D66 /* LaunchScreen.storyboard */,
 				FA166B9225ED248300A85D66 /* Info.plist */,
+				210F853F2925989F00B0EDB1 /* Infrastructure */,
 				2DBA18BFDCA808CB37488B4D /* Data */,
 				2DBA14D6B67197C49F29BF63 /* Post List */,
 				2DBA1237D078294F62924AA5 /* Post Details */,
@@ -307,6 +310,7 @@
 				210F85462925994000B0EDB1 /* Endpoint.swift in Sources */,
 				2DBA171B634A994D6DF6CD09 /* Post+Fetching.swift in Sources */,
 				2DBA19F29585A8F68F43E089 /* PostListViewController.swift in Sources */,
+				210F854B2925AC4500B0EDB1 /* CoreDataStorage.xcdatamodeld in Sources */,
 				2DBA1FC5D93D86FC6288BADD /* PostListInteractor.swift in Sources */,
 				2DBA1538DD51C3A2D5EBD794 /* PostTableViewCell.swift in Sources */,
 				210F8542292598EE00B0EDB1 /* DataTransferService.swift in Sources */,
@@ -584,6 +588,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		210F85492925AC4500B0EDB1 /* CoreDataStorage.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				210F854A2925AC4500B0EDB1 /* CoreDataStorage.xcdatamodel */,
+			);
+			currentVersion = 210F854A2925AC4500B0EDB1 /* CoreDataStorage.xcdatamodel */;
+			path = CoreDataStorage.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FA166B7925ED248300A85D66 /* Project object */;
 }
