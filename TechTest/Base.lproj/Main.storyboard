@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eap-1d-Wec">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eap-1d-Wec">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,7 +14,7 @@
             <objects>
                 <navigationController id="eap-1d-Wec" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ior-OY-fag">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -53,26 +53,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="zG5-Y9-r80">
-                                <rect key="frame" x="188.5" y="434.5" width="37" height="37"/>
+                                <rect key="frame" x="188.5" y="436.5" width="37" height="37"/>
                             </activityIndicatorView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fbm-AL-0fR">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Body" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bU4-1e-Qfd">
-                                        <rect key="frame" x="20" y="89" width="374" height="20.5"/>
+                                        <rect key="frame" x="20" y="93" width="49" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gXX-4T-jvI">
-                                        <rect key="frame" x="20" y="52" width="374" height="29"/>
+                                        <rect key="frame" x="20" y="56" width="49" height="29"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ktu-kh-yi7" userLabel="Spacer View">
-                                        <rect key="frame" x="0.0" y="384" width="414" height="128"/>
-                                    </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailingMargin" secondItem="bU4-1e-Qfd" secondAttribute="trailing" id="1C4-wX-0Os"/>
@@ -80,11 +77,8 @@
                                     <constraint firstItem="gXX-4T-jvI" firstAttribute="top" secondItem="Fbm-AL-0fR" secondAttribute="topMargin" id="1l3-3c-uD8"/>
                                     <constraint firstItem="bU4-1e-Qfd" firstAttribute="top" secondItem="gXX-4T-jvI" secondAttribute="bottom" constant="8" symbolic="YES" id="2TR-BW-V3n"/>
                                     <constraint firstItem="bU4-1e-Qfd" firstAttribute="leading" secondItem="Fbm-AL-0fR" secondAttribute="leadingMargin" id="7Dp-Za-tqf"/>
-                                    <constraint firstItem="Ktu-kh-yi7" firstAttribute="leading" secondItem="Fbm-AL-0fR" secondAttribute="leading" id="AG0-mv-7hI"/>
                                     <constraint firstItem="gXX-4T-jvI" firstAttribute="leading" secondItem="Fbm-AL-0fR" secondAttribute="leadingMargin" id="KYL-5J-cGO"/>
-                                    <constraint firstAttribute="trailing" secondItem="Ktu-kh-yi7" secondAttribute="trailing" id="KwR-0v-ENS"/>
                                     <constraint firstItem="bU4-1e-Qfd" firstAttribute="bottom" secondItem="Fbm-AL-0fR" secondAttribute="bottom" id="qfT-4B-WcR"/>
-                                    <constraint firstItem="Ktu-kh-yi7" firstAttribute="width" secondItem="Fbm-AL-0fR" secondAttribute="width" id="yeQ-rv-Dlh"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -107,7 +101,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fz4-rb-CLx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1704.3478260869567" y="-246.42857142857142"/>
+            <point key="canvasLocation" x="1752" y="-246"/>
         </scene>
     </scenes>
     <resources>
