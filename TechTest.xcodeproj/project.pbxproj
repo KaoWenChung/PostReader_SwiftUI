@@ -19,6 +19,8 @@
 		210F855B292680CD00B0EDB1 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F855A292680CD00B0EDB1 /* Observable.swift */; };
 		215865AE2926B9DE000FBDD8 /* PostListContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865AD2926B9DE000FBDD8 /* PostListContentView.swift */; };
 		215865B02926CA05000FBDD8 /* PostListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865AF2926CA05000FBDD8 /* PostListItemView.swift */; };
+		215865B32926CF00000FBDD8 /* PostDetailContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865B22926CF00000FBDD8 /* PostDetailContentView.swift */; };
+		215865B52926D9F2000FBDD8 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865B42926D9F2000FBDD8 /* UINavigationController.swift */; };
 		2DBA14523B0FC3A3D13330EE /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1E2729C46B346322DC92 /* Post.swift */; };
 		2DBA17176A2BF0E7EB6CC6F9 /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA159C9B8196391E6CDAF0 /* PostDetailsViewController.swift */; };
 		2DBA171B634A994D6DF6CD09 /* Post+Fetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA16D23FC107B1F813F82D /* Post+Fetching.swift */; };
@@ -51,6 +53,8 @@
 		210F855A292680CD00B0EDB1 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		215865AD2926B9DE000FBDD8 /* PostListContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListContentView.swift; sourceTree = "<group>"; };
 		215865AF2926CA05000FBDD8 /* PostListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListItemView.swift; sourceTree = "<group>"; };
+		215865B22926CF00000FBDD8 /* PostDetailContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailContentView.swift; sourceTree = "<group>"; };
+		215865B42926D9F2000FBDD8 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		2DBA159C9B8196391E6CDAF0 /* PostDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
 		2DBA16D23FC107B1F813F82D /* Post+Fetching.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Post+Fetching.swift"; sourceTree = "<group>"; };
 		2DBA1E2729C46B346322DC92 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -140,6 +144,7 @@
 			children = (
 				210F8559292680AD00B0EDB1 /* Utils */,
 				210F854F2926738C00B0EDB1 /* PostList */,
+				215865B12926CEDE000FBDD8 /* PostDetail */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -199,8 +204,17 @@
 			isa = PBXGroup;
 			children = (
 				210F855A292680CD00B0EDB1 /* Observable.swift */,
+				215865B42926D9F2000FBDD8 /* UINavigationController.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		215865B12926CEDE000FBDD8 /* PostDetail */ = {
+			isa = PBXGroup;
+			children = (
+				215865B22926CF00000FBDD8 /* PostDetailContentView.swift */,
+			);
+			path = PostDetail;
 			sourceTree = "<group>";
 		};
 		2DBA1237D078294F62924AA5 /* Post Details */ = {
@@ -209,13 +223,6 @@
 				2DBA159C9B8196391E6CDAF0 /* PostDetailsViewController.swift */,
 			);
 			path = "Post Details";
-			sourceTree = "<group>";
-		};
-		2DBA14D6B67197C49F29BF63 /* Post List */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Post List";
 			sourceTree = "<group>";
 		};
 		2DBA18BFDCA808CB37488B4D /* Data */ = {
@@ -256,7 +263,6 @@
 				210F854E2926734B00B0EDB1 /* Presentation */,
 				210F853F2925989F00B0EDB1 /* Infrastructure */,
 				2DBA18BFDCA808CB37488B4D /* Data */,
-				2DBA14D6B67197C49F29BF63 /* Post List */,
 				2DBA1237D078294F62924AA5 /* Post Details */,
 			);
 			path = TechTest;
@@ -371,7 +377,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				210F8554292675B800B0EDB1 /* PostListViewModel.swift in Sources */,
+				215865B52926D9F2000FBDD8 /* UINavigationController.swift in Sources */,
 				210F8548292599D600B0EDB1 /* NetworkConfig.swift in Sources */,
+				215865B32926CF00000FBDD8 /* PostDetailContentView.swift in Sources */,
 				215865AE2926B9DE000FBDD8 /* PostListContentView.swift in Sources */,
 				210F853E2925985200B0EDB1 /* CoreDataStorage.swift in Sources */,
 				FA166B8525ED248300A85D66 /* AppDelegate.swift in Sources */,

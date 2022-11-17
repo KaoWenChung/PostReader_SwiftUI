@@ -18,9 +18,11 @@ struct PostListContentView<T>: View where T: PostListViewModelType {
     var body: some View {
         NavigationView {
             List(viewModel.items) { todo in
-                PostListItemView(itemData: todo)
+                NavigationLink(destination: PostDetailContentView()) {
+                    PostListItemView(itemData: todo)
+                }
             }
-            .navigationBarTitle(Text("All Posts"))
+            .navigationBarTitle(Text("All Posts"), displayMode: .inline)
         }
         .listStyle(.plain)
         .onAppear {
