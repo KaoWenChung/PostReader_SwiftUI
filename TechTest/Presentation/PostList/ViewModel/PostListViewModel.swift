@@ -16,14 +16,19 @@ protocol PostListViewModelOutputType: ObservableObject {
 protocol PostListViewModelType: PostListViewModelInputType, PostListViewModelOutputType { }
 
 final class PostListViewModel: PostListViewModelType {
+
+    private let showPostsUseCase: ShowPostsUseCaseType
     @Published private(set) var items: [Post] = []
     
+    init(showPostsUseCase: ShowPostsUseCaseType) {
+        self.showPostsUseCase = showPostsUseCase
+    }
 
     func onAppear() {
-        items = [Post(id: 0, title: "wow1", body: "body1"),
-                 Post(id: 1, title: "wow2", body: "body2"),
-                 Post(id: 2, title: "wow3", body: "body3"),
-                 Post(id: 3, title: "wow4", body: "body4")]
+        Task.init {
+            let (value, taskCancelable) = try await showPostsUseCase.execute()
+            items = value
+        }
     }
     
     private(set) var displayedPosts: [Post] = []

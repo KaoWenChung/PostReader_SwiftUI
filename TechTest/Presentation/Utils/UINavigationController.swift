@@ -5,7 +5,8 @@
 //  Created by wyn on 2022/11/17.
 //
 
-import Foundation
+import UIKit
+
 extension UINavigationController {
     // Remove back button text
     open override func viewWillLayoutSubviews() {

@@ -7,6 +7,8 @@
 
 import Foundation
 
+public typealias TaskCancellable = Task<(Data, URLResponse), Error>
+
 public enum NetworkError: Error {
     case notConnected
     case cancelled
@@ -16,7 +18,7 @@ public enum NetworkError: Error {
 
 public protocol NetworkServiceType {
     @discardableResult
-    func request(endpoint: Requestable) async throws -> Data?
+    func request(endpoint: RequestableType) throws -> TaskCancellable
 }
 
 public protocol NetworkErrorLoggerType {
@@ -38,17 +40,20 @@ public struct NetworkService {
         self.logger = logger
     }
     
-    private func request(request: URLRequest) async throws -> Data? {
-        do {
-            let (data, response) = try await URLSession.shared.data(for: request)
-            logger.log(responseData: data, response: response)
-            logger.log(request: request)
-            return data
-        } catch let requestError {
-            let error = resolve(error: requestError)
-            logger.log(error: error)
-            throw error
+    private func request(request: URLRequest) -> TaskCancellable {
+        let task = Task {
+            do {
+                let (data, response) = try await URLSession.shared.data(for: request)
+                logger.log(responseData: data, response: response)
+                logger.log(request: request)
+                return (data, response)
+            } catch let requestError {
+                let error = resolve(error: requestError)
+                logger.log(error: error)
+                throw error
+            }
         }
+        return task
     }
     
     private func resolve(error: Error) -> NetworkError {
@@ -63,10 +68,10 @@ public struct NetworkService {
 
 extension NetworkService: NetworkServiceType {
     @discardableResult
-    public func request(endpoint: Requestable) async throws -> Data? {
+    public func request(endpoint: RequestableType) throws -> TaskCancellable {
         do {
             let urlRequest = try endpoint.urlRequest(with: config)
-            return try await request(request: urlRequest)
+            return request(request: urlRequest)
         } catch {
             throw NetworkError.urlGeneration
         }

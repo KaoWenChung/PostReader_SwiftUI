@@ -16,14 +16,20 @@
 		210F8548292599D600B0EDB1 /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F8547292599D600B0EDB1 /* NetworkConfig.swift */; };
 		210F854B2925AC4500B0EDB1 /* CoreDataStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 210F85492925AC4500B0EDB1 /* CoreDataStorage.xcdatamodeld */; };
 		210F8554292675B800B0EDB1 /* PostListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F8553292675B800B0EDB1 /* PostListViewModel.swift */; };
-		210F855B292680CD00B0EDB1 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F855A292680CD00B0EDB1 /* Observable.swift */; };
 		215865AE2926B9DE000FBDD8 /* PostListContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865AD2926B9DE000FBDD8 /* PostListContentView.swift */; };
 		215865B02926CA05000FBDD8 /* PostListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865AF2926CA05000FBDD8 /* PostListItemView.swift */; };
 		215865B32926CF00000FBDD8 /* PostDetailContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865B22926CF00000FBDD8 /* PostDetailContentView.swift */; };
 		215865B52926D9F2000FBDD8 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865B42926D9F2000FBDD8 /* UINavigationController.swift */; };
+		215865B82926DC00000FBDD8 /* ShowPostsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865B72926DC00000FBDD8 /* ShowPostsUseCase.swift */; };
+		215865BB2926E266000FBDD8 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865BA2926E266000FBDD8 /* AppConfiguration.swift */; };
+		215865BE2926E3FC000FBDD8 /* AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865BD2926E3FC000FBDD8 /* AppDIContainer.swift */; };
+		215865C02926E4F2000FBDD8 /* PostSceneDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865BF2926E4F2000FBDD8 /* PostSceneDIContainer.swift */; };
+		215865C22926F2B1000FBDD8 /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865C12926F2B1000FBDD8 /* APIEndpoints.swift */; };
+		215865C72926F484000FBDD8 /* DataTransferServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865C62926F484000FBDD8 /* DataTransferServiceType.swift */; };
+		215865CA2926F532000FBDD8 /* CancellableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865C92926F531000FBDD8 /* CancellableType.swift */; };
+		215865CD2926F571000FBDD8 /* RepositoryTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865CC2926F571000FBDD8 /* RepositoryTask.swift */; };
 		2DBA14523B0FC3A3D13330EE /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1E2729C46B346322DC92 /* Post.swift */; };
 		2DBA17176A2BF0E7EB6CC6F9 /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA159C9B8196391E6CDAF0 /* PostDetailsViewController.swift */; };
-		2DBA171B634A994D6DF6CD09 /* Post+Fetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA16D23FC107B1F813F82D /* Post+Fetching.swift */; };
 		FA166B8525ED248300A85D66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA166B8425ED248300A85D66 /* AppDelegate.swift */; };
 		FA166B8E25ED248300A85D66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA166B8D25ED248300A85D66 /* Assets.xcassets */; };
 		FA166B9125ED248300A85D66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA166B8F25ED248300A85D66 /* LaunchScreen.storyboard */; };
@@ -50,13 +56,19 @@
 		210F8547292599D600B0EDB1 /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
 		210F854A2925AC4500B0EDB1 /* CoreDataStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataStorage.xcdatamodel; sourceTree = "<group>"; };
 		210F8553292675B800B0EDB1 /* PostListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewModel.swift; sourceTree = "<group>"; };
-		210F855A292680CD00B0EDB1 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		215865AD2926B9DE000FBDD8 /* PostListContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListContentView.swift; sourceTree = "<group>"; };
 		215865AF2926CA05000FBDD8 /* PostListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListItemView.swift; sourceTree = "<group>"; };
 		215865B22926CF00000FBDD8 /* PostDetailContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailContentView.swift; sourceTree = "<group>"; };
 		215865B42926D9F2000FBDD8 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
+		215865B72926DC00000FBDD8 /* ShowPostsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPostsUseCase.swift; sourceTree = "<group>"; };
+		215865BA2926E266000FBDD8 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		215865BD2926E3FC000FBDD8 /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
+		215865BF2926E4F2000FBDD8 /* PostSceneDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSceneDIContainer.swift; sourceTree = "<group>"; };
+		215865C12926F2B1000FBDD8 /* APIEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
+		215865C62926F484000FBDD8 /* DataTransferServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferServiceType.swift; sourceTree = "<group>"; };
+		215865C92926F531000FBDD8 /* CancellableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancellableType.swift; sourceTree = "<group>"; };
+		215865CC2926F571000FBDD8 /* RepositoryTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTask.swift; sourceTree = "<group>"; };
 		2DBA159C9B8196391E6CDAF0 /* PostDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
-		2DBA16D23FC107B1F813F82D /* Post+Fetching.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Post+Fetching.swift"; sourceTree = "<group>"; };
 		2DBA1E2729C46B346322DC92 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		FA166B8125ED248300A85D66 /* TechTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA166B8425ED248300A85D66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +101,8 @@
 		210F85352925966600B0EDB1 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				215865CB2926F566000FBDD8 /* Utils */,
+				215865C32926F367000FBDD8 /* Interfaces */,
 				210F85372925969800B0EDB1 /* PostsRepository.swift */,
 			);
 			path = Repository;
@@ -186,6 +200,7 @@
 		210F855529267AA400B0EDB1 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				215865B62926DB86000FBDD8 /* UseCases */,
 				210F855629267AA900B0EDB1 /* Entities */,
 			);
 			path = Domain;
@@ -195,7 +210,6 @@
 			isa = PBXGroup;
 			children = (
 				2DBA1E2729C46B346322DC92 /* Post.swift */,
-				2DBA16D23FC107B1F813F82D /* Post+Fetching.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -203,7 +217,6 @@
 		210F8559292680AD00B0EDB1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				210F855A292680CD00B0EDB1 /* Observable.swift */,
 				215865B42926D9F2000FBDD8 /* UINavigationController.swift */,
 			);
 			path = Utils;
@@ -215,6 +228,57 @@
 				215865B22926CF00000FBDD8 /* PostDetailContentView.swift */,
 			);
 			path = PostDetail;
+			sourceTree = "<group>";
+		};
+		215865B62926DB86000FBDD8 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				215865B72926DC00000FBDD8 /* ShowPostsUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		215865B92926E25A000FBDD8 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				215865BC2926E3E4000FBDD8 /* DIContainer */,
+				FA166B8425ED248300A85D66 /* AppDelegate.swift */,
+				215865BA2926E266000FBDD8 /* AppConfiguration.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		215865BC2926E3E4000FBDD8 /* DIContainer */ = {
+			isa = PBXGroup;
+			children = (
+				215865BD2926E3FC000FBDD8 /* AppDIContainer.swift */,
+				215865BF2926E4F2000FBDD8 /* PostSceneDIContainer.swift */,
+			);
+			path = DIContainer;
+			sourceTree = "<group>";
+		};
+		215865C32926F367000FBDD8 /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				215865C62926F484000FBDD8 /* DataTransferServiceType.swift */,
+			);
+			path = Interfaces;
+			sourceTree = "<group>";
+		};
+		215865C82926F526000FBDD8 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				215865C92926F531000FBDD8 /* CancellableType.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		215865CB2926F566000FBDD8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				215865CC2926F571000FBDD8 /* RepositoryTask.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		2DBA1237D078294F62924AA5 /* Post Details */ = {
@@ -229,7 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				210F8539292596C100B0EDB1 /* PersistentStorages */,
-				210F85352925966600B0EDB1 /* Repository */,
+				215865C12926F2B1000FBDD8 /* APIEndpoints.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -255,13 +319,15 @@
 		FA166B8325ED248300A85D66 /* TechTest */ = {
 			isa = PBXGroup;
 			children = (
-				FA166B8425ED248300A85D66 /* AppDelegate.swift */,
+				215865B92926E25A000FBDD8 /* Application */,
 				FA166B8D25ED248300A85D66 /* Assets.xcassets */,
+				215865C82926F526000FBDD8 /* Common */,
 				FA166B8F25ED248300A85D66 /* LaunchScreen.storyboard */,
 				FA166B9225ED248300A85D66 /* Info.plist */,
 				210F855529267AA400B0EDB1 /* Domain */,
 				210F854E2926734B00B0EDB1 /* Presentation */,
 				210F853F2925989F00B0EDB1 /* Infrastructure */,
+				210F85352925966600B0EDB1 /* Repository */,
 				2DBA18BFDCA808CB37488B4D /* Data */,
 				2DBA1237D078294F62924AA5 /* Post Details */,
 			);
@@ -376,22 +442,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				215865BB2926E266000FBDD8 /* AppConfiguration.swift in Sources */,
+				215865CA2926F532000FBDD8 /* CancellableType.swift in Sources */,
+				215865CD2926F571000FBDD8 /* RepositoryTask.swift in Sources */,
 				210F8554292675B800B0EDB1 /* PostListViewModel.swift in Sources */,
 				215865B52926D9F2000FBDD8 /* UINavigationController.swift in Sources */,
+				215865B82926DC00000FBDD8 /* ShowPostsUseCase.swift in Sources */,
 				210F8548292599D600B0EDB1 /* NetworkConfig.swift in Sources */,
+				215865C72926F484000FBDD8 /* DataTransferServiceType.swift in Sources */,
 				215865B32926CF00000FBDD8 /* PostDetailContentView.swift in Sources */,
 				215865AE2926B9DE000FBDD8 /* PostListContentView.swift in Sources */,
+				215865C22926F2B1000FBDD8 /* APIEndpoints.swift in Sources */,
 				210F853E2925985200B0EDB1 /* CoreDataStorage.swift in Sources */,
 				FA166B8525ED248300A85D66 /* AppDelegate.swift in Sources */,
 				2DBA14523B0FC3A3D13330EE /* Post.swift in Sources */,
 				210F85462925994000B0EDB1 /* Endpoint.swift in Sources */,
-				2DBA171B634A994D6DF6CD09 /* Post+Fetching.swift in Sources */,
 				210F854B2925AC4500B0EDB1 /* CoreDataStorage.xcdatamodeld in Sources */,
 				210F8542292598EE00B0EDB1 /* DataTransferService.swift in Sources */,
 				215865B02926CA05000FBDD8 /* PostListItemView.swift in Sources */,
-				210F855B292680CD00B0EDB1 /* Observable.swift in Sources */,
 				2DBA17176A2BF0E7EB6CC6F9 /* PostDetailsViewController.swift in Sources */,
 				210F85382925969800B0EDB1 /* PostsRepository.swift in Sources */,
+				215865BE2926E3FC000FBDD8 /* AppDIContainer.swift in Sources */,
+				215865C02926E4F2000FBDD8 /* PostSceneDIContainer.swift in Sources */,
 				210F85442925991600B0EDB1 /* NetworkService.swift in Sources */,
 				210F853B2925970200B0EDB1 /* PostsResponseStorageType.swift in Sources */,
 			);

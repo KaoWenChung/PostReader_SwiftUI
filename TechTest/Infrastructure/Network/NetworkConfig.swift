@@ -13,7 +13,7 @@ public protocol NetworkConfigurableType {
     var queryParameters: [String: String] { get }
 }
 
-public struct ApiDataNetworkConfig: NetworkConfigurableType {
+public struct APIDataNetworkConfig: NetworkConfigurableType {
     public let baseURL: URL
     public let headers: [String: String]
     public let queryParameters: [String: String]

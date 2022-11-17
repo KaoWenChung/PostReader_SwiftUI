@@ -25,22 +25,22 @@ final class PostDetailsViewController: UIViewController {
             activityIndicator.startAnimating()
             title = "Loading…"
 
-            Post.loadPost(withID: postID) { [weak self] result in
-                DispatchQueue.main.async {
-                    switch result {
-                    case .success(let post):
-                        self?.loadedPost = post
-                        self?.title = post.title
-                        self?.titleLabel.text = post.title
-                        self?.bodyLabel.text = post.body
-
-                    case .failure:
-                        break
-                    }
-
-                    self?.activityIndicator.stopAnimating()
-                }
-            }
+//            Post.loadPost(withID: postID) { [weak self] result in
+//                DispatchQueue.main.async {
+//                    switch result {
+//                    case .success(let post):
+//                        self?.loadedPost = post
+//                        self?.title = post.title
+//                        self?.titleLabel.text = post.title
+//                        self?.bodyLabel.text = post.body
+//
+//                    case .failure:
+//                        break
+//                    }
+//
+//                    self?.activityIndicator.stopAnimating()
+//                }
+//            }
         }
     }
 }

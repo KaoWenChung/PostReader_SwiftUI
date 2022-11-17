@@ -54,8 +54,8 @@ struct PostListContentView<T>: View where T: PostListViewModelType {
 
 
 
-struct SwiftUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        PostListContentView(viewModel: PostListViewModel())
-    }
-}
+//struct SwiftUIView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PostListContentView(viewModel: PostListViewModel(showPostsUseCase: ShowPostsUseCase(postRepository: PostsRepository(dataTransferService: DataTransferService()))))
+//    }
+//}
