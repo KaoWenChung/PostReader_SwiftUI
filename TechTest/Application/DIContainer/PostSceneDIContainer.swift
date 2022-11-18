@@ -16,6 +16,9 @@ final class PostSceneDIContainer {
         self.dependencies = dependencies
     }
 
+    // MARK: - Persistent Storage
+    lazy var moviesResponseCache: PostsResponseStorageType = CoreDataPostsResponseStorage()
+
     // MARK: - UseCase
     func makeShowPostsUseCase() -> ShowPostsUseCaseType {
         return ShowPostsUseCase(postRepository: makePostListRepository())
