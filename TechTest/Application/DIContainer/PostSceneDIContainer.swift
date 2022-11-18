@@ -38,7 +38,7 @@ final class PostSceneDIContainer {
     }
 
     func makePostDetailRepository() -> PostDetailRepositoryType {
-        return PostDetailRepository(dataTransferService: dependencies.dataTransferService)
+        return PostDetailRepository(dataTransferService: dependencies.dataTransferService, cache: moviesResponseCache)
     }
 
     func makePostCommentRepository() -> PostCommentRepository {

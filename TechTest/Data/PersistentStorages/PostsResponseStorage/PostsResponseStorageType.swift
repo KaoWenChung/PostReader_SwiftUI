@@ -8,6 +8,6 @@
 import Foundation
 
 protocol PostsResponseStorageType {
-    func getResponse(for request: PostsRequestDTO, completion: @escaping (Result<Post?, CoreDataStorageError>) -> Void)
-    func save(response: Post, for requestDTO: PostsRequestDTO)
+    func getResponse(for request: PostsRequest, completion: @escaping (Result<Post?, CoreDataStorageError>) -> Void)
+    func save(response: Post, for requestDTO: PostsRequest)
 }

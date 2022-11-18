@@ -18,13 +18,13 @@ final class CoreDataPostsResponseStorage {
 
     // MARK: - Private
 
-    private func fetchRequest(for requestDto: PostsRequestDTO) -> NSFetchRequest<PostsRequestEntity> {
+    private func fetchRequest(for requestDto: PostsRequest) -> NSFetchRequest<PostsRequestEntity> {
         let request: NSFetchRequest = PostsRequestEntity.fetchRequest()
         request.predicate = NSPredicate(format: "%K = %@", #keyPath(PostsRequestEntity.postID), requestDto.id)
         return request
     }
 
-    private func deleteResponse(for requestDto: PostsRequestDTO, in context: NSManagedObjectContext) {
+    private func deleteResponse(for requestDto: PostsRequest, in context: NSManagedObjectContext) {
         let request = fetchRequest(for: requestDto)
 
         do {
@@ -39,7 +39,7 @@ final class CoreDataPostsResponseStorage {
 
 extension CoreDataPostsResponseStorage: PostsResponseStorageType {
 
-    func getResponse(for requestDto: PostsRequestDTO, completion: @escaping (Result<Post?, CoreDataStorageError>) -> Void) {
+    func getResponse(for requestDto: PostsRequest, completion: @escaping (Result<Post?, CoreDataStorageError>) -> Void) {
         coreDataStorage.performBackgroundTask { context in
             do {
                 let fetchRequest = self.fetchRequest(for: requestDto)
@@ -52,7 +52,7 @@ extension CoreDataPostsResponseStorage: PostsResponseStorageType {
         }
     }
 
-    func save(response responseDto: Post, for requestDto: PostsRequestDTO) {
+    func save(response responseDto: Post, for requestDto: PostsRequest) {
         coreDataStorage.performBackgroundTask { context in
             do {
                 self.deleteResponse(for: requestDto, in: context)

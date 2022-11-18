@@ -23,7 +23,7 @@ extension Post {
     }
 }
 
-extension PostsRequestDTO {
+extension PostsRequest {
     func toEntity(in context: NSManagedObjectContext) -> PostsRequestEntity {
         let entity: PostsRequestEntity = .init(context: context)
         entity.postID = Int32(id)

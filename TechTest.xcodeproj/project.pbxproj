@@ -40,7 +40,7 @@
 		215865EC29272990000FBDD8 /* PostCommentRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865EB29272990000FBDD8 /* PostCommentRepositoryType.swift */; };
 		215865EE29272CA1000FBDD8 /* PostItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865ED29272CA1000FBDD8 /* PostItemViewModel.swift */; };
 		215865F029273407000FBDD8 /* CoreDataPostsResponseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865EF29273406000FBDD8 /* CoreDataPostsResponseStorage.swift */; };
-		215865F32927364D000FBDD8 /* PostsRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865F22927364D000FBDD8 /* PostsRequestDTO.swift */; };
+		215865F32927364D000FBDD8 /* PostsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865F22927364D000FBDD8 /* PostsRequest.swift */; };
 		215865F629273977000FBDD8 /* PostsResponseEntity+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865F529273977000FBDD8 /* PostsResponseEntity+Mapping.swift */; };
 		2DBA14523B0FC3A3D13330EE /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1E2729C46B346322DC92 /* Post.swift */; };
 		2DBA17176A2BF0E7EB6CC6F9 /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA159C9B8196391E6CDAF0 /* PostDetailsViewController.swift */; };
@@ -94,7 +94,7 @@
 		215865EB29272990000FBDD8 /* PostCommentRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentRepositoryType.swift; sourceTree = "<group>"; };
 		215865ED29272CA1000FBDD8 /* PostItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostItemViewModel.swift; sourceTree = "<group>"; };
 		215865EF29273406000FBDD8 /* CoreDataPostsResponseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPostsResponseStorage.swift; sourceTree = "<group>"; };
-		215865F22927364D000FBDD8 /* PostsRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsRequestDTO.swift; sourceTree = "<group>"; };
+		215865F22927364D000FBDD8 /* PostsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsRequest.swift; sourceTree = "<group>"; };
 		215865F529273977000FBDD8 /* PostsResponseEntity+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PostsResponseEntity+Mapping.swift"; sourceTree = "<group>"; };
 		2DBA159C9B8196391E6CDAF0 /* PostDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
 		2DBA1E2729C46B346322DC92 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -374,7 +374,7 @@
 		215865F12927363A000FBDD8 /* DataMapping */ = {
 			isa = PBXGroup;
 			children = (
-				215865F22927364D000FBDD8 /* PostsRequestDTO.swift */,
+				215865F22927364D000FBDD8 /* PostsRequest.swift */,
 			);
 			path = DataMapping;
 			sourceTree = "<group>";
@@ -559,7 +559,7 @@
 				210F8548292599D600B0EDB1 /* NetworkConfig.swift in Sources */,
 				215865B32926CF00000FBDD8 /* PostDetailContentView.swift in Sources */,
 				215865D029270A5A000FBDD8 /* PostDetailViewModel.swift in Sources */,
-				215865F32927364D000FBDD8 /* PostsRequestDTO.swift in Sources */,
+				215865F32927364D000FBDD8 /* PostsRequest.swift in Sources */,
 				215865AE2926B9DE000FBDD8 /* PostListContentView.swift in Sources */,
 				215865E42927276D000FBDD8 /* PostCommentViewModel.swift in Sources */,
 				215865F629273977000FBDD8 /* PostsResponseEntity+Mapping.swift in Sources */,
