@@ -14,8 +14,8 @@ protocol PostDetailViewModelInputType {
 }
 protocol PostDetailViewModelOutputType: ObservableObject {
     var postData: Post { get }
-    var isSaved: Bool { get }
     var saveButtonTitle: String { get }
+    var saveButtonImage: String { get }
 }
 
 protocol PostDetailViewModelType: PostDetailViewModelInputType, PostDetailViewModelOutputType {
@@ -28,6 +28,7 @@ final class PostDetailViewModel: PostDetailViewModelType {
     @Published private(set) var postData: Post
     @Published private(set) var isSaved: Bool = false
     @Published private(set) var saveButtonTitle: String = "Loading..."
+    @Published private(set) var saveButtonImage: String = "bookmark"
 
     init(withID id: Int, useCase: ShowPostDetailUseCaseType) {
         self.showPostDetailUseCase = useCase
@@ -49,15 +50,15 @@ final class PostDetailViewModel: PostDetailViewModelType {
         let request = PostsRequest(id: id)
         showPostDetailUseCase.save(response: postData, for: request)
         saveButtonTitle = "Saved"
-        isSaved = true
+        saveButtonImage = "bookmark.fill"
     }
 
     private func checkSaveStatus() {
         let request = PostsRequest(id: id)
         showPostDetailUseCase.checkSaveStatus(by: request) { result in
             DispatchQueue.main.async {
-                self.isSaved = result
-                self.saveButtonTitle = result ? "Saved" : "Save post"
+                self.saveButtonTitle = result ? "Saved" : "Save"
+                self.saveButtonImage = result ? "bookmark.fill" : "bookmark"
             }
         }
     }

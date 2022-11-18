@@ -39,14 +39,18 @@ struct PostDetailContentView<T>: View where T: PostDetailViewModelType {
         HStack() {
             // TODO: Fix nested Navigation Bars
             NavigationLink(destination: postDIContainer.makePostCommentContentView(withID: viewModel.postData.id)) {
-                Text("Show Comment")
+                
+                Image("text.bubble")
+                Text("Comment")
             }
             .padding(.leading)
             Spacer()
-            Button(viewModel.saveButtonTitle) {
+            Button {
                 viewModel.save()
+            } label: {
+                Image(viewModel.saveButtonImage)
+                Text(viewModel.saveButtonTitle)
             }
-            .disabled(viewModel.isSaved)
             .padding(.trailing)
         }
     }

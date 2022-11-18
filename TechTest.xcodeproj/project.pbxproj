@@ -42,6 +42,7 @@
 		215865F029273407000FBDD8 /* CoreDataPostsResponseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865EF29273406000FBDD8 /* CoreDataPostsResponseStorage.swift */; };
 		215865F32927364D000FBDD8 /* PostsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865F22927364D000FBDD8 /* PostsRequest.swift */; };
 		215865F629273977000FBDD8 /* PostsResponseEntity+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865F529273977000FBDD8 /* PostsResponseEntity+Mapping.swift */; };
+		215865F92927B9ED000FBDD8 /* TabbarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865F82927B9EC000FBDD8 /* TabbarContentView.swift */; };
 		2DBA14523B0FC3A3D13330EE /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1E2729C46B346322DC92 /* Post.swift */; };
 		2DBA17176A2BF0E7EB6CC6F9 /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA159C9B8196391E6CDAF0 /* PostDetailsViewController.swift */; };
 		FA166B8525ED248300A85D66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA166B8425ED248300A85D66 /* AppDelegate.swift */; };
@@ -96,6 +97,7 @@
 		215865EF29273406000FBDD8 /* CoreDataPostsResponseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPostsResponseStorage.swift; sourceTree = "<group>"; };
 		215865F22927364D000FBDD8 /* PostsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsRequest.swift; sourceTree = "<group>"; };
 		215865F529273977000FBDD8 /* PostsResponseEntity+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PostsResponseEntity+Mapping.swift"; sourceTree = "<group>"; };
+		215865F82927B9EC000FBDD8 /* TabbarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarContentView.swift; sourceTree = "<group>"; };
 		2DBA159C9B8196391E6CDAF0 /* PostDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
 		2DBA1E2729C46B346322DC92 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		FA166B8125ED248300A85D66 /* TechTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -347,6 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				210F85522926758600B0EDB1 /* Cells */,
+				215865F72927B9C8000FBDD8 /* Tabbar */,
 				210F854F2926738C00B0EDB1 /* PostList */,
 				215865B12926CEDE000FBDD8 /* PostDetail */,
 				215865DF292721BC000FBDD8 /* PostComment */,
@@ -385,6 +388,14 @@
 				215865F529273977000FBDD8 /* PostsResponseEntity+Mapping.swift */,
 			);
 			path = EntityMapping;
+			sourceTree = "<group>";
+		};
+		215865F72927B9C8000FBDD8 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				215865F82927B9EC000FBDD8 /* TabbarContentView.swift */,
+			);
+			path = Tabbar;
 			sourceTree = "<group>";
 		};
 		2DBA1237D078294F62924AA5 /* Post Details */ = {
@@ -576,6 +587,7 @@
 				210F8542292598EE00B0EDB1 /* DataTransferService.swift in Sources */,
 				215865B02926CA05000FBDD8 /* PostListItemView.swift in Sources */,
 				2DBA17176A2BF0E7EB6CC6F9 /* PostDetailsViewController.swift in Sources */,
+				215865F92927B9ED000FBDD8 /* TabbarContentView.swift in Sources */,
 				210F85382925969800B0EDB1 /* PostListRepository.swift in Sources */,
 				215865EC29272990000FBDD8 /* PostCommentRepositoryType.swift in Sources */,
 				215865BE2926E3FC000FBDD8 /* AppDIContainer.swift in Sources */,
