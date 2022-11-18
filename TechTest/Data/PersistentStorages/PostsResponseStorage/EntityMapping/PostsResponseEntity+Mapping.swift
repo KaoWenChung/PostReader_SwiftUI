@@ -8,6 +8,16 @@
 import Foundation
 import CoreData
 
+extension Array where Element == PostsResponseEntity {
+    func toDTOs() -> [Post] {
+        var result: [Post] = []
+        for item in self {
+            guard let post = item.toDTO() else { continue }
+            result.append(post)
+        }
+        return result
+    }
+}
 extension PostsResponseEntity {
     func toDTO() -> Post? {
         return .init(id: Int(id), title: title ?? "", body: body ?? "")

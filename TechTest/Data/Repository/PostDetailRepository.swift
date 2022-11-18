@@ -26,7 +26,7 @@ extension PostDetailRepository: PostDetailRepositoryType {
 
     func checkSaveStatus(by request: PostsRequest, completion: @escaping (Bool) -> Void) {
         cache.getResponse(for: request) { result in
-            if case let .success(response) = result, response != nil {
+            if result != nil {
                 completion(true)
             } else {
                 completion(false)
@@ -37,8 +37,8 @@ extension PostDetailRepository: PostDetailRepositoryType {
     func fetchPostDetail(withID id: Int, completion: @escaping (Post) -> Void) {
         let cacheRequest = PostsRequest(id: id)
         cache.getResponse(for: cacheRequest) { result in
-            if case let .success(response) = result, let response {
-                completion(response)
+            if let result {
+                completion(result)
                 return
             }
             Task.init {

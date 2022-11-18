@@ -39,15 +39,16 @@ final class CoreDataPostsResponseStorage {
 
 extension CoreDataPostsResponseStorage: PostsResponseStorageType {
 
-    func getResponse(for requestDto: PostsRequest, completion: @escaping (Result<Post?, CoreDataStorageError>) -> Void) {
+    func getResponse(for requestDto: PostsRequest, completion: @escaping (Post?) -> Void) {
         coreDataStorage.performBackgroundTask { context in
             do {
                 let fetchRequest = self.fetchRequest(for: requestDto)
                 let requestEntity = try context.fetch(fetchRequest).first
 
-                completion(.success(requestEntity?.response?.toDTO()))
+                completion(requestEntity?.response?.toDTO())
             } catch {
-                completion(.failure(CoreDataStorageError.readError(error)))
+                // TODO: - Log to Crashlytics
+                debugPrint("CoreDataPostsResponseStorage Unresolved error \(error), \((error as NSError).userInfo)")
             }
         }
     }

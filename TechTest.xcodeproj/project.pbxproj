@@ -43,6 +43,12 @@
 		215865F32927364D000FBDD8 /* PostsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865F22927364D000FBDD8 /* PostsRequest.swift */; };
 		215865F629273977000FBDD8 /* PostsResponseEntity+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865F529273977000FBDD8 /* PostsResponseEntity+Mapping.swift */; };
 		215865F92927B9ED000FBDD8 /* TabbarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865F82927B9EC000FBDD8 /* TabbarContentView.swift */; };
+		215865FB2927C55F000FBDD8 /* SavedPostListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865FA2927C55F000FBDD8 /* SavedPostListViewModel.swift */; };
+		215865FD2927C5BF000FBDD8 /* ShowSavedPostsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865FC2927C5BF000FBDD8 /* ShowSavedPostsUseCase.swift */; };
+		215865FF2927C822000FBDD8 /* SavedPostListRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865FE2927C822000FBDD8 /* SavedPostListRepositoryType.swift */; };
+		215866012927C902000FBDD8 /* SavedPostListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215866002927C902000FBDD8 /* SavedPostListRepository.swift */; };
+		215866042927CB0B000FBDD8 /* SavedPostsResponseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215866032927CB0B000FBDD8 /* SavedPostsResponseStorage.swift */; };
+		215866062927CB66000FBDD8 /* CoreDataSavedPostsResponseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215866052927CB66000FBDD8 /* CoreDataSavedPostsResponseStorage.swift */; };
 		2DBA14523B0FC3A3D13330EE /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1E2729C46B346322DC92 /* Post.swift */; };
 		2DBA17176A2BF0E7EB6CC6F9 /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA159C9B8196391E6CDAF0 /* PostDetailsViewController.swift */; };
 		FA166B8525ED248300A85D66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA166B8425ED248300A85D66 /* AppDelegate.swift */; };
@@ -98,6 +104,12 @@
 		215865F22927364D000FBDD8 /* PostsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsRequest.swift; sourceTree = "<group>"; };
 		215865F529273977000FBDD8 /* PostsResponseEntity+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PostsResponseEntity+Mapping.swift"; sourceTree = "<group>"; };
 		215865F82927B9EC000FBDD8 /* TabbarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarContentView.swift; sourceTree = "<group>"; };
+		215865FA2927C55F000FBDD8 /* SavedPostListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPostListViewModel.swift; sourceTree = "<group>"; };
+		215865FC2927C5BF000FBDD8 /* ShowSavedPostsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowSavedPostsUseCase.swift; sourceTree = "<group>"; };
+		215865FE2927C822000FBDD8 /* SavedPostListRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPostListRepositoryType.swift; sourceTree = "<group>"; };
+		215866002927C902000FBDD8 /* SavedPostListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPostListRepository.swift; sourceTree = "<group>"; };
+		215866032927CB0B000FBDD8 /* SavedPostsResponseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPostsResponseStorage.swift; sourceTree = "<group>"; };
+		215866052927CB66000FBDD8 /* CoreDataSavedPostsResponseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSavedPostsResponseStorage.swift; sourceTree = "<group>"; };
 		2DBA159C9B8196391E6CDAF0 /* PostDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
 		2DBA1E2729C46B346322DC92 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		FA166B8125ED248300A85D66 /* TechTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +145,7 @@
 			children = (
 				215865CB2926F566000FBDD8 /* Utils */,
 				210F85372925969800B0EDB1 /* PostListRepository.swift */,
+				215866002927C902000FBDD8 /* SavedPostListRepository.swift */,
 				215865D329270D66000FBDD8 /* PostDetailRepository.swift */,
 				215865E929272965000FBDD8 /* PostCommentRepository.swift */,
 			);
@@ -142,6 +155,7 @@
 		210F8539292596C100B0EDB1 /* PersistentStorages */ = {
 			isa = PBXGroup;
 			children = (
+				215866022927CAB5000FBDD8 /* SavedPostsResponseStorage */,
 				210F854C2925ACC700B0EDB1 /* PostsResponseStorage */,
 				210F853C2925983C00B0EDB1 /* CoreDataStorage */,
 			);
@@ -210,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				210F8553292675B800B0EDB1 /* PostListViewModel.swift */,
+				215865FA2927C55F000FBDD8 /* SavedPostListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -270,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				215865B72926DC00000FBDD8 /* ShowPostsUseCase.swift */,
+				215865FC2927C5BF000FBDD8 /* ShowSavedPostsUseCase.swift */,
 				215865D129270BD1000FBDD8 /* ShowPostDetailUseCase.swift */,
 				215865E729272900000FBDD8 /* ShowPostCommentUseCase.swift */,
 			);
@@ -329,8 +345,9 @@
 		215865D529270DBE000FBDD8 /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
-				215865D629270DD1000FBDD8 /* PostDetailRepositoryType.swift */,
 				215865D829270DF5000FBDD8 /* PostListRepositoryType.swift */,
+				215865FE2927C822000FBDD8 /* SavedPostListRepositoryType.swift */,
+				215865D629270DD1000FBDD8 /* PostDetailRepositoryType.swift */,
 				215865EB29272990000FBDD8 /* PostCommentRepositoryType.swift */,
 			);
 			path = Interfaces;
@@ -396,6 +413,15 @@
 				215865F82927B9EC000FBDD8 /* TabbarContentView.swift */,
 			);
 			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		215866022927CAB5000FBDD8 /* SavedPostsResponseStorage */ = {
+			isa = PBXGroup;
+			children = (
+				215866032927CB0B000FBDD8 /* SavedPostsResponseStorage.swift */,
+				215866052927CB66000FBDD8 /* CoreDataSavedPostsResponseStorage.swift */,
+			);
+			path = SavedPostsResponseStorage;
 			sourceTree = "<group>";
 		};
 		2DBA1237D078294F62924AA5 /* Post Details */ = {
@@ -572,10 +598,13 @@
 				215865D029270A5A000FBDD8 /* PostDetailViewModel.swift in Sources */,
 				215865F32927364D000FBDD8 /* PostsRequest.swift in Sources */,
 				215865AE2926B9DE000FBDD8 /* PostListContentView.swift in Sources */,
+				215865FD2927C5BF000FBDD8 /* ShowSavedPostsUseCase.swift in Sources */,
 				215865E42927276D000FBDD8 /* PostCommentViewModel.swift in Sources */,
 				215865F629273977000FBDD8 /* PostsResponseEntity+Mapping.swift in Sources */,
 				215865C22926F2B1000FBDD8 /* APIEndpoints.swift in Sources */,
 				210F853E2925985200B0EDB1 /* CoreDataStorage.swift in Sources */,
+				215866062927CB66000FBDD8 /* CoreDataSavedPostsResponseStorage.swift in Sources */,
+				215866042927CB0B000FBDD8 /* SavedPostsResponseStorage.swift in Sources */,
 				FA166B8525ED248300A85D66 /* AppDelegate.swift in Sources */,
 				2DBA14523B0FC3A3D13330EE /* Post.swift in Sources */,
 				215865D729270DD1000FBDD8 /* PostDetailRepositoryType.swift in Sources */,
@@ -583,15 +612,18 @@
 				215865D229270BD1000FBDD8 /* ShowPostDetailUseCase.swift in Sources */,
 				210F85462925994000B0EDB1 /* Endpoint.swift in Sources */,
 				215865F029273407000FBDD8 /* CoreDataPostsResponseStorage.swift in Sources */,
+				215865FB2927C55F000FBDD8 /* SavedPostListViewModel.swift in Sources */,
 				210F854B2925AC4500B0EDB1 /* CoreDataStorage.xcdatamodeld in Sources */,
 				210F8542292598EE00B0EDB1 /* DataTransferService.swift in Sources */,
 				215865B02926CA05000FBDD8 /* PostListItemView.swift in Sources */,
 				2DBA17176A2BF0E7EB6CC6F9 /* PostDetailsViewController.swift in Sources */,
 				215865F92927B9ED000FBDD8 /* TabbarContentView.swift in Sources */,
+				215865FF2927C822000FBDD8 /* SavedPostListRepositoryType.swift in Sources */,
 				210F85382925969800B0EDB1 /* PostListRepository.swift in Sources */,
 				215865EC29272990000FBDD8 /* PostCommentRepositoryType.swift in Sources */,
 				215865BE2926E3FC000FBDD8 /* AppDIContainer.swift in Sources */,
 				215865E6292728B0000FBDD8 /* Comment.swift in Sources */,
+				215866012927C902000FBDD8 /* SavedPostListRepository.swift in Sources */,
 				215865E829272900000FBDD8 /* ShowPostCommentUseCase.swift in Sources */,
 				215865D929270DF5000FBDD8 /* PostListRepositoryType.swift in Sources */,
 				215865D429270D66000FBDD8 /* PostDetailRepository.swift in Sources */,

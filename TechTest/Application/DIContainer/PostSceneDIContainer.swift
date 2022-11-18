@@ -18,10 +18,15 @@ final class PostSceneDIContainer {
 
     // MARK: - Persistent Storage
     lazy var postsResponseCache: PostsResponseStorageType = CoreDataPostsResponseStorage()
+    lazy var savedPostsResponseCache: SavedPostsResponseStorageType = CoreDataSavedPostsResponseStorage()
 
     // MARK: - UseCase
     func makeShowPostsUseCase() -> ShowPostsUseCaseType {
         return ShowPostsUseCase(postRepository: makePostListRepository())
+    }
+
+    func makeShowSavedPostsUseCase() -> ShowSavedPostsUseCaseType {
+        return ShowSavedPostsUseCase(postRepository: makeSavedPostListRepository())
     }
 
     func makeShowPostDetailUseCase() -> ShowPostDetailUseCaseType {
@@ -35,6 +40,10 @@ final class PostSceneDIContainer {
     // MARK: - Repositories
     func makePostListRepository() -> PostListRepositoryType {
         return PostListRepository(dataTransferService: dependencies.dataTransferService)
+    }
+
+    func makeSavedPostListRepository() -> SavedPostListRepositoryType {
+        return SavedPostListRepository(cache: savedPostsResponseCache)
     }
 
     func makePostDetailRepository() -> PostDetailRepositoryType {
@@ -53,6 +62,16 @@ final class PostSceneDIContainer {
     func makePostListViewModel() -> PostListViewModel {
         return PostListViewModel(showPostsUseCase: makeShowPostsUseCase())
     }
+
+    // MARK: - Saved Post List
+    func makeSavedPostListContentView() -> PostListContentView<SavedPostListViewModel> {
+        return PostListContentView(viewModel: makeSavedPostListViewModel())
+    }
+    
+    func makeSavedPostListViewModel() -> SavedPostListViewModel {
+        return SavedPostListViewModel(showSavedPostsUseCase: makeShowSavedPostsUseCase())
+    }
+
     // MARK: - Post Detail
     func makePostDetailContentView(withID id: Int) -> PostDetailContentView<PostDetailViewModel> {
         return PostDetailContentView(viewModel: makePostDetailViewModel(withID: id))

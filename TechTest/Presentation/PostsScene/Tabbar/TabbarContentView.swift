@@ -18,8 +18,8 @@ struct TabbarContentView: View {
                     Image(systemName: "newspaper.fill")
                     Text("Post")
                 }
-         
-            contentView
+            let savedPostListView = postDIContainer.makeSavedPostListContentView()
+            savedPostListView
                 .font(.system(size: 30, weight: .bold, design: .rounded))
                 .tabItem {
                     Image(systemName: "book.fill")

@@ -25,8 +25,8 @@ final class PostDetailViewModel: PostDetailViewModelType {
 
     private let showPostDetailUseCase: ShowPostDetailUseCaseType
     private let id: Int
-    @Published private(set) var postData: Post
     private var isSaved: Bool = false
+    @Published private(set) var postData: Post
     @Published private(set) var saveButtonTitle: String = "Loading..."
     @Published private(set) var saveButtonImage: String = "bookmark"
 
