@@ -81,6 +81,15 @@ final class PostSceneDIContainer {
         return PostDetailViewModel(withID: id, useCase: makeShowPostDetailUseCase())
     }
 
+    // MARK: - Saved Post Detail
+    func makeSavedPostDetailContentView(with content: Post) -> PostDetailContentView<SavedPostDetailViewModel> {
+        return PostDetailContentView(viewModel: makeSavedPostDetailViewModel(with: content))
+    }
+    
+    func makeSavedPostDetailViewModel(with content: Post) -> SavedPostDetailViewModel {
+        return SavedPostDetailViewModel(postData: content)
+    }
+
     // MARK: - Post Comment
     func makePostCommentContentView(withID id: Int) -> PostCommentContentView<PostCommentViewModel> {
         return PostCommentContentView(viewModel: makePostCommentViewModel(withID: id))

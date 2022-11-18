@@ -17,10 +17,18 @@ struct PostListContentView<T>: View where T: PostListViewModelType {
     var body: some View {
         NavigationView {
             List(viewModel.items) { item in
+                // TODO: Separate to a coordinator
                 let postDIContainer = AppDIContainer.makePostSceneDIContainer()
-                let contentView = postDIContainer.makePostDetailContentView(withID: item.id)
-                NavigationLink(destination: contentView) {
-                    PostListItemView(itemData: item)
+                if viewModel is PostListViewModel {
+                    let contentView = postDIContainer.makePostDetailContentView(withID: item.id)
+                    NavigationLink(destination: contentView) {
+                        PostListItemView(itemData: item)
+                    }
+                } else {
+                    let contentView = postDIContainer.makeSavedPostDetailContentView(with: item)
+                    NavigationLink(destination: contentView) {
+                        PostListItemView(itemData: item)
+                    }
                 }
             }
             .navigationBarTitle(Text("All Posts"), displayMode: .inline)
@@ -31,8 +39,6 @@ struct PostListContentView<T>: View where T: PostListViewModelType {
         }
     }
 }
-
-
 
 
 
