@@ -20,7 +20,7 @@ final class CoreDataPostsResponseStorage {
 
     private func fetchRequest(for requestDto: PostsRequest) -> NSFetchRequest<PostsRequestEntity> {
         let request: NSFetchRequest = PostsRequestEntity.fetchRequest()
-        request.predicate = NSPredicate(format: "%K = %@", #keyPath(PostsRequestEntity.postID), requestDto.id)
+        request.predicate = NSPredicate(format: "postID = %ld", requestDto.postId)
         return request
     }
 

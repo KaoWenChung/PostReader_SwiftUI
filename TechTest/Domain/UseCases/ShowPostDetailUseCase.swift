@@ -6,7 +6,8 @@
 //
 
 protocol ShowPostDetailUseCaseType {
-    func execute(withID id: Int) async throws -> Post
+    func execute(withID id: Int, completion: @escaping (Post) -> Void)
+    func save(response: Post, for request: PostsRequest)
 }
 
 final class ShowPostDetailUseCase: ShowPostDetailUseCaseType {
@@ -18,7 +19,13 @@ final class ShowPostDetailUseCase: ShowPostDetailUseCaseType {
         self.repository = repository
     }
 
-    func execute(withID id: Int) async throws -> Post {
-        return try await repository.fetchPostDetail(withID: id)
+    func execute(withID id: Int, completion: @escaping (Post) -> Void) {
+        repository.fetchPostDetail(withID: id) { value in
+            completion(value)
+        }
+    }
+
+    func save(response: Post, for request: PostsRequest) {
+        repository.save(response: response, for: request)
     }
 }

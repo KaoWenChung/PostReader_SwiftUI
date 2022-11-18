@@ -17,7 +17,7 @@ final class PostSceneDIContainer {
     }
 
     // MARK: - Persistent Storage
-    lazy var moviesResponseCache: PostsResponseStorageType = CoreDataPostsResponseStorage()
+    lazy var postsResponseCache: PostsResponseStorageType = CoreDataPostsResponseStorage()
 
     // MARK: - UseCase
     func makeShowPostsUseCase() -> ShowPostsUseCaseType {
@@ -38,7 +38,7 @@ final class PostSceneDIContainer {
     }
 
     func makePostDetailRepository() -> PostDetailRepositoryType {
-        return PostDetailRepository(dataTransferService: dependencies.dataTransferService, cache: moviesResponseCache)
+        return PostDetailRepository(dataTransferService: dependencies.dataTransferService, cache: postsResponseCache)
     }
 
     func makePostCommentRepository() -> PostCommentRepository {

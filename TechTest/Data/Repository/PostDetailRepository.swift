@@ -17,13 +17,25 @@ final class PostDetailRepository {
 }
 // TODO: saveRecentQuery
 extension PostDetailRepository: PostDetailRepositoryType {
-    func saveRecentQuery(query: PostsRequest, completion: @escaping (Result<PostsRequest, Error>) -> Void) {
-        
+    func save(response: Post, for request: PostsRequest) {
+        cache.save(response: response, for: request)
     }
     
-    func fetchPostDetail(withID id: Int) async throws -> Post {
-        let endpoint = APIEndpoints.getPostDetail(withID: id)
-        let (data, _) = try await dataTransferService.request(with: endpoint)
-        return data
+    // 
+    func fetchPostDetail(withID id: Int, completion: @escaping (Post) -> Void) {
+        let cacheRequest = PostsRequest(id: id)
+        cache.getResponse(for: cacheRequest) { result in
+            if case let .success(response) = result, let response {
+                completion(response)
+                return
+            }
+            Task.init {
+                let endpoint = APIEndpoints.getPostDetail(withID: id)
+                let (data, _) = try await self.dataTransferService.request(with: endpoint)
+                completion(data)
+            }
+            
+        }
+        
     }
 }

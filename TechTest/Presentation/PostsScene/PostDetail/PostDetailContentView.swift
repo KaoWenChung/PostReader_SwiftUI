@@ -44,7 +44,7 @@ struct PostDetailContentView<T>: View where T: PostDetailViewModelType {
             .padding(.leading)
             Spacer()
             Button("Save Post") {
-                print("wow")
+                viewModel.save()
             }
             .padding(.trailing)
         }

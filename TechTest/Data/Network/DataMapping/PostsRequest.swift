@@ -6,5 +6,8 @@
 //
 
 struct PostsRequest: Encodable {
-    let id: Int
+    let postId: Int
+    init(id: Int) {
+        self.postId = id
+    }
 }

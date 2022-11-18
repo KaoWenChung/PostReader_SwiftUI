@@ -46,5 +46,13 @@ final class CoreDataStorage {
 
     func performBackgroundTask(_ block: @escaping (NSManagedObjectContext) -> Void) {
         persistentContainer.performBackgroundTask(block)
+        /*
+        if #available(iOS 15.0, *) {
+            return try await persistentContainer.performBackgroundTask(block)
+        } else {
+            // Fallback on earlier versions
+            return nil
+        }
+         */
     }
 }
