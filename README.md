@@ -26,8 +26,8 @@
 - Offline
 
 ## To-Do list of features and time I need:
-- [ ] Fix TODO item (Some Logic) - 1 hour
-- [ ] Unit testing - 2 hour
-- [ ] Error Handling - 1 hour
+- [ ] Implement Unit testing - 2 hour
+- [ ] Fix TODO items - 1 hour
+- [ ] Implement Error Handling - 1 hour
 - [ ] present the number of offline posts the bar button - 1 hour
 - [ ] Implement the offline comment of post - 1 hour
