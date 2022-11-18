@@ -18,20 +18,36 @@ final class PostSceneDIContainer {
 
     // MARK: - UseCase
     func makeShowPostsUseCase() -> ShowPostsUseCaseType {
-        return ShowPostsUseCase(postRepository: makePostRepository())
+        return ShowPostsUseCase(postRepository: makePostListRepository())
+    }
+
+    func makeShowPostDetailUseCase() -> ShowPostDetailUseCaseType {
+        return ShowPostDetailUseCase(repository: makePostDetailRepository())
     }
 
     // MARK: - Repositories
-    func makePostRepository() -> PostsRepositoryType {
-        return PostsRepository(dataTransferService: dependencies.dataTransferService)
+    func makePostListRepository() -> PostListRepositoryType {
+        return PostListRepository(dataTransferService: dependencies.dataTransferService)
+    }
+
+    func makePostDetailRepository() -> PostDetailRepositoryType {
+        return PostDetailRepository(dataTransferService: dependencies.dataTransferService)
     }
 
     // MARK: - Post List
-    func makePostListViewController() -> PostListContentView<PostListViewModel> {
+    func makePostListContentView() -> PostListContentView<PostListViewModel> {
         return PostListContentView(viewModel: makePostListViewModel())
     }
     
     func makePostListViewModel() -> PostListViewModel {
         return PostListViewModel(showPostsUseCase: makeShowPostsUseCase())
+    }
+    // MARK: - Post Detail
+    func makePostDetailContentView(withID id: Int) -> PostDetailContentView<PostDetailViewModel> {
+        return PostDetailContentView(viewModel: makePostDetailViewModel(withID: id))
+    }
+    
+    func makePostDetailViewModel(withID id: Int) -> PostDetailViewModel {
+        return PostDetailViewModel(withID: id, useCase: makeShowPostDetailUseCase())
     }
 }

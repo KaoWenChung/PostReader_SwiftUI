@@ -11,5 +11,10 @@ struct APIEndpoints {
         return Endpoint(path: "posts",
                         method: .get)
     }
+
+    static func getPostDetail(withID postID: Int) -> Endpoint<Post> {
+        return Endpoint(path: "posts/\(postID)",
+                        method: .get)
+    }
 }
 

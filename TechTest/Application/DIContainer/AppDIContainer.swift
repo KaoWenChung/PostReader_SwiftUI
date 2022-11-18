@@ -9,17 +9,17 @@ import Foundation
 
 final class AppDIContainer {
 
-    let appConfiguration = AppConfiguration()
+    static let appConfiguration = AppConfiguration()
 
     // MARK: - Network
-    lazy var apiDataTransferService = {
-        let config = APIDataNetworkConfig(baseURL: URL(string: self.appConfiguration.baseURL)!)
+    static var apiDataTransferService = {
+        let config = APIDataNetworkConfig(baseURL: URL(string: appConfiguration.baseURL)!)
         let apiDataNetwork = NetworkService(config: config)
         return DataTransferService(networkService: apiDataNetwork)
     }()
 
     // MARK: - DIContainers of scenes
-    func makePostSceneDIContainer() -> PostSceneDIContainer {
+    static func makePostSceneDIContainer() -> PostSceneDIContainer {
         let dependencies = PostSceneDIContainer.Dependencies(dataTransferService: apiDataTransferService)
         return PostSceneDIContainer(dependencies: dependencies)
     }

@@ -11,9 +11,9 @@ protocol ShowPostsUseCaseType {
 
 final class ShowPostsUseCase: ShowPostsUseCaseType {
 
-    private let postRepository: PostsRepositoryType
+    private let postRepository: PostListRepositoryType
 
-    init(postRepository: PostsRepositoryType) {
+    init(postRepository: PostListRepositoryType) {
 
         self.postRepository = postRepository
     }

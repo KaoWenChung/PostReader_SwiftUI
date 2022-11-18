@@ -6,7 +6,13 @@
 //
 
 import Combine
-
+import Dispatch
+/*
+ TODO: Separate the concern of user event
+struct PostListViewModelActions {
+    let showPostDetail: (Post) -> Void
+}
+*/
 protocol PostListViewModelInputType {
     func onAppear()
 }
@@ -18,6 +24,8 @@ protocol PostListViewModelType: PostListViewModelInputType, PostListViewModelOut
 final class PostListViewModel: PostListViewModelType {
 
     private let showPostsUseCase: ShowPostsUseCaseType
+//    private let actions: PostListViewModelActions?
+
     @Published private(set) var items: [Post] = []
     
     init(showPostsUseCase: ShowPostsUseCaseType) {
@@ -26,14 +34,10 @@ final class PostListViewModel: PostListViewModelType {
 
     func onAppear() {
         Task.init {
-            let (value, taskCancelable) = try await showPostsUseCase.execute()
-            items = value
+            let (value, _) = try await showPostsUseCase.execute()
+            DispatchQueue.main.async {
+                self.items = value
+            }
         }
-    }
-    
-    private(set) var displayedPosts: [Post] = []
-    
-    func fetchAllPosts() {
-        
     }
 }

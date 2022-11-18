@@ -5,9 +5,7 @@
 //  Created by wyn on 2022/11/16.
 //
 
-import Foundation
-
-final class PostsRepository {
+final class PostListRepository {
 
     private let dataTransferService: DataTransferServiceType
 
@@ -16,11 +14,7 @@ final class PostsRepository {
     }
 }
 
-protocol PostsRepositoryType {
-    func fetchPostList() async throws -> ([Post], CancellableType)
-}
-
-extension PostsRepository: PostsRepositoryType {
+extension PostListRepository: PostListRepositoryType {
     func fetchPostList() async throws -> ([Post], CancellableType) {
         let task = RepositoryTask()
         let endpoint = APIEndpoints.getPostList()
@@ -28,6 +22,4 @@ extension PostsRepository: PostsRepositoryType {
         task.networkTask = taskCancelable
         return (data, task)
     }
-    
-    
 }
