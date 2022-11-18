@@ -15,13 +15,21 @@ final class PostDetailRepository {
         self.cache = cache
     }
 }
-// TODO: saveRecentQuery
 extension PostDetailRepository: PostDetailRepositoryType {
     func save(response: Post, for request: PostsRequest) {
         cache.save(response: response, for: request)
     }
-    
-    // 
+
+    func checkSaveStatus(by request: PostsRequest, completion: @escaping (Bool) -> Void) {
+        cache.getResponse(for: request) { result in
+            if case let .success(response) = result, response != nil {
+                completion(true)
+            } else {
+                completion(false)
+            }
+        }
+    }
+ 
     func fetchPostDetail(withID id: Int, completion: @escaping (Post) -> Void) {
         let cacheRequest = PostsRequest(id: id)
         cache.getResponse(for: cacheRequest) { result in

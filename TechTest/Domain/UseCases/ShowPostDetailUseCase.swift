@@ -7,6 +7,7 @@
 
 protocol ShowPostDetailUseCaseType {
     func execute(withID id: Int, completion: @escaping (Post) -> Void)
+    func checkSaveStatus(by request: PostsRequest, completion: @escaping (Bool) -> Void)
     func save(response: Post, for request: PostsRequest)
 }
 
@@ -20,9 +21,11 @@ final class ShowPostDetailUseCase: ShowPostDetailUseCaseType {
     }
 
     func execute(withID id: Int, completion: @escaping (Post) -> Void) {
-        repository.fetchPostDetail(withID: id) { value in
-            completion(value)
-        }
+        repository.fetchPostDetail(withID: id, completion: completion)
+    }
+
+    func checkSaveStatus(by request: PostsRequest, completion: @escaping (Bool) -> Void) {
+        repository.checkSaveStatus(by: request, completion: completion)
     }
 
     func save(response: Post, for request: PostsRequest) {
