@@ -35,9 +35,10 @@ struct PostDetailContentView<T>: View where T: PostDetailViewModelType {
             Spacer()
         }
         .navigationBarTitle(Text(viewModel.postData.title), displayMode: .inline)
-        
-        Button("Post Comment") {
-            print("Button tapped!")
+        let postDIContainer = AppDIContainer.makePostSceneDIContainer()
+        // TODO: Fix nested Navigation Bars
+        NavigationLink(destination: postDIContainer.makePostCommentContentView(withID: viewModel.postData.id)) {
+            Text("Show Comment")
         }
     }
 }

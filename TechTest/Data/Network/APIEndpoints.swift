@@ -16,5 +16,10 @@ struct APIEndpoints {
         return Endpoint(path: "posts/\(postID)",
                         method: .get)
     }
+
+    static func getPostComment(withID postID: Int) -> Endpoint<[Comment]> {
+        return Endpoint(path: "posts/\(postID)/comments/",
+                        method: .get)
+    }
 }
 

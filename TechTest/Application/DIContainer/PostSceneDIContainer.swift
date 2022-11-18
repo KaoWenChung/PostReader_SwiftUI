@@ -25,6 +25,10 @@ final class PostSceneDIContainer {
         return ShowPostDetailUseCase(repository: makePostDetailRepository())
     }
 
+    func makeShowPostCommentUseCase() -> ShowPostCommentUseCaseType {
+        return ShowPostCommentUseCase(repository: makePostCommentRepository())
+    }
+
     // MARK: - Repositories
     func makePostListRepository() -> PostListRepositoryType {
         return PostListRepository(dataTransferService: dependencies.dataTransferService)
@@ -32,6 +36,10 @@ final class PostSceneDIContainer {
 
     func makePostDetailRepository() -> PostDetailRepositoryType {
         return PostDetailRepository(dataTransferService: dependencies.dataTransferService)
+    }
+
+    func makePostCommentRepository() -> PostCommentRepository {
+        return PostCommentRepository(dataTransferService: dependencies.dataTransferService)
     }
 
     // MARK: - Post List
@@ -49,5 +57,14 @@ final class PostSceneDIContainer {
     
     func makePostDetailViewModel(withID id: Int) -> PostDetailViewModel {
         return PostDetailViewModel(withID: id, useCase: makeShowPostDetailUseCase())
+    }
+
+    // MARK: - Post Comment
+    func makePostCommentContentView(withID id: Int) -> PostCommentContentView<PostCommentViewModel> {
+        return PostCommentContentView(viewModel: makePostCommentViewModel(withID: id))
+    }
+    
+    func makePostCommentViewModel(withID id: Int) -> PostCommentViewModel {
+        return PostCommentViewModel(withID: id, useCase: makeShowPostCommentUseCase())
     }
 }

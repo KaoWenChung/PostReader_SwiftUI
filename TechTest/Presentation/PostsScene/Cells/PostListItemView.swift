@@ -8,15 +8,18 @@
 import SwiftUI
 
 struct PostListItemView: View {
-    private let itemData: Post
+    private let viewModel: PostItemViewModel
     init(itemData: Post) {
-        self.itemData = itemData
+        viewModel = PostItemViewModel(post: itemData)
+    }
+    init(commentData: Comment) {
+        viewModel = PostItemViewModel(comment: commentData)
     }
     var body: some View {
         VStack(alignment: .leading) {
-            Text(itemData.title)
+            Text(viewModel.title)
                 .font(.headline)
-            Text(itemData.body)
+            Text(viewModel.body)
                 .font(.subheadline)
         }
     }
