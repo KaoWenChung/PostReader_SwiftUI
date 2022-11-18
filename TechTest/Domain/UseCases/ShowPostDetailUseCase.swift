@@ -9,6 +9,7 @@ protocol ShowPostDetailUseCaseType {
     func execute(withID id: Int, completion: @escaping (Post) -> Void)
     func checkSaveStatus(by request: PostsRequest, completion: @escaping (Bool) -> Void)
     func save(response: Post, for request: PostsRequest)
+    func delete(_ request: PostsRequest)
 }
 
 final class ShowPostDetailUseCase: ShowPostDetailUseCaseType {
@@ -30,5 +31,9 @@ final class ShowPostDetailUseCase: ShowPostDetailUseCaseType {
 
     func save(response: Post, for request: PostsRequest) {
         repository.save(response: response, for: request)
+    }
+
+    func delete(_ request: PostsRequest) {
+        repository.delete(request)
     }
 }

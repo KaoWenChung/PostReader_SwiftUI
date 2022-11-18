@@ -9,7 +9,7 @@ import Combine
 import Dispatch
 
 protocol PostDetailViewModelInputType {
-    func save()
+    func updateSaveStatus()
     func onAppear()
 }
 protocol PostDetailViewModelOutputType: ObservableObject {
@@ -26,7 +26,7 @@ final class PostDetailViewModel: PostDetailViewModelType {
     private let showPostDetailUseCase: ShowPostDetailUseCaseType
     private let id: Int
     @Published private(set) var postData: Post
-    @Published private(set) var isSaved: Bool = false
+    private var isSaved: Bool = false
     @Published private(set) var saveButtonTitle: String = "Loading..."
     @Published private(set) var saveButtonImage: String = "bookmark"
 
@@ -46,20 +46,29 @@ final class PostDetailViewModel: PostDetailViewModelType {
         }
     }
 
-    func save() {
+    func updateSaveStatus() {
         let request = PostsRequest(id: id)
-        showPostDetailUseCase.save(response: postData, for: request)
-        saveButtonTitle = "Saved"
-        saveButtonImage = "bookmark.fill"
+        if isSaved {
+            showPostDetailUseCase.delete(request)
+        } else {
+            showPostDetailUseCase.save(response: postData, for: request)
+        }
+        isSaved.toggle()
+        updateButtonData()
     }
 
     private func checkSaveStatus() {
         let request = PostsRequest(id: id)
         showPostDetailUseCase.checkSaveStatus(by: request) { result in
+            self.isSaved = result
             DispatchQueue.main.async {
-                self.saveButtonTitle = result ? "Saved" : "Save"
-                self.saveButtonImage = result ? "bookmark.fill" : "bookmark"
+                self.updateButtonData()
             }
         }
+    }
+
+    private func updateButtonData() {
+        saveButtonTitle = isSaved ? "Saved" : "Save"
+        saveButtonImage = isSaved ? "bookmark.fill" : "bookmark"
     }
 }

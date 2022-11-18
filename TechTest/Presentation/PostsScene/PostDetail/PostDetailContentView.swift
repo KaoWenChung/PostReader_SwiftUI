@@ -46,7 +46,7 @@ struct PostDetailContentView<T>: View where T: PostDetailViewModelType {
             .padding(.leading)
             Spacer()
             Button {
-                viewModel.save()
+                viewModel.updateSaveStatus()
             } label: {
                 Image(viewModel.saveButtonImage)
                 Text(viewModel.saveButtonTitle)

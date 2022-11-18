@@ -67,5 +67,17 @@ extension CoreDataPostsResponseStorage: PostsResponseStorageType {
             }
         }
     }
+
+    func delete(_ request: PostsRequest) {
+        coreDataStorage.performBackgroundTask { context in
+            do {
+                self.deleteResponse(for: request, in: context)
+                try context.save()
+            } catch {
+                // TODO: - Log to Crashlytics
+                debugPrint("CoreDataPostsResponseStorage Unresolved error \(error), \((error as NSError).userInfo)")
+            }
+        }
+    }
 }
 

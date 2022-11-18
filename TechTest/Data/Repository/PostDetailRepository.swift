@@ -20,6 +20,10 @@ extension PostDetailRepository: PostDetailRepositoryType {
         cache.save(response: response, for: request)
     }
 
+    func delete(_ request: PostsRequest) {
+        cache.delete(request)
+    }
+
     func checkSaveStatus(by request: PostsRequest, completion: @escaping (Bool) -> Void) {
         cache.getResponse(for: request) { result in
             if case let .success(response) = result, response != nil {
