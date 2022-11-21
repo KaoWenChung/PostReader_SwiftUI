@@ -38,4 +38,27 @@ final class DataTransferServiceTests: XCTestCase {
         // result
         wait(for: [expectation], timeout: 0.1)
     }
+
+    func testReceivedInvalidResponse_decodeNoObjectThrowError() {
+        // given
+        let mockConfig = NetworkConfigurableMock()
+        let expectation = expectation(description: "should decode response to object")
+        let mockData = #"{"gender": "man"}"#.data(using: .utf8)
+        let mockSessionManager = NetworkSessionManagerMock(response: HTTPURLResponse(), data: mockData!)
+        let networkService = NetworkService(config: mockConfig, sessionManager: mockSessionManager)
+        let mockEndpoint = Endpoint<MockResponseData>(path: "https://mock.endpoint.com", method: .get)
+        // sut
+        let sut = DataTransferService(networkService: networkService)
+        // when
+        Task.init {
+            do {
+                let (_, _) = try await sut.request(with: mockEndpoint)
+                XCTFail("Should not successfully decode data")
+            } catch {
+                expectation.fulfill()
+            }
+        }
+        // result
+        wait(for: [expectation], timeout: 0.1)
+    }
 }

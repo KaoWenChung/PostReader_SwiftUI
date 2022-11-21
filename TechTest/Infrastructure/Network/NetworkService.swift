@@ -93,12 +93,6 @@ public class NetworkSessionManager: NetworkSessionManagerType {
         let result = try await URLSession.shared.data(for: request)
         return result
     }
-//    public func request(_ request: URLRequest,
-//                        completion: @escaping CompletionHandler) -> NetworkCancellable {
-//        let task = URLSession.shared.dataTask(with: request, completionHandler: completion)
-//        task.resume()
-//        return task
-//    }
 }
 
 // MARK: - Logger
