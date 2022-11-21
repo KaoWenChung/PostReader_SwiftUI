@@ -14,17 +14,12 @@ private struct MockResponseData: Decodable {
 
 // MARK: - Tests
 final class DataTransferServiceTests: XCTestCase {
-    
+
+    private let mockEndpoint = Endpoint<MockResponseData>(path: "https://mock.endpoint.com", method: .get)
+
     func testReceivedValidJSONResponse_decodeResponseToObject() {
-        // given
-        let mockConfig = NetworkConfigurableMock()
         let expectation = expectation(description: "should decode response to object")
-        let mockData = #"{"name": "Mike"}"#.data(using: .utf8)
-        let mockSessionManager = NetworkSessionManagerMock(response: HTTPURLResponse(), data: mockData!)
-        let networkService = NetworkService(config: mockConfig, sessionManager: mockSessionManager)
-        let mockEndpoint = Endpoint<MockResponseData>(path: "https://mock.endpoint.com", method: .get)
-        // sut
-        let sut = DataTransferService(networkService: networkService)
+        let sut = makeSUT(mockData: #"{"name": "Mike"}"#)
         // when
         Task.init {
             do {
@@ -40,15 +35,8 @@ final class DataTransferServiceTests: XCTestCase {
     }
 
     func testReceivedInvalidResponse_decodeNoObjectThrowError() {
-        // given
-        let mockConfig = NetworkConfigurableMock()
-        let expectation = expectation(description: "should decode response to object")
-        let mockData = #"{"gender": "man"}"#.data(using: .utf8)
-        let mockSessionManager = NetworkSessionManagerMock(response: HTTPURLResponse(), data: mockData!)
-        let networkService = NetworkService(config: mockConfig, sessionManager: mockSessionManager)
-        let mockEndpoint = Endpoint<MockResponseData>(path: "https://mock.endpoint.com", method: .get)
-        // sut
-        let sut = DataTransferService(networkService: networkService)
+        let expectation = expectation(description: "Should throw error of network")
+        let sut = makeSUT(mockData: #"{"gender": "man"}"#)
         // when
         Task.init {
             do {
@@ -60,5 +48,16 @@ final class DataTransferServiceTests: XCTestCase {
         }
         // result
         wait(for: [expectation], timeout: 0.1)
+    }
+    // MARK: - Helper
+    private func makeSUT(mockData: String) -> DataTransferServiceType {
+        // given
+        let mockConfig = NetworkConfigurableMock()
+        let mockData = mockData.data(using: .utf8)
+        let mockSessionManager = NetworkSessionManagerMock(response: HTTPURLResponse(), data: mockData!)
+        let networkService = NetworkService(config: mockConfig, sessionManager: mockSessionManager)
+        let mockEndpoint = Endpoint<MockResponseData>(path: "https://mock.endpoint.com", method: .get)
+        
+        return DataTransferService(networkService: networkService)
     }
 }

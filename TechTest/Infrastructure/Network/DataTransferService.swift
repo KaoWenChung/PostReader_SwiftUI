@@ -31,7 +31,6 @@ public protocol ResponseRequestableType: RequestableType {
 }
 
 public enum DataTransferError: Error {
-    case noResponse
     case parsing(Error)
     case networkFailure(NetworkError)
     case resolvedNetworkFailure(Error)
@@ -78,9 +77,8 @@ extension DataTransferService: DataTransferServiceType {
     }
 
     // MARK: - Private
-    private func decode<T: Decodable>(data: Data?, decoder: ResponseDecoderType) throws -> T {
+    private func decode<T: Decodable>(data: Data, decoder: ResponseDecoderType) throws -> T {
         do {
-            guard let data = data else { throw DataTransferError.noResponse }
             let result: T = try decoder.decode(data)
             return result
         } catch {
