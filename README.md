@@ -24,6 +24,7 @@
 - Concurrency
 - Core Data
 - Offline
+- Unit testing(WIP)
 
 ## To-Do list of features and time I need:
 - [ ] Implement Unit testing - 2 hour
