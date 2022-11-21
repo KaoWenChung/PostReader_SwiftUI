@@ -21,6 +21,12 @@ public protocol NetworkServiceType {
     func request(endpoint: RequestableType) throws -> TaskCancellable
 }
 
+public protocol NetworkSessionManagerType {
+    typealias DataResponse = (Data, URLResponse)
+    
+    func request(_ request: URLRequest) async throws -> DataResponse
+}
+
 public protocol NetworkErrorLoggerType {
     func log(request: URLRequest)
     func log(responseData data: Data?, response: URLResponse?)
@@ -32,18 +38,21 @@ public protocol NetworkErrorLoggerType {
 public struct NetworkService {
     
     private let config: NetworkConfigurableType
+    private let sessionManager: NetworkSessionManagerType
     private let logger: NetworkErrorLoggerType
     
     public init(config: NetworkConfigurableType,
+                sessionManager: NetworkSessionManagerType = NetworkSessionManager(),
                 logger: NetworkErrorLoggerType = NetworkErrorLogger()) {
         self.config = config
+        self.sessionManager = sessionManager
         self.logger = logger
     }
     
     private func request(request: URLRequest) -> TaskCancellable {
         let task = Task {
             do {
-                let (data, response) = try await URLSession.shared.data(for: request)
+                let (data, response) = try await sessionManager.request(request)
                 logger.log(responseData: data, response: response)
                 logger.log(request: request)
                 return (data, response)
@@ -76,6 +85,20 @@ extension NetworkService: NetworkServiceType {
             throw NetworkError.urlGeneration
         }
     }
+}
+
+public class NetworkSessionManager: NetworkSessionManagerType {
+    public init() {}
+    public func request(_ request: URLRequest) async throws -> DataResponse {
+        let result = try await URLSession.shared.data(for: request)
+        return result
+    }
+//    public func request(_ request: URLRequest,
+//                        completion: @escaping CompletionHandler) -> NetworkCancellable {
+//        let task = URLSession.shared.dataTask(with: request, completionHandler: completion)
+//        task.resume()
+//        return task
+//    }
 }
 
 // MARK: - Logger

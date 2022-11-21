@@ -50,6 +50,13 @@
 		215866042927CB0B000FBDD8 /* SavedPostsResponseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215866032927CB0B000FBDD8 /* SavedPostsResponseStorage.swift */; };
 		215866062927CB66000FBDD8 /* CoreDataSavedPostsResponseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215866052927CB66000FBDD8 /* CoreDataSavedPostsResponseStorage.swift */; };
 		215866082927E255000FBDD8 /* SavedPostDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215866072927E255000FBDD8 /* SavedPostDetailViewModel.swift */; };
+		219DF04A292AEDA700A7864F /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F85432925991600B0EDB1 /* NetworkService.swift */; };
+		219DF04B292AEDEE00A7864F /* DataTransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F8541292598EE00B0EDB1 /* DataTransferService.swift */; };
+		219DF04C292AEE8900A7864F /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F85452925994000B0EDB1 /* Endpoint.swift */; };
+		219DF04E292AF5F500A7864F /* NetworkSessionManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219DF04D292AF5F500A7864F /* NetworkSessionManagerMock.swift */; };
+		21F31BF3292AE3AD0044600E /* DataTransferServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F31BF2292AE3AD0044600E /* DataTransferServiceTests.swift */; };
+		21F31BF8292AE4750044600E /* NetworkConfigurableMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F31BF7292AE4750044600E /* NetworkConfigurableMock.swift */; };
+		21F31BF9292AE4EC0044600E /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F8547292599D600B0EDB1 /* NetworkConfig.swift */; };
 		2DBA14523B0FC3A3D13330EE /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1E2729C46B346322DC92 /* Post.swift */; };
 		2DBA17176A2BF0E7EB6CC6F9 /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA159C9B8196391E6CDAF0 /* PostDetailsViewController.swift */; };
 		FA166B8525ED248300A85D66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA166B8425ED248300A85D66 /* AppDelegate.swift */; };
@@ -112,6 +119,9 @@
 		215866032927CB0B000FBDD8 /* SavedPostsResponseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPostsResponseStorage.swift; sourceTree = "<group>"; };
 		215866052927CB66000FBDD8 /* CoreDataSavedPostsResponseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSavedPostsResponseStorage.swift; sourceTree = "<group>"; };
 		215866072927E255000FBDD8 /* SavedPostDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPostDetailViewModel.swift; sourceTree = "<group>"; };
+		219DF04D292AF5F500A7864F /* NetworkSessionManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionManagerMock.swift; sourceTree = "<group>"; };
+		21F31BF2292AE3AD0044600E /* DataTransferServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferServiceTests.swift; sourceTree = "<group>"; };
+		21F31BF7292AE4750044600E /* NetworkConfigurableMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfigurableMock.swift; sourceTree = "<group>"; };
 		2DBA159C9B8196391E6CDAF0 /* PostDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
 		2DBA1E2729C46B346322DC92 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		FA166B8125ED248300A85D66 /* TechTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -419,6 +429,31 @@
 			path = SavedPostsResponseStorage;
 			sourceTree = "<group>";
 		};
+		21F31BF4292AE4350044600E /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				21F31BF5292AE4480044600E /* Network */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		21F31BF5292AE4480044600E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				21F31BF6292AE4500044600E /* Mocks */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		21F31BF6292AE4500044600E /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				21F31BF7292AE4750044600E /* NetworkConfigurableMock.swift */,
+				219DF04D292AF5F500A7864F /* NetworkSessionManagerMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		2DBA1237D078294F62924AA5 /* Post Details */ = {
 			isa = PBXGroup;
 			children = (
@@ -475,7 +510,9 @@
 		FA166B9A25ED248400A85D66 /* TechTestTests */ = {
 			isa = PBXGroup;
 			children = (
+				21F31BF4292AE4350044600E /* Infrastructure */,
 				FA166B9B25ED248400A85D66 /* TechTestTests.swift */,
+				21F31BF2292AE3AD0044600E /* DataTransferServiceTests.swift */,
 				FA166B9D25ED248400A85D66 /* Info.plist */,
 			);
 			path = TechTestTests;
@@ -633,6 +670,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				219DF04C292AEE8900A7864F /* Endpoint.swift in Sources */,
+				219DF04B292AEDEE00A7864F /* DataTransferService.swift in Sources */,
+				219DF04A292AEDA700A7864F /* NetworkService.swift in Sources */,
+				21F31BF8292AE4750044600E /* NetworkConfigurableMock.swift in Sources */,
+				21F31BF3292AE3AD0044600E /* DataTransferServiceTests.swift in Sources */,
+				219DF04E292AF5F500A7864F /* NetworkSessionManagerMock.swift in Sources */,
+				21F31BF9292AE4EC0044600E /* NetworkConfig.swift in Sources */,
 				FA166B9C25ED248400A85D66 /* TechTestTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
