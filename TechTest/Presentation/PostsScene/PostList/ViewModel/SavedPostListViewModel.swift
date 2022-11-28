@@ -13,6 +13,7 @@ final class SavedPostListViewModel: PostListViewModelType {
     private let showSavedPostsUseCase: ShowSavedPostsUseCaseType
 
     @Published private(set) var items: [Post] = []
+    @Published private(set) var error: Error?
     
     init(showSavedPostsUseCase: ShowSavedPostsUseCaseType) {
         self.showSavedPostsUseCase = showSavedPostsUseCase

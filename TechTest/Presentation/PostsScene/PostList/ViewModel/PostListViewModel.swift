@@ -18,6 +18,7 @@ protocol PostListViewModelInputType {
 }
 protocol PostListViewModelOutputType: ObservableObject {
     var items: [Post] { get }
+    var error: Error? { get }
 }
 protocol PostListViewModelType: PostListViewModelInputType, PostListViewModelOutputType { }
 
@@ -27,6 +28,7 @@ final class PostListViewModel: PostListViewModelType {
 //    private let actions: PostListViewModelActions?
 
     @Published private(set) var items: [Post] = []
+    @Published private(set) var error: Error?
     
     init(showPostsUseCase: ShowPostsUseCaseType) {
         self.showPostsUseCase = showPostsUseCase
@@ -34,9 +36,13 @@ final class PostListViewModel: PostListViewModelType {
 
     func onAppear() {
         Task.init {
-            let (value, _) = try await showPostsUseCase.execute()
-            DispatchQueue.main.async {
-                self.items = value
+            do {
+                let (value, _) = try await showPostsUseCase.execute()
+                DispatchQueue.main.async {
+                    self.items = value
+                }
+            } catch let error as NetworkError {
+                self.error = error
             }
         }
     }
