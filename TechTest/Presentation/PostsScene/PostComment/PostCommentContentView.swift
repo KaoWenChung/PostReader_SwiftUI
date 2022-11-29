@@ -28,9 +28,9 @@ struct PostCommentContentView<T>: View where T: PostCommentViewModelType{
     }
 }
 
-struct PostCommentContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        let postDIContainer = AppDIContainer.makePostSceneDIContainer()
-        return postDIContainer.makePostCommentContentView(withID: 1)
-    }
-}
+//struct PostCommentContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let postDIContainer = AppDIContainer.makePostSceneDIContainer()
+//        return postDIContainer.makePostCommentContentView(withID: 1)
+//    }
+//}

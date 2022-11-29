@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21090CC1293667860031988D /* TabbarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21090CC0293667860031988D /* TabbarViewModel.swift */; };
+		21090CC3293698360031988D /* AppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21090CC2293698360031988D /* AppFlowCoordinator.swift */; };
+		21090CC72936ADE40031988D /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21090CC62936ADE40031988D /* MainCoordinator.swift */; };
 		210F85382925969800B0EDB1 /* PostListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F85372925969800B0EDB1 /* PostListRepository.swift */; };
 		210F853B2925970200B0EDB1 /* PostsResponseStorageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F853A2925970200B0EDB1 /* PostsResponseStorageType.swift */; };
 		210F853E2925985200B0EDB1 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F853D2925985200B0EDB1 /* CoreDataStorage.swift */; };
@@ -75,6 +78,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		21090CC0293667860031988D /* TabbarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewModel.swift; sourceTree = "<group>"; };
+		21090CC2293698360031988D /* AppFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowCoordinator.swift; sourceTree = "<group>"; };
+		21090CC62936ADE40031988D /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		210F85372925969800B0EDB1 /* PostListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListRepository.swift; sourceTree = "<group>"; };
 		210F853A2925970200B0EDB1 /* PostsResponseStorageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsResponseStorageType.swift; sourceTree = "<group>"; };
 		210F853D2925985200B0EDB1 /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
@@ -150,6 +156,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		21090CC42936AB7A0031988D /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				21090CC52936AB8A0031988D /* Coordinator */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		21090CC52936AB8A0031988D /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		210F85352925966600B0EDB1 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,6 +311,8 @@
 				215865BC2926E3E4000FBDD8 /* DIContainer */,
 				FA166B8425ED248300A85D66 /* AppDelegate.swift */,
 				215865BA2926E266000FBDD8 /* AppConfiguration.swift */,
+				21090CC2293698360031988D /* AppFlowCoordinator.swift */,
+				21090CC62936ADE40031988D /* MainCoordinator.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -397,6 +420,7 @@
 			isa = PBXGroup;
 			children = (
 				215865F82927B9EC000FBDD8 /* TabbarContentView.swift */,
+				21090CC0293667860031988D /* TabbarViewModel.swift */,
 			);
 			path = Tabbar;
 			sourceTree = "<group>";
@@ -471,6 +495,7 @@
 				FA166B9225ED248300A85D66 /* Info.plist */,
 				215865C82926F526000FBDD8 /* Common */,
 				215865B92926E25A000FBDD8 /* Application */,
+				21090CC42936AB7A0031988D /* Support */,
 				210F855529267AA400B0EDB1 /* Domain */,
 				210F854E2926734B00B0EDB1 /* Presentation */,
 				2DBA18BFDCA808CB37488B4D /* Data */,
@@ -601,6 +626,7 @@
 				215865B32926CF00000FBDD8 /* PostDetailContentView.swift in Sources */,
 				215865D029270A5A000FBDD8 /* PostDetailViewModel.swift in Sources */,
 				215865F32927364D000FBDD8 /* PostsRequest.swift in Sources */,
+				21090CC72936ADE40031988D /* MainCoordinator.swift in Sources */,
 				215865AE2926B9DE000FBDD8 /* PostListContentView.swift in Sources */,
 				215865FD2927C5BF000FBDD8 /* ShowSavedPostsUseCase.swift in Sources */,
 				215865E42927276D000FBDD8 /* PostCommentViewModel.swift in Sources */,
@@ -626,7 +652,9 @@
 				215865EC29272990000FBDD8 /* PostCommentRepositoryType.swift in Sources */,
 				215865BE2926E3FC000FBDD8 /* AppDIContainer.swift in Sources */,
 				215865E6292728B0000FBDD8 /* Comment.swift in Sources */,
+				21090CC3293698360031988D /* AppFlowCoordinator.swift in Sources */,
 				215866012927C902000FBDD8 /* SavedPostListRepository.swift in Sources */,
+				21090CC1293667860031988D /* TabbarViewModel.swift in Sources */,
 				215866082927E255000FBDD8 /* SavedPostDetailViewModel.swift in Sources */,
 				215865E829272900000FBDD8 /* ShowPostCommentUseCase.swift in Sources */,
 				215865D929270DF5000FBDD8 /* PostListRepositoryType.swift in Sources */,
@@ -803,7 +831,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.brighthr.TechTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -823,7 +850,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.brighthr.TechTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

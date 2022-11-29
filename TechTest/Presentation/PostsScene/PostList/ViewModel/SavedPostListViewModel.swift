@@ -8,15 +8,18 @@
 import SwiftUI
 import Dispatch
 
-final class SavedPostListViewModel: PostListViewModelType {
+final class SavedPostListViewModel<DestinationView: View>: PostListViewModelType {
 
     private let showSavedPostsUseCase: ShowSavedPostsUseCaseType
+    private let actions: PostListViewModelActions<DestinationView>?
 
     @Published private(set) var items: [Post] = []
     @Published private(set) var error: Error?
     
-    init(showSavedPostsUseCase: ShowSavedPostsUseCaseType) {
+    init(showSavedPostsUseCase: ShowSavedPostsUseCaseType,
+         actions: PostListViewModelActions<DestinationView>?) {
         self.showSavedPostsUseCase = showSavedPostsUseCase
+        self.actions = actions
     }
 
     func onAppear() {
@@ -25,5 +28,15 @@ final class SavedPostListViewModel: PostListViewModelType {
                 self.items = result
             }
         }
+    }
+}
+
+extension SavedPostListViewModel {
+    func destinationView(_ item: Post) -> some View {
+        return actions?.showPostDetail(item)
+    }
+
+    func itemView(_ item: Post) -> some View {
+        return PostListItemView(itemData: item)
     }
 }

@@ -18,18 +18,21 @@ struct PostListContentView<T>: View where T: PostListViewModelType {
         NavigationView {
             List(viewModel.items) { item in
                 // TODO: Separate to a coordinator
-                let postDIContainer = AppDIContainer.makePostSceneDIContainer()
-                if viewModel is PostListViewModel {
-                    let contentView = postDIContainer.makePostDetailContentView(withID: item.id)
-                    NavigationLink(destination: contentView) {
-                        PostListItemView(itemData: item)
-                    }
-                } else {
-                    let contentView = postDIContainer.makeSavedPostDetailContentView(with: item)
-                    NavigationLink(destination: contentView) {
-                        PostListItemView(itemData: item)
-                    }
+                let contentView = viewModel.destinationView(item)
+                NavigationLink(destination: contentView) {
+                    PostListItemView(itemData: item)
                 }
+//                if viewModel is PostListViewModel {
+//                    let contentView = postDIContainer.makePostDetailContentView(withID: item.id)
+//                    NavigationLink(destination: contentView) {
+//                        PostListItemView(itemData: item)
+//                    }
+//                } else {
+//                    let contentView = postDIContainer.makeSavedPostDetailContentView(with: item)
+//                    NavigationLink(destination: contentView) {
+//                        PostListItemView(itemData: item)
+//                    }
+//                }
             }
             .navigationBarTitle(Text("All Posts"), displayMode: .inline)
         }
@@ -43,9 +46,9 @@ struct PostListContentView<T>: View where T: PostListViewModelType {
 
 
 
-struct SwiftUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        let postDIContainer = AppDIContainer.makePostSceneDIContainer()
-        return postDIContainer.makePostListContentView()
-    }
-}
+//struct SwiftUIView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let postDIContainer = AppDIContainer.makePostSceneDIContainer()
+//        return postDIContainer.makePostListContentView()
+//    }
+//}

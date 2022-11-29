@@ -7,30 +7,28 @@
 
 import SwiftUI
 
-struct TabbarContentView: View {
+protocol TabbarContentViewType : View {}
+
+struct TabbarContentView<PostDestinationView: View, SavedPostDestinationView: View>: TabbarContentViewType {
+    @State private var viewModel: TabbarViewModel<PostDestinationView, SavedPostDestinationView>
+    init(viewModel: TabbarViewModel<PostDestinationView, SavedPostDestinationView>) {
+        self.viewModel = viewModel
+    }
+
     var body: some View {
         TabView {
-            let postDIContainer = AppDIContainer.makePostSceneDIContainer()
-            let contentView = postDIContainer.makePostListContentView()
-            contentView
+            viewModel.postListView
                 .font(.system(size: 30, weight: .bold, design: .rounded))
                 .tabItem {
                     Image(systemName: "newspaper.fill")
                     Text("Post")
                 }
-            let savedPostListView = postDIContainer.makeSavedPostListContentView()
-            savedPostListView
+            viewModel.savedPostListView
                 .font(.system(size: 30, weight: .bold, design: .rounded))
                 .tabItem {
                     Image(systemName: "book.fill")
                     Text("Bookmark")
                 }
         }
-    }
-}
-
-struct TabbarContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        TabbarContentView()
     }
 }

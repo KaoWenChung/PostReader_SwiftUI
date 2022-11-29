@@ -36,33 +36,33 @@ struct PostDetailContentView<T>: View where T: PostDetailViewModelType {
         }
         .navigationBarTitle(Text(viewModel.postData.title), displayMode: .inline)
         // TODO: Separate the concern
-        if viewModel.isShowButtons {
-            let postDIContainer = AppDIContainer.makePostSceneDIContainer()
-            HStack() {
-                // TODO: Fix nested Navigation Bars
-                NavigationLink(destination: postDIContainer.makePostCommentContentView(withID: viewModel.postData.id)) {
-                    
-                    Image("text.bubble")
-                    Text("Comment")
-                }
-                .padding(.leading)
-                Spacer()
-                Button {
-                    viewModel.updateSaveStatus()
-                } label: {
-                    Image(viewModel.saveButtonImage)
-                    Text(viewModel.saveButtonTitle)
-                }
-                .padding(.trailing)
-            }
-        }
+//        if viewModel.isShowButtons {
+//            let postDIContainer = AppDIContainer.makePostSceneDIContainer()
+//            HStack() {
+//                // TODO: Fix nested Navigation Bars
+//                NavigationLink(destination: postDIContainer.makePostCommentContentView(withID: viewModel.postData.id)) {
+//
+//                    Image("text.bubble")
+//                    Text("Comment")
+//                }
+//                .padding(.leading)
+//                Spacer()
+//                Button {
+//                    viewModel.updateSaveStatus()
+//                } label: {
+//                    Image(viewModel.saveButtonImage)
+//                    Text(viewModel.saveButtonTitle)
+//                }
+//                .padding(.trailing)
+//            }
+//        }
     }
 }
 
-struct PostDetailContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        let postDIContainer = AppDIContainer.makePostSceneDIContainer()
-        return postDIContainer.makePostDetailContentView(withID: 1)
-    }
-}
+//struct PostDetailContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let postDIContainer = AppDIContainer.makePostSceneDIContainer()
+//        return postDIContainer.makePostDetailContentView(withID: 1)
+//    }
+//}
 

@@ -4,6 +4,7 @@
 //
 //  Created by wyn on 2022/11/17.
 //
+import SwiftUI
 
 final class PostSceneDIContainer {
     
@@ -55,21 +56,21 @@ final class PostSceneDIContainer {
     }
 
     // MARK: - Post List
-    func makePostListContentView() -> PostListContentView<PostListViewModel> {
-        return PostListContentView(viewModel: makePostListViewModel())
+    func makePostListContentView<DestinationView: View>(actions: PostListViewModelActions<DestinationView>) -> PostListContentView<PostListViewModel<DestinationView>> {
+        return PostListContentView(viewModel: makePostListViewModel(actions: actions))
     }
     
-    func makePostListViewModel() -> PostListViewModel {
-        return PostListViewModel(showPostsUseCase: makeShowPostsUseCase())
+    func makePostListViewModel<DestinationView: View>(actions: PostListViewModelActions<DestinationView>) -> PostListViewModel<DestinationView> {
+        return PostListViewModel(showPostsUseCase: makeShowPostsUseCase(), actions: actions)
     }
 
     // MARK: - Saved Post List
-    func makeSavedPostListContentView() -> PostListContentView<SavedPostListViewModel> {
-        return PostListContentView(viewModel: makeSavedPostListViewModel())
+    func makeSavedPostListContentView<DestinationView: View>(actions: PostListViewModelActions<DestinationView>) -> PostListContentView<SavedPostListViewModel<DestinationView>> {
+        return PostListContentView(viewModel: makeSavedPostListViewModel(actions: actions))
     }
     
-    func makeSavedPostListViewModel() -> SavedPostListViewModel {
-        return SavedPostListViewModel(showSavedPostsUseCase: makeShowSavedPostsUseCase())
+    func makeSavedPostListViewModel<DestinationView: View>(actions: PostListViewModelActions<DestinationView>) -> SavedPostListViewModel<DestinationView> {
+        return SavedPostListViewModel(showSavedPostsUseCase: makeShowSavedPostsUseCase(), actions: actions)
     }
 
     // MARK: - Post Detail
@@ -97,5 +98,14 @@ final class PostSceneDIContainer {
     
     func makePostCommentViewModel(withID id: Int) -> PostCommentViewModel {
         return PostCommentViewModel(withID: id, useCase: makeShowPostCommentUseCase())
+    }
+
+    // MARK: - Tab bar View
+    func makeTabbarContentView<PostDestinationView: View, SavedPostDestinationView: View>(postListView: PostDestinationView, savedPostListView: SavedPostDestinationView) -> TabbarContentView<PostDestinationView, SavedPostDestinationView> {
+        return TabbarContentView(viewModel: makeTabbarViewModel(postListView: postListView, savedPostListView: savedPostListView))
+    }
+
+    func makeTabbarViewModel<PostDestinationView: View, SavedPostDestinationView: View>(postListView: PostDestinationView, savedPostListView: SavedPostDestinationView) -> TabbarViewModel<PostDestinationView, SavedPostDestinationView> {
+        return TabbarViewModel(postListView: postListView, savedPostListView: savedPostListView)
     }
 }
