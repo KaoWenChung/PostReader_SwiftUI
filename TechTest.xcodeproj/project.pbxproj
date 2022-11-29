@@ -10,6 +10,7 @@
 		21090CC1293667860031988D /* TabbarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21090CC0293667860031988D /* TabbarViewModel.swift */; };
 		21090CC3293698360031988D /* AppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21090CC2293698360031988D /* AppFlowCoordinator.swift */; };
 		21090CC72936ADE40031988D /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21090CC62936ADE40031988D /* MainCoordinator.swift */; };
+		21090CC92936AF470031988D /* CoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21090CC82936AF470031988D /* CoordinatorType.swift */; };
 		210F85382925969800B0EDB1 /* PostListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F85372925969800B0EDB1 /* PostListRepository.swift */; };
 		210F853B2925970200B0EDB1 /* PostsResponseStorageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F853A2925970200B0EDB1 /* PostsResponseStorageType.swift */; };
 		210F853E2925985200B0EDB1 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F853D2925985200B0EDB1 /* CoreDataStorage.swift */; };
@@ -81,6 +82,7 @@
 		21090CC0293667860031988D /* TabbarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewModel.swift; sourceTree = "<group>"; };
 		21090CC2293698360031988D /* AppFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowCoordinator.swift; sourceTree = "<group>"; };
 		21090CC62936ADE40031988D /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		21090CC82936AF470031988D /* CoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorType.swift; sourceTree = "<group>"; };
 		210F85372925969800B0EDB1 /* PostListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListRepository.swift; sourceTree = "<group>"; };
 		210F853A2925970200B0EDB1 /* PostsResponseStorageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsResponseStorageType.swift; sourceTree = "<group>"; };
 		210F853D2925985200B0EDB1 /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 		21090CC52936AB8A0031988D /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				21090CC82936AF470031988D /* CoordinatorType.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -653,6 +656,7 @@
 				215865BE2926E3FC000FBDD8 /* AppDIContainer.swift in Sources */,
 				215865E6292728B0000FBDD8 /* Comment.swift in Sources */,
 				21090CC3293698360031988D /* AppFlowCoordinator.swift in Sources */,
+				21090CC92936AF470031988D /* CoordinatorType.swift in Sources */,
 				215866012927C902000FBDD8 /* SavedPostListRepository.swift in Sources */,
 				21090CC1293667860031988D /* TabbarViewModel.swift in Sources */,
 				215866082927E255000FBDD8 /* SavedPostDetailViewModel.swift in Sources */,
