@@ -52,7 +52,7 @@ final class SavedPostSceneDIContainer {
     }
     
     // MARK: - Flow Coordinators
-    func makeSavedPostFlowCoordinator(navigationController: UINavigationController? = UINavigationController()) -> SavedPostCoordinator {
+    func makeSavedPostFlowCoordinator(navigationController: UINavigationController = UINavigationController()) -> SavedPostCoordinator {
         return SavedPostCoordinator(navigationController: navigationController, dependencies: self)
     }
 

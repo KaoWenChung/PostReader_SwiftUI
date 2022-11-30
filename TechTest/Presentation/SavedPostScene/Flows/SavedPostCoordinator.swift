@@ -12,25 +12,33 @@ protocol SavedPostCoordinatorDependenciesType {
 }
 
 protocol SavedPostCoordinatorType: CoordinatorType {
-    var navigationController: UINavigationController? { get }
+    var navigationController: UINavigationController { get }
 }
 
 final class SavedPostCoordinator: SavedPostCoordinatorType {
-    private(set) weak var navigationController: UINavigationController?
+    let navigationController: UINavigationController
     private let dependencies: SavedPostCoordinatorDependenciesType
     
     lazy var rootViewController: UIViewController = UIViewController()
     
     var parentCoordinator: AppFlowCoordinator?
     
-    init(navigationController: UINavigationController?,
+    init(navigationController: UINavigationController = .init(),
          dependencies: SavedPostCoordinatorDependenciesType) {
         self.navigationController = navigationController
         self.dependencies = dependencies
     }
 
     func start() -> UIViewController {
-        navigationRootViewController
-        return UIViewController()
+        let contentView = dependencies.makeSavedPostListContentView(actions: PostListViewModelActions(showPostDetail: showSavedPostDetails))
+        let vc = UIHostingController(rootView: contentView)
+        navigationController.pushViewController(vc, animated: true)
+        return navigationController
+    }
+
+    private func showSavedPostDetails(_ post: Post) {
+//        let contentView = dependencies.makePostDetailContentView(withID: post.id, actions: PostDetailViewModelActions(showPostComment: showPostComments))
+//        let vc = UIHostingController(rootView: contentView)
+//        navigationController.pushViewController(vc, animated: true)
     }
 }
