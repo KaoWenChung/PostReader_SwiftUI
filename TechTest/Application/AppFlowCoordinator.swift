@@ -5,19 +5,66 @@
 //  Created by wyn on 2022/11/29.
 //
 
-final class AppFlowCoordinator {
+import SwiftUI
 
-    private let appDIContainer: AppDIContainer
+enum AppFlow {
+    case postList
+    case savedPostList
+}
+
+protocol AppFlowCoordinatorType: CoordinatorType {
+    var postCoordinator: PostCoordinatorType? { get }
+    var savedPostCoordinator: SavedPostCoordinatorType? { get }
+    func moveTo(flow: AppFlow)
+}
+
+final class AppFlowCoordinator: AppFlowCoordinatorType {
+    var parentCoordinator: AppFlowCoordinator?
+    var postCoordinator: PostCoordinatorType?
+    var savedPostCoordinator: SavedPostCoordinatorType?
     
+    lazy var rootViewController: UIViewController = UITabBarController()
+    
+    private let appDIContainer: AppDIContainer
+
     init(appDIContainer: AppDIContainer) {
         self.appDIContainer = appDIContainer
     }
+    
+    func start() -> UIViewController {
+        let postSceneDIContainer = appDIContainer.makePostSceneDIContainer()
+        let postFlow = postSceneDIContainer.makePostFlowCoordinator()
+        postFlow.parentCoordinator = self
+        postCoordinator = postFlow
+        let postViewController = postFlow.start()
+        
+        postViewController.tabBarItem = UITabBarItem(title: "Post", image: UIImage(systemName: "newspaper.fill"), tag: 0)
 
-    func start() {
-        // In App Flow we can check if user needs to login, if yes we would run login flow
-        let postSceneContainer = appDIContainer.makePostSceneDIContainer()
-//        postSceneContainer.makeTabbarContentView(postListView: <#T##View#>, savedPostListView: <#T##View#>)
-//        let flow = moviesSceneDIContainer.makeMoviesSearchFlowCoordinator(navigationController: navigationController)
-//        flow.start()
+        let savedPostSceneDIContainer = appDIContainer.makeSavedPostSceneDIContainer()
+        let savedPostFlow = savedPostSceneDIContainer.makeSavedPostFlowCoordinator()
+        savedPostFlow.parentCoordinator = self
+        savedPostCoordinator = savedPostFlow
+        let ordersViewController = savedPostFlow.start()
+        
+        ordersViewController.tabBarItem = UITabBarItem(title: "Bookmark", image: UIImage(systemName: "book.fill"), tag: 1)
+        
+        (rootViewController as? UITabBarController)?.viewControllers = [postViewController, ordersViewController]
+        
+        return rootViewController
+    }
+    
+    func moveTo(flow: AppFlow) {
+        switch flow {
+        case .postList:
+            (rootViewController as? UITabBarController)?.selectedIndex = 0
+        case .savedPostList:
+            (rootViewController as? UITabBarController)?.selectedIndex = 1
+        }
+    }
+
+    func resetToRoot() -> Self {
+        postCoordinator?.resetToRoot()
+        moveTo(flow: .postList)
+        return self
     }
 }

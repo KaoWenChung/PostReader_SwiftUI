@@ -15,18 +15,16 @@ struct PostListContentView<T>: View where T: PostListViewModelType {
     }
 
     var body: some View {
+        List(viewModel.items) { item in
+            PostListItemView(itemData: item)
+                .onTapGesture {
+                    viewModel.didSelectItem(item)
+                }
+            
+        }
+        .navigationBarTitle(Text("All Posts"), displayMode: .inline)
 //        NavigationView {
-            List(viewModel.items) { item in
-                PostListItemView(itemData: item)
-                    .onTapGesture {
-                        print(item)
-                    }
-                // TODO: Separate to a coordinator
-//                let contentView = viewModel.destinationView(item)
-                
-//                NavigationLink(destination: contentView) {
-//
-//                }
+            
 //                if viewModel is PostListViewModel {
 //                    let contentView = postDIContainer.makePostDetailContentView(withID: item.id)
 //                    NavigationLink(destination: contentView) {
@@ -38,8 +36,6 @@ struct PostListContentView<T>: View where T: PostListViewModelType {
 //                        PostListItemView(itemData: item)
 //                    }
 //                }
-            }
-            .navigationBarTitle(Text("All Posts"), displayMode: .inline)
 //        }
         .listStyle(.plain)
         .onAppear {

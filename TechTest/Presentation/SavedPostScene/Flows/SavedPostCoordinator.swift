@@ -21,7 +21,7 @@ final class SavedPostCoordinator: SavedPostCoordinatorType {
     
     lazy var rootViewController: UIViewController = UIViewController()
     
-    var parentCoordinator: MainCoordinatorType?
+    var parentCoordinator: AppFlowCoordinator?
     
     init(navigationController: UINavigationController?,
          dependencies: SavedPostCoordinatorDependenciesType) {

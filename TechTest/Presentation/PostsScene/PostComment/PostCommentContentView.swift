@@ -15,12 +15,10 @@ struct PostCommentContentView<T>: View where T: PostCommentViewModelType{
     }
 
     var body: some View {
-        NavigationView {
-            List(viewModel.items) { item in
-                PostListItemView(commentData: item)
-            }
-            .navigationBarTitle(Text("All Comments"), displayMode: .inline)
+        List(viewModel.items) { item in
+            PostListItemView(commentData: item)
         }
+        .navigationBarTitle(Text("All Comments"), displayMode: .inline)
         .listStyle(.plain)
         .onAppear {
             self.viewModel.onAppear()

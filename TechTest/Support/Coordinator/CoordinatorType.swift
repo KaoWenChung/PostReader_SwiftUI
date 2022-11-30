@@ -8,7 +8,7 @@
 import SwiftUI
 
 protocol FlowCoordinatorType: AnyObject {
-    var parentCoordinator: MainCoordinatorType? { get set }
+    var parentCoordinator: AppFlowCoordinator? { get set }
 }
 
 protocol CoordinatorType: FlowCoordinatorType {

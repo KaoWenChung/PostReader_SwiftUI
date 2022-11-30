@@ -32,11 +32,7 @@ final class SavedPostListViewModel: PostListViewModelType {
 }
 
 extension SavedPostListViewModel {
-    func destinationView(_ item: Post) {
+    func didSelectItem(_ item: Post) {
         actions?.showPostDetail(item)
-    }
-
-    func itemView(_ item: Post) {
-        PostListItemView(itemData: item)
     }
 }

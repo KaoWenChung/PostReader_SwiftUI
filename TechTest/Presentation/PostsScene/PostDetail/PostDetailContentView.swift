@@ -35,27 +35,30 @@ struct PostDetailContentView<T>: View where T: PostDetailViewModelType {
             Spacer()
         }
         .navigationBarTitle(Text(viewModel.postData.title), displayMode: .inline)
-        // TODO: Separate the concern
-//        if viewModel.isShowButtons {
-//            let postDIContainer = AppDIContainer.makePostSceneDIContainer()
-//            HStack() {
-//                // TODO: Fix nested Navigation Bars
+        if viewModel.isShowButtons {
+            HStack() {
+                Button {
+                    viewModel.didShowComment()
+                } label: {
+                    Image("text.bubble")
+                    Text("Comment")
+                }
 //                NavigationLink(destination: postDIContainer.makePostCommentContentView(withID: viewModel.postData.id)) {
 //
 //                    Image("text.bubble")
 //                    Text("Comment")
 //                }
-//                .padding(.leading)
-//                Spacer()
-//                Button {
-//                    viewModel.updateSaveStatus()
-//                } label: {
-//                    Image(viewModel.saveButtonImage)
-//                    Text(viewModel.saveButtonTitle)
-//                }
-//                .padding(.trailing)
-//            }
-//        }
+                .padding(.leading)
+                Spacer()
+                Button {
+                    viewModel.updateSaveStatus()
+                } label: {
+                    Image(viewModel.saveButtonImage)
+                    Text(viewModel.saveButtonTitle)
+                }
+                .padding(.trailing)
+            }
+        }
     }
 }
 

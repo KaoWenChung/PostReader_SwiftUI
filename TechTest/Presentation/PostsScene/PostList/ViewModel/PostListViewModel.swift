@@ -16,12 +16,13 @@ struct PostListViewModelActions {
 protocol PostListViewModelInputType {
     func onAppear()
 }
+
 protocol PostListViewModelOutputType: ObservableObject {
     var items: [Post] { get }
     var error: Error? { get }
-    func itemView(_ data: Post)
-    func destinationView(_ item: Post)
+    func didSelectItem(_ item: Post)
 }
+
 protocol PostListViewModelType: PostListViewModelInputType, PostListViewModelOutputType { }
 
 final class PostListViewModel: PostListViewModelType {
@@ -53,11 +54,7 @@ final class PostListViewModel: PostListViewModelType {
 }
 
 extension PostListViewModel {
-    func destinationView(_ item: Post) {
+    func didSelectItem(_ item: Post) {
         actions?.showPostDetail(item)
-    }
-
-    func itemView(_ item: Post) {
-//        PostListItemView(itemData: item)
     }
 }

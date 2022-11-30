@@ -8,7 +8,12 @@
 import Combine
 import Dispatch
 
+struct PostDetailViewModelActions {
+    let showPostComment: (Int) -> Void
+}
+
 protocol PostDetailViewModelInputType {
+    func didShowComment()
     func updateSaveStatus()
     func onAppear()
 }
@@ -24,6 +29,7 @@ protocol PostDetailViewModelType: PostDetailViewModelInputType, PostDetailViewMo
 final class PostDetailViewModel: PostDetailViewModelType {
 
     private let showPostDetailUseCase: ShowPostDetailUseCaseType
+    private let actions: PostDetailViewModelActions?
     private let id: Int
     private var isSaved: Bool = false
     private(set) var isShowButtons: Bool = true
@@ -31,31 +37,13 @@ final class PostDetailViewModel: PostDetailViewModelType {
     @Published private(set) var saveButtonTitle: String = "Loading..."
     @Published private(set) var saveButtonImage: String = "bookmark"
 
-    init(withID id: Int, useCase: ShowPostDetailUseCaseType) {
+    init(withID id: Int,
+         useCase: ShowPostDetailUseCaseType,
+         actions: PostDetailViewModelActions?) {
         self.showPostDetailUseCase = useCase
         self.id = id
         self.postData = Post(id: id, title: "Loading...", body: "Loading...")
-    }
-
-    func onAppear() {
-        checkSaveStatus()
-        // await async performBackgroundTask only works for above iOS 15
-        showPostDetailUseCase.execute(withID: id) { value in
-            DispatchQueue.main.async {
-                self.postData = value
-            }
-        }
-    }
-
-    func updateSaveStatus() {
-        let request = PostsRequest(id: id)
-        if isSaved {
-            showPostDetailUseCase.delete(request)
-        } else {
-            showPostDetailUseCase.save(response: postData, for: request)
-        }
-        isSaved.toggle()
-        updateButtonData()
+        self.actions = actions
     }
 
     private func checkSaveStatus() {
@@ -71,5 +59,32 @@ final class PostDetailViewModel: PostDetailViewModelType {
     private func updateButtonData() {
         saveButtonTitle = isSaved ? "Saved" : "Save"
         saveButtonImage = isSaved ? "bookmark.fill" : "bookmark"
+    }
+}
+
+extension PostDetailViewModel {
+    func didShowComment() {
+        actions?.showPostComment(id)
+    }
+
+    func updateSaveStatus() {
+        let request = PostsRequest(id: id)
+        if isSaved {
+            showPostDetailUseCase.delete(request)
+        } else {
+            showPostDetailUseCase.save(response: postData, for: request)
+        }
+        isSaved.toggle()
+        updateButtonData()
+    }
+
+    func onAppear() {
+        checkSaveStatus()
+        // await async performBackgroundTask only works for above iOS 15
+        showPostDetailUseCase.execute(withID: id) { value in
+            DispatchQueue.main.async {
+                self.postData = value
+            }
+        }
     }
 }

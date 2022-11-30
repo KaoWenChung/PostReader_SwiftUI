@@ -9,9 +9,6 @@ import Combine
 import Dispatch
 
 final class SavedPostDetailViewModel: PostDetailViewModelType {
-    func updateSaveStatus() {}
-    
-    func onAppear() {}
     
     var postData: Post
     private(set) var isShowButtons: Bool = false
@@ -21,4 +18,12 @@ final class SavedPostDetailViewModel: PostDetailViewModelType {
     init(postData: Post) {
         self.postData = postData
     }
+}
+
+extension SavedPostDetailViewModel {
+    func updateSaveStatus() {}
+    
+    func onAppear() {}
+
+    func didShowComment() {}
 }

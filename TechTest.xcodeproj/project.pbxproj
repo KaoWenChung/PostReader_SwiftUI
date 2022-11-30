@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		21090CC1293667860031988D /* TabbarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21090CC0293667860031988D /* TabbarViewModel.swift */; };
-		21090CC3293698360031988D /* AppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21090CC2293698360031988D /* AppFlowCoordinator.swift */; };
-		21090CC72936ADE40031988D /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21090CC62936ADE40031988D /* MainCoordinator.swift */; };
+		21090CC72936ADE40031988D /* AppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21090CC62936ADE40031988D /* AppFlowCoordinator.swift */; };
 		21090CC92936AF470031988D /* CoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21090CC82936AF470031988D /* CoordinatorType.swift */; };
 		210F85382925969800B0EDB1 /* PostListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F85372925969800B0EDB1 /* PostListRepository.swift */; };
 		210F853B2925970200B0EDB1 /* PostsResponseStorageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F853A2925970200B0EDB1 /* PostsResponseStorageType.swift */; };
@@ -83,8 +82,7 @@
 
 /* Begin PBXFileReference section */
 		21090CC0293667860031988D /* TabbarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewModel.swift; sourceTree = "<group>"; };
-		21090CC2293698360031988D /* AppFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowCoordinator.swift; sourceTree = "<group>"; };
-		21090CC62936ADE40031988D /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		21090CC62936ADE40031988D /* AppFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowCoordinator.swift; sourceTree = "<group>"; };
 		21090CC82936AF470031988D /* CoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorType.swift; sourceTree = "<group>"; };
 		210F85372925969800B0EDB1 /* PostListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListRepository.swift; sourceTree = "<group>"; };
 		210F853A2925970200B0EDB1 /* PostsResponseStorageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsResponseStorageType.swift; sourceTree = "<group>"; };
@@ -321,8 +319,7 @@
 				215865BC2926E3E4000FBDD8 /* DIContainer */,
 				FA166B8425ED248300A85D66 /* AppDelegate.swift */,
 				215865BA2926E266000FBDD8 /* AppConfiguration.swift */,
-				21090CC2293698360031988D /* AppFlowCoordinator.swift */,
-				21090CC62936ADE40031988D /* MainCoordinator.swift */,
+				21090CC62936ADE40031988D /* AppFlowCoordinator.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -662,7 +659,7 @@
 				215865B32926CF00000FBDD8 /* PostDetailContentView.swift in Sources */,
 				215865D029270A5A000FBDD8 /* PostDetailViewModel.swift in Sources */,
 				215865F32927364D000FBDD8 /* PostsRequest.swift in Sources */,
-				21090CC72936ADE40031988D /* MainCoordinator.swift in Sources */,
+				21090CC72936ADE40031988D /* AppFlowCoordinator.swift in Sources */,
 				215865AE2926B9DE000FBDD8 /* PostListContentView.swift in Sources */,
 				215865FD2927C5BF000FBDD8 /* ShowSavedPostsUseCase.swift in Sources */,
 				215865E42927276D000FBDD8 /* PostCommentViewModel.swift in Sources */,
@@ -691,7 +688,6 @@
 				21D75A6829379B29008FD6BB /* SavedPostSceneDIContainer.swift in Sources */,
 				215865BE2926E3FC000FBDD8 /* AppDIContainer.swift in Sources */,
 				215865E6292728B0000FBDD8 /* Comment.swift in Sources */,
-				21090CC3293698360031988D /* AppFlowCoordinator.swift in Sources */,
 				21090CC92936AF470031988D /* CoordinatorType.swift in Sources */,
 				215866012927C902000FBDD8 /* SavedPostListRepository.swift in Sources */,
 				21090CC1293667860031988D /* TabbarViewModel.swift in Sources */,
@@ -871,6 +867,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.brighthr.TechTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -890,6 +887,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.brighthr.TechTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

@@ -19,17 +19,12 @@ final class PostSceneDIContainer {
 
     // MARK: - Persistent Storage
     lazy var postsResponseCache: PostsResponseStorageType = CoreDataPostsResponseStorage()
-    lazy var savedPostsResponseCache: SavedPostsResponseStorageType = CoreDataSavedPostsResponseStorage()
 
     // MARK: - UseCase
     func makeShowPostsUseCase() -> ShowPostsUseCaseType {
         return ShowPostsUseCase(postRepository: makePostListRepository())
     }
-
-    func makeShowSavedPostsUseCase() -> ShowSavedPostsUseCaseType {
-        return ShowSavedPostsUseCase(postRepository: makeSavedPostListRepository())
-    }
-
+    
     func makeShowPostDetailUseCase() -> ShowPostDetailUseCaseType {
         return ShowPostDetailUseCase(repository: makePostDetailRepository())
     }
@@ -41,10 +36,6 @@ final class PostSceneDIContainer {
     // MARK: - Repositories
     func makePostListRepository() -> PostListRepositoryType {
         return PostListRepository(dataTransferService: dependencies.dataTransferService)
-    }
-
-    func makeSavedPostListRepository() -> SavedPostListRepositoryType {
-        return SavedPostListRepository(cache: savedPostsResponseCache)
     }
 
     func makePostDetailRepository() -> PostDetailRepositoryType {
@@ -64,31 +55,13 @@ final class PostSceneDIContainer {
         return PostListViewModel(showPostsUseCase: makeShowPostsUseCase(), actions: actions)
     }
 
-    // MARK: - Saved Post List
-    func makeSavedPostListContentView(actions: PostListViewModelActions) -> PostListContentView<SavedPostListViewModel> {
-        return PostListContentView(viewModel: makeSavedPostListViewModel(actions: actions))
-    }
-    
-    func makeSavedPostListViewModel(actions: PostListViewModelActions) -> SavedPostListViewModel {
-        return SavedPostListViewModel(showSavedPostsUseCase: makeShowSavedPostsUseCase(), actions: actions)
-    }
-
     // MARK: - Post Detail
-    func makePostDetailContentView(withID id: Int) -> PostDetailContentView<PostDetailViewModel> {
-        return PostDetailContentView(viewModel: makePostDetailViewModel(withID: id))
+    func makePostDetailContentView(withID id: Int, actions: PostDetailViewModelActions?) -> PostDetailContentView<PostDetailViewModel> {
+        return PostDetailContentView(viewModel: makePostDetailViewModel(withID: id, actions: actions))
     }
     
-    func makePostDetailViewModel(withID id: Int) -> PostDetailViewModel {
-        return PostDetailViewModel(withID: id, useCase: makeShowPostDetailUseCase())
-    }
-
-    // MARK: - Saved Post Detail
-    func makeSavedPostDetailContentView(with content: Post) -> PostDetailContentView<SavedPostDetailViewModel> {
-        return PostDetailContentView(viewModel: makeSavedPostDetailViewModel(with: content))
-    }
-    
-    func makeSavedPostDetailViewModel(with content: Post) -> SavedPostDetailViewModel {
-        return SavedPostDetailViewModel(postData: content)
+    func makePostDetailViewModel(withID id: Int, actions: PostDetailViewModelActions?) -> PostDetailViewModel {
+        return PostDetailViewModel(withID: id, useCase: makeShowPostDetailUseCase(), actions: actions)
     }
 
     // MARK: - Post Comment
@@ -100,7 +73,7 @@ final class PostSceneDIContainer {
         return PostCommentViewModel(withID: id, useCase: makeShowPostCommentUseCase())
     }
     // MARK: - Flow Coordinators
-    func makePostFlowCoordinator(navigationController: UINavigationController? = UINavigationController()) -> PostCoordinator {
+    func makePostFlowCoordinator(navigationController: UINavigationController = UINavigationController()) -> PostCoordinator {
         return PostCoordinator(navigationController: navigationController, dependencies: self)
     }
 
