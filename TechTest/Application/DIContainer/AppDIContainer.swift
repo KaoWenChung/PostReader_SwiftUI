@@ -24,4 +24,10 @@ final class AppDIContainer {
         return PostSceneDIContainer(dependencies: dependencies)
     }
 
+    // MARK: - DIContainers of scenes
+    func makeSavedPostSceneDIContainer() -> SavedPostSceneDIContainer {
+        let dependencies = SavedPostSceneDIContainer.Dependencies(dataTransferService: apiDataTransferService)
+        return SavedPostSceneDIContainer(dependencies: dependencies)
+    }
+
 }

@@ -56,20 +56,20 @@ final class PostSceneDIContainer {
     }
 
     // MARK: - Post List
-    func makePostListContentView<DestinationView: View>(actions: PostListViewModelActions<DestinationView>) -> PostListContentView<PostListViewModel<DestinationView>> {
+    func makePostListContentView(actions: PostListViewModelActions) -> PostListContentView<PostListViewModel> {
         return PostListContentView(viewModel: makePostListViewModel(actions: actions))
     }
     
-    func makePostListViewModel<DestinationView: View>(actions: PostListViewModelActions<DestinationView>) -> PostListViewModel<DestinationView> {
+    func makePostListViewModel(actions: PostListViewModelActions) -> PostListViewModel {
         return PostListViewModel(showPostsUseCase: makeShowPostsUseCase(), actions: actions)
     }
 
     // MARK: - Saved Post List
-    func makeSavedPostListContentView<DestinationView: View>(actions: PostListViewModelActions<DestinationView>) -> PostListContentView<SavedPostListViewModel<DestinationView>> {
+    func makeSavedPostListContentView(actions: PostListViewModelActions) -> PostListContentView<SavedPostListViewModel> {
         return PostListContentView(viewModel: makeSavedPostListViewModel(actions: actions))
     }
     
-    func makeSavedPostListViewModel<DestinationView: View>(actions: PostListViewModelActions<DestinationView>) -> SavedPostListViewModel<DestinationView> {
+    func makeSavedPostListViewModel(actions: PostListViewModelActions) -> SavedPostListViewModel {
         return SavedPostListViewModel(showSavedPostsUseCase: makeShowSavedPostsUseCase(), actions: actions)
     }
 
@@ -99,13 +99,11 @@ final class PostSceneDIContainer {
     func makePostCommentViewModel(withID id: Int) -> PostCommentViewModel {
         return PostCommentViewModel(withID: id, useCase: makeShowPostCommentUseCase())
     }
-
-    // MARK: - Tab bar View
-    func makeTabbarContentView<PostDestinationView: View, SavedPostDestinationView: View>(postListView: PostDestinationView, savedPostListView: SavedPostDestinationView) -> TabbarContentView<PostDestinationView, SavedPostDestinationView> {
-        return TabbarContentView(viewModel: makeTabbarViewModel(postListView: postListView, savedPostListView: savedPostListView))
+    // MARK: - Flow Coordinators
+    func makePostFlowCoordinator(navigationController: UINavigationController? = UINavigationController()) -> PostCoordinator {
+        return PostCoordinator(navigationController: navigationController, dependencies: self)
     }
 
-    func makeTabbarViewModel<PostDestinationView: View, SavedPostDestinationView: View>(postListView: PostDestinationView, savedPostListView: SavedPostDestinationView) -> TabbarViewModel<PostDestinationView, SavedPostDestinationView> {
-        return TabbarViewModel(postListView: postListView, savedPostListView: savedPostListView)
-    }
 }
+
+extension PostSceneDIContainer: PostCoordinatorDependenciesType {}

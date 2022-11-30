@@ -9,33 +9,31 @@ import Combine
 import Dispatch
 import SwiftUI
 
-struct PostListViewModelActions<DestinationView: View> {
-    let showPostDetail: (Post) -> DestinationView
+struct PostListViewModelActions {
+    let showPostDetail: (Post) -> Void
 }
 
 protocol PostListViewModelInputType {
     func onAppear()
 }
 protocol PostListViewModelOutputType: ObservableObject {
-    associatedtype ItemView: View
-    associatedtype DestinationView: View
     var items: [Post] { get }
     var error: Error? { get }
-    func itemView(_ data: Post) -> ItemView
-    func destinationView(_ item: Post) -> DestinationView
+    func itemView(_ data: Post)
+    func destinationView(_ item: Post)
 }
 protocol PostListViewModelType: PostListViewModelInputType, PostListViewModelOutputType { }
 
-final class PostListViewModel<DestinationView: View>: PostListViewModelType {
+final class PostListViewModel: PostListViewModelType {
 
     private let showPostsUseCase: ShowPostsUseCaseType
-    private let actions: PostListViewModelActions<DestinationView>?
+    private let actions: PostListViewModelActions?
 
     @Published private(set) var items: [Post] = []
     @Published private(set) var error: Error?
     
     init(showPostsUseCase: ShowPostsUseCaseType,
-         actions: PostListViewModelActions<DestinationView>?) {
+         actions: PostListViewModelActions?) {
         self.showPostsUseCase = showPostsUseCase
         self.actions = actions
     }
@@ -55,11 +53,11 @@ final class PostListViewModel<DestinationView: View>: PostListViewModelType {
 }
 
 extension PostListViewModel {
-    func destinationView(_ item: Post) -> some View {
-        return actions?.showPostDetail(item)
+    func destinationView(_ item: Post) {
+        actions?.showPostDetail(item)
     }
 
-    func itemView(_ item: Post) -> some View {
-        return PostListItemView(itemData: item)
+    func itemView(_ item: Post) {
+//        PostListItemView(itemData: item)
     }
 }

@@ -12,60 +12,52 @@ enum AppFlow {
     case savePostList
 }
 
-protocol HomeCoordinatorType: CoordinatorType {
+protocol SavedPostCoordinatorType: CoordinatorType {
 }
 
-protocol OrdersCoordinatorType: CoordinatorType {
-}
-
-class HomeCoordinator: HomeCoordinatorType {
+class SavedPostCoordinator: SavedPostCoordinatorType {
     lazy var rootViewController: UIViewController = UIViewController()
+
+    var parentCoordinator: MainCoordinatorType?
     
     func start() -> UIViewController {
         return UIViewController()
     }
-    
-    var parentCoordinator: MainCoordinatorType?
-    
-    
 }
-
-class OrdersCoordinator: OrdersCoordinatorType {
-    lazy var rootViewController: UIViewController = UIViewController()
-    
-    func start() -> UIViewController {
-        return UIViewController()
-    }
-    
-    var parentCoordinator: MainCoordinatorType?
-    
-    
-}
-
 
 protocol MainCoordinatorType: CoordinatorType {
-    var homeCoordinator: HomeCoordinatorType { get }
-    var ordersCoordinator: OrdersCoordinatorType { get }
+    var postCoordinator: PostCoordinatorType? { get }
+    var ordersCoordinator: SavedPostCoordinatorType? { get }
     func moveTo(flow: AppFlow)
 }
 
 final class MainCoordinator: MainCoordinatorType {
     var parentCoordinator: MainCoordinatorType?
+    var postCoordinator: PostCoordinatorType?
+    var ordersCoordinator: SavedPostCoordinatorType?
+    
     lazy var rootViewController: UIViewController = UITabBarController()
-    lazy var homeCoordinator: HomeCoordinatorType = HomeCoordinator()
-    lazy var ordersCoordinator: OrdersCoordinatorType = OrdersCoordinator()
+    
+    private let appDIContainer: AppDIContainer
+
+    init(appDIContainer: AppDIContainer) {
+        self.appDIContainer = appDIContainer
+    }
     
     func start() -> UIViewController {
+        let postSceneDIContainer = appDIContainer.makePostSceneDIContainer()
+        let flow = postSceneDIContainer.makePostFlowCoordinator()
+        flow.parentCoordinator = self
+        postCoordinator = flow
+        let postViewController = flow.start()
         
-        let homeViewController = homeCoordinator.start()
-        homeCoordinator.parentCoordinator = self
-        homeViewController.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "homekit"), tag: 0)
+        postViewController.tabBarItem = UITabBarItem(title: "Post", image: UIImage(systemName: "newspaper.fill"), tag: 0)
+
+        let ordersViewController = ordersCoordinator!.start()
+        ordersCoordinator?.parentCoordinator = self
+        ordersViewController.tabBarItem = UITabBarItem(title: "Bookmark", image: UIImage(systemName: "book.fill"), tag: 1)
         
-        let ordersViewController = ordersCoordinator.start()
-        ordersCoordinator.parentCoordinator = self
-        ordersViewController.tabBarItem = UITabBarItem(title: "Orders", image: UIImage(systemName: "doc.plaintext"), tag: 1)
-        
-        (rootViewController as? UITabBarController)?.viewControllers = [homeViewController,ordersViewController]
+        (rootViewController as? UITabBarController)?.viewControllers = [postViewController, ordersViewController]
         
         return rootViewController
     }
@@ -79,7 +71,7 @@ final class MainCoordinator: MainCoordinatorType {
     }
 
     func resetToRoot() -> Self {
-        homeCoordinator.resetToRoot()
+        postCoordinator?.resetToRoot()
         moveTo(flow: .postList)
         return self
     }

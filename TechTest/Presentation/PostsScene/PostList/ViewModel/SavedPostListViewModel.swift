@@ -8,16 +8,16 @@
 import SwiftUI
 import Dispatch
 
-final class SavedPostListViewModel<DestinationView: View>: PostListViewModelType {
+final class SavedPostListViewModel: PostListViewModelType {
 
     private let showSavedPostsUseCase: ShowSavedPostsUseCaseType
-    private let actions: PostListViewModelActions<DestinationView>?
+    private let actions: PostListViewModelActions?
 
     @Published private(set) var items: [Post] = []
     @Published private(set) var error: Error?
     
     init(showSavedPostsUseCase: ShowSavedPostsUseCaseType,
-         actions: PostListViewModelActions<DestinationView>?) {
+         actions: PostListViewModelActions?) {
         self.showSavedPostsUseCase = showSavedPostsUseCase
         self.actions = actions
     }
@@ -32,11 +32,11 @@ final class SavedPostListViewModel<DestinationView: View>: PostListViewModelType
 }
 
 extension SavedPostListViewModel {
-    func destinationView(_ item: Post) -> some View {
-        return actions?.showPostDetail(item)
+    func destinationView(_ item: Post) {
+        actions?.showPostDetail(item)
     }
 
-    func itemView(_ item: Post) -> some View {
-        return PostListItemView(itemData: item)
+    func itemView(_ item: Post) {
+        PostListItemView(itemData: item)
     }
 }

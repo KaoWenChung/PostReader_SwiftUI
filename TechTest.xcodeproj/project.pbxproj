@@ -58,6 +58,8 @@
 		219DF04C292AEE8900A7864F /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F85452925994000B0EDB1 /* Endpoint.swift */; };
 		219DF04E292AF5F500A7864F /* NetworkSessionManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219DF04D292AF5F500A7864F /* NetworkSessionManagerMock.swift */; };
 		21C67347292D118900279C28 /* PostListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C67346292D118900279C28 /* PostListViewModelTests.swift */; };
+		21D75A6829379B29008FD6BB /* SavedPostSceneDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D75A6729379B29008FD6BB /* SavedPostSceneDIContainer.swift */; };
+		21D75A6B2937A406008FD6BB /* PostCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D75A6A2937A406008FD6BB /* PostCoordinator.swift */; };
 		21F31BF3292AE3AD0044600E /* DataTransferServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F31BF2292AE3AD0044600E /* DataTransferServiceTests.swift */; };
 		21F31BF8292AE4750044600E /* NetworkConfigurableMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F31BF7292AE4750044600E /* NetworkConfigurableMock.swift */; };
 		21F31BF9292AE4EC0044600E /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F8547292599D600B0EDB1 /* NetworkConfig.swift */; };
@@ -127,6 +129,8 @@
 		215866072927E255000FBDD8 /* SavedPostDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPostDetailViewModel.swift; sourceTree = "<group>"; };
 		219DF04D292AF5F500A7864F /* NetworkSessionManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionManagerMock.swift; sourceTree = "<group>"; };
 		21C67346292D118900279C28 /* PostListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewModelTests.swift; sourceTree = "<group>"; };
+		21D75A6729379B29008FD6BB /* SavedPostSceneDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPostSceneDIContainer.swift; sourceTree = "<group>"; };
+		21D75A6A2937A406008FD6BB /* PostCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCoordinator.swift; sourceTree = "<group>"; };
 		21F31BF2292AE3AD0044600E /* DataTransferServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferServiceTests.swift; sourceTree = "<group>"; };
 		21F31BF7292AE4750044600E /* NetworkConfigurableMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfigurableMock.swift; sourceTree = "<group>"; };
 		2DBA1E2729C46B346322DC92 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -325,6 +329,7 @@
 			children = (
 				215865BD2926E3FC000FBDD8 /* AppDIContainer.swift */,
 				215865BF2926E4F2000FBDD8 /* PostSceneDIContainer.swift */,
+				21D75A6729379B29008FD6BB /* SavedPostSceneDIContainer.swift */,
 			);
 			path = DIContainer;
 			sourceTree = "<group>";
@@ -377,6 +382,7 @@
 		215865DB29271741000FBDD8 /* PostsScene */ = {
 			isa = PBXGroup;
 			children = (
+				21D75A692937A3F9008FD6BB /* Flows */,
 				210F85522926758600B0EDB1 /* Cells */,
 				215865F72927B9C8000FBDD8 /* Tabbar */,
 				210F854F2926738C00B0EDB1 /* PostList */,
@@ -435,6 +441,14 @@
 				215866052927CB66000FBDD8 /* CoreDataSavedPostsResponseStorage.swift */,
 			);
 			path = SavedPostsResponseStorage;
+			sourceTree = "<group>";
+		};
+		21D75A692937A3F9008FD6BB /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				21D75A6A2937A406008FD6BB /* PostCoordinator.swift */,
+			);
+			path = Flows;
 			sourceTree = "<group>";
 		};
 		21F31BF4292AE4350044600E /* Infrastructure */ = {
@@ -634,6 +648,7 @@
 				215865FD2927C5BF000FBDD8 /* ShowSavedPostsUseCase.swift in Sources */,
 				215865E42927276D000FBDD8 /* PostCommentViewModel.swift in Sources */,
 				215865F629273977000FBDD8 /* PostsResponseEntity+Mapping.swift in Sources */,
+				21D75A6B2937A406008FD6BB /* PostCoordinator.swift in Sources */,
 				215865C22926F2B1000FBDD8 /* APIEndpoints.swift in Sources */,
 				210F853E2925985200B0EDB1 /* CoreDataStorage.swift in Sources */,
 				215866062927CB66000FBDD8 /* CoreDataSavedPostsResponseStorage.swift in Sources */,
@@ -653,6 +668,7 @@
 				215865FF2927C822000FBDD8 /* SavedPostListRepositoryType.swift in Sources */,
 				210F85382925969800B0EDB1 /* PostListRepository.swift in Sources */,
 				215865EC29272990000FBDD8 /* PostCommentRepositoryType.swift in Sources */,
+				21D75A6829379B29008FD6BB /* SavedPostSceneDIContainer.swift in Sources */,
 				215865BE2926E3FC000FBDD8 /* AppDIContainer.swift in Sources */,
 				215865E6292728B0000FBDD8 /* Comment.swift in Sources */,
 				21090CC3293698360031988D /* AppFlowCoordinator.swift in Sources */,
