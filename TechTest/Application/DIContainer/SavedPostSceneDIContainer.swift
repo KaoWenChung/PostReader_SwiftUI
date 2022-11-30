@@ -50,5 +50,12 @@ final class SavedPostSceneDIContainer {
     func makeSavedPostDetailViewModel(with content: Post) -> SavedPostDetailViewModel {
         return SavedPostDetailViewModel(postData: content)
     }
+    
+    // MARK: - Flow Coordinators
+    func makeSavedPostFlowCoordinator(navigationController: UINavigationController? = UINavigationController()) -> SavedPostCoordinator {
+        return SavedPostCoordinator(navigationController: navigationController, dependencies: self)
+    }
 
 }
+
+extension SavedPostSceneDIContainer: SavedPostCoordinatorDependenciesType {}
