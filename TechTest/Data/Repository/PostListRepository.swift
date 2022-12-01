@@ -20,6 +20,6 @@ extension PostListRepository: PostListRepositoryType {
         let endpoint = APIEndpoints.getPostList()
         let (data, taskCancelable) = try await dataTransferService.request(with: endpoint)
         task.networkTask = taskCancelable
-        return (data, task)
+        return (data.toDomain(), task)
     }
 }

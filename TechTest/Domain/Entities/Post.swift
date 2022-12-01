@@ -2,8 +2,8 @@
 // Created by Alex Jackson on 01/03/2021.
 //
 
-struct Post: Identifiable, Equatable, Codable {
+struct Post: Identifiable, Equatable {
     let id: Int
-    var title: String
-    var body: String
+    let title: String
+    let body: String
 }

@@ -44,7 +44,7 @@ extension PostDetailRepository: PostDetailRepositoryType {
             Task.init {
                 let endpoint = APIEndpoints.getPostDetail(withID: id)
                 let (data, _) = try await self.dataTransferService.request(with: endpoint)
-                completion(data)
+                completion(data.toDomain())
             }
             
         }

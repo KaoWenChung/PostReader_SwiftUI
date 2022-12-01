@@ -18,6 +18,6 @@ extension PostCommentRepository: PostCommentRepositoryType {
     func fetchPostComment(withID id: Int) async throws -> [Comment] {
         let endpoint = APIEndpoints.getPostComment(withID: id)
         let (data, _) = try await dataTransferService.request(with: endpoint)
-        return data
+        return data.toDomain()
     }
 }

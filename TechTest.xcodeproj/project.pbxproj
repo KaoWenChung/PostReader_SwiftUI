@@ -22,6 +22,8 @@
 		211E0A292939057B00D56D4E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 211E0A2B2939057B00D56D4E /* Localizable.strings */; };
 		211E0A2D2939076500D56D4E /* CommonString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211E0A2C2939076500D56D4E /* CommonString.swift */; };
 		211E0A2F29390D3C00D56D4E /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211E0A2E29390D3C00D56D4E /* NetworkServiceTests.swift */; };
+		211E0A3129390FF200D56D4E /* CommentResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211E0A3029390FF200D56D4E /* CommentResponseDTO.swift */; };
+		211E0A33293911AF00D56D4E /* PostResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211E0A32293911AF00D56D4E /* PostResponseDTO.swift */; };
 		215865AE2926B9DE000FBDD8 /* PostListContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865AD2926B9DE000FBDD8 /* PostListContentView.swift */; };
 		215865B02926CA05000FBDD8 /* PostListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865AF2926CA05000FBDD8 /* PostListItemView.swift */; };
 		215865B32926CF00000FBDD8 /* PostDetailContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865B22926CF00000FBDD8 /* PostDetailContentView.swift */; };
@@ -97,6 +99,8 @@
 		211E0A2A2939057B00D56D4E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		211E0A2C2939076500D56D4E /* CommonString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonString.swift; sourceTree = "<group>"; };
 		211E0A2E29390D3C00D56D4E /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
+		211E0A3029390FF200D56D4E /* CommentResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentResponseDTO.swift; sourceTree = "<group>"; };
+		211E0A32293911AF00D56D4E /* PostResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostResponseDTO.swift; sourceTree = "<group>"; };
 		215865AD2926B9DE000FBDD8 /* PostListContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListContentView.swift; sourceTree = "<group>"; };
 		215865AF2926CA05000FBDD8 /* PostListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListItemView.swift; sourceTree = "<group>"; };
 		215865B22926CF00000FBDD8 /* PostDetailContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailContentView.swift; sourceTree = "<group>"; };
@@ -416,6 +420,8 @@
 			isa = PBXGroup;
 			children = (
 				215865F22927364D000FBDD8 /* PostsRequest.swift */,
+				211E0A3029390FF200D56D4E /* CommentResponseDTO.swift */,
+				211E0A32293911AF00D56D4E /* PostResponseDTO.swift */,
 			);
 			path = DataMapping;
 			sourceTree = "<group>";
@@ -672,8 +678,10 @@
 				215865C22926F2B1000FBDD8 /* APIEndpoints.swift in Sources */,
 				210F853E2925985200B0EDB1 /* CoreDataStorage.swift in Sources */,
 				215866062927CB66000FBDD8 /* CoreDataSavedPostsResponseStorage.swift in Sources */,
+				211E0A33293911AF00D56D4E /* PostResponseDTO.swift in Sources */,
 				215866042927CB0B000FBDD8 /* SavedPostsResponseStorage.swift in Sources */,
 				FA166B8525ED248300A85D66 /* AppDelegate.swift in Sources */,
+				211E0A3129390FF200D56D4E /* CommentResponseDTO.swift in Sources */,
 				2DBA14523B0FC3A3D13330EE /* Post.swift in Sources */,
 				215865D729270DD1000FBDD8 /* PostDetailRepositoryType.swift in Sources */,
 				215865E129272236000FBDD8 /* PostCommentContentView.swift in Sources */,
