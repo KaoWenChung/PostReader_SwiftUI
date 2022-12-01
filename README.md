@@ -22,13 +22,14 @@
 - MVVM
 - Clean Architecture
 - Concurrency
+- Coordinator
 - Core Data
 - Offline
-- Unit testing(WIP)
+- Unit testing
 
 ## To-Do list of features and time I need:
-- [ ] Implement Unit testing - 2 hour
-- [ ] Fix TODO items - 1 hour
+- [ ] Improve the coverage of unit testing - 2 hour
+- [v] Fix TODO items - 1 hour
 - [ ] Implement Error Handling - 1 hour
 - [ ] present the number of offline posts the bar button - 1 hour
 - [ ] Implement the offline comment of post - 1 hour
