@@ -21,10 +21,6 @@ final class PostCoordinator: PostCoordinatorType {
     let navigationController: UINavigationController
     private let dependencies: PostCoordinatorDependenciesType
     
-    lazy var rootViewController: UIViewController = UIViewController()
-    
-    var parentCoordinator: AppFlowCoordinator?
-    
     init(navigationController: UINavigationController = .init(),
          dependencies: PostCoordinatorDependenciesType) {
         self.navigationController = navigationController

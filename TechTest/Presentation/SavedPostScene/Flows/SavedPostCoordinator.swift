@@ -20,10 +20,6 @@ final class SavedPostCoordinator: SavedPostCoordinatorType {
     let navigationController: UINavigationController
     private let dependencies: SavedPostCoordinatorDependenciesType
     
-    lazy var rootViewController: UIViewController = UIViewController()
-    
-    var parentCoordinator: AppFlowCoordinator?
-    
     init(navigationController: UINavigationController = .init(),
          dependencies: SavedPostCoordinatorDependenciesType) {
         self.navigationController = navigationController
