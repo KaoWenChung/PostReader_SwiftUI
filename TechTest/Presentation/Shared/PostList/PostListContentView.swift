@@ -22,7 +22,7 @@ struct PostListContentView<T>: View where T: PostListViewModelType {
                 }
             
         }
-        .navigationBarTitle(Text("All Posts"), displayMode: .inline)
+        .navigationBarTitle(Text(CommonString.allPosts.text), displayMode: .inline)
         .listStyle(.plain)
         .onAppear {
             self.viewModel.onAppear()

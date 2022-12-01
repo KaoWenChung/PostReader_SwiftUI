@@ -18,7 +18,7 @@ struct PostCommentContentView<T>: View where T: PostCommentViewModelType{
         List(viewModel.items) { item in
             PostListItemView(commentData: item)
         }
-        .navigationBarTitle(Text("All Comments"), displayMode: .inline)
+        .navigationBarTitle(Text(CommonString.allComments.text), displayMode: .inline)
         .listStyle(.plain)
         .onAppear {
             self.viewModel.onAppear()

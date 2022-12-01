@@ -13,6 +13,10 @@ protocol AppFlowCoordinatorType: CoordinatorType {
 }
 
 final class AppFlowCoordinator: AppFlowCoordinatorType {
+    enum TabbarTitle: LocallizedString {
+        case post
+        case bookMark
+    }
     var postCoordinator: PostCoordinatorType?
     var savedPostCoordinator: SavedPostCoordinatorType?
     
@@ -28,14 +32,14 @@ final class AppFlowCoordinator: AppFlowCoordinatorType {
         postCoordinator = postFlow
         let postViewController = postFlow.start()
         
-        postViewController.tabBarItem = UITabBarItem(title: "Post", image: UIImage(systemName: "newspaper.fill"), tag: 0)
+        postViewController.tabBarItem = UITabBarItem(title: TabbarTitle.post.text, image: UIImage(systemName: "newspaper.fill"), tag: 0)
 
         let savedPostSceneDIContainer = appDIContainer.makeSavedPostSceneDIContainer()
         let savedPostFlow = savedPostSceneDIContainer.makeSavedPostFlowCoordinator()
         savedPostCoordinator = savedPostFlow
         let ordersViewController = savedPostFlow.start()
         
-        ordersViewController.tabBarItem = UITabBarItem(title: "Bookmark", image: UIImage(systemName: "book.fill"), tag: 1)
+        ordersViewController.tabBarItem = UITabBarItem(title: TabbarTitle.bookMark.text, image: UIImage(systemName: "book.fill"), tag: 1)
         
         let rootViewController = UITabBarController()
         rootViewController.viewControllers = [postViewController, ordersViewController]

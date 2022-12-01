@@ -41,7 +41,7 @@ struct PostDetailContentView<T>: View where T: PostDetailViewModelType {
                     viewModel.didShowComment()
                 } label: {
                     Image("text.bubble")
-                    Text("Comment")
+                    Text(CommonString.comment.text)
                 }
                 .padding(.leading)
                 Spacer()

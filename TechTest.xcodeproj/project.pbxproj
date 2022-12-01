@@ -18,6 +18,9 @@
 		210F8548292599D600B0EDB1 /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F8547292599D600B0EDB1 /* NetworkConfig.swift */; };
 		210F854B2925AC4500B0EDB1 /* CoreDataStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 210F85492925AC4500B0EDB1 /* CoreDataStorage.xcdatamodeld */; };
 		210F8554292675B800B0EDB1 /* PostListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F8553292675B800B0EDB1 /* PostListViewModel.swift */; };
+		211E0A26293903C800D56D4E /* LocalString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211E0A25293903C800D56D4E /* LocalString.swift */; };
+		211E0A292939057B00D56D4E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 211E0A2B2939057B00D56D4E /* Localizable.strings */; };
+		211E0A2D2939076500D56D4E /* CommonString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211E0A2C2939076500D56D4E /* CommonString.swift */; };
 		215865AE2926B9DE000FBDD8 /* PostListContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865AD2926B9DE000FBDD8 /* PostListContentView.swift */; };
 		215865B02926CA05000FBDD8 /* PostListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865AF2926CA05000FBDD8 /* PostListItemView.swift */; };
 		215865B32926CF00000FBDD8 /* PostDetailContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865B22926CF00000FBDD8 /* PostDetailContentView.swift */; };
@@ -90,6 +93,9 @@
 		210F8547292599D600B0EDB1 /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
 		210F854A2925AC4500B0EDB1 /* CoreDataStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataStorage.xcdatamodel; sourceTree = "<group>"; };
 		210F8553292675B800B0EDB1 /* PostListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewModel.swift; sourceTree = "<group>"; };
+		211E0A25293903C800D56D4E /* LocalString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalString.swift; sourceTree = "<group>"; };
+		211E0A2A2939057B00D56D4E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		211E0A2C2939076500D56D4E /* CommonString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonString.swift; sourceTree = "<group>"; };
 		215865AD2926B9DE000FBDD8 /* PostListContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListContentView.swift; sourceTree = "<group>"; };
 		215865AF2926CA05000FBDD8 /* PostListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListItemView.swift; sourceTree = "<group>"; };
 		215865B22926CF00000FBDD8 /* PostDetailContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailContentView.swift; sourceTree = "<group>"; };
@@ -161,6 +167,8 @@
 		21090CC42936AB7A0031988D /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				211E0A24293903BD00D56D4E /* LocalString */,
+				215865C92926F531000FBDD8 /* CancellableType.swift */,
 				21090CC52936AB8A0031988D /* Coordinator */,
 			);
 			path = Support;
@@ -290,6 +298,16 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
+		211E0A24293903BD00D56D4E /* LocalString */ = {
+			isa = PBXGroup;
+			children = (
+				211E0A25293903C800D56D4E /* LocalString.swift */,
+				211E0A2C2939076500D56D4E /* CommonString.swift */,
+				211E0A2B2939057B00D56D4E /* Localizable.strings */,
+			);
+			path = LocalString;
+			sourceTree = "<group>";
+		};
 		215865B12926CEDE000FBDD8 /* PostDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,14 +347,6 @@
 				21D75A6729379B29008FD6BB /* SavedPostSceneDIContainer.swift */,
 			);
 			path = DIContainer;
-			sourceTree = "<group>";
-		};
-		215865C82926F526000FBDD8 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				215865C92926F531000FBDD8 /* CancellableType.swift */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		215865CB2926F566000FBDD8 /* Utils */ = {
@@ -520,7 +530,6 @@
 				FA166B8D25ED248300A85D66 /* Assets.xcassets */,
 				FA166B8F25ED248300A85D66 /* LaunchScreen.storyboard */,
 				FA166B9225ED248300A85D66 /* Info.plist */,
-				215865C82926F526000FBDD8 /* Common */,
 				215865B92926E25A000FBDD8 /* Application */,
 				21090CC42936AB7A0031988D /* Support */,
 				210F855529267AA400B0EDB1 /* Domain */,
@@ -624,6 +633,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA166B9125ED248300A85D66 /* LaunchScreen.storyboard in Resources */,
+				211E0A292939057B00D56D4E /* Localizable.strings in Resources */,
 				FA166B8E25ED248300A85D66 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -674,11 +684,13 @@
 				210F854B2925AC4500B0EDB1 /* CoreDataStorage.xcdatamodeld in Sources */,
 				210F8542292598EE00B0EDB1 /* DataTransferService.swift in Sources */,
 				215865B02926CA05000FBDD8 /* PostListItemView.swift in Sources */,
+				211E0A26293903C800D56D4E /* LocalString.swift in Sources */,
 				21D75A6F2937AD58008FD6BB /* SavedPostCoordinator.swift in Sources */,
 				215865FF2927C822000FBDD8 /* SavedPostListRepositoryType.swift in Sources */,
 				210F85382925969800B0EDB1 /* PostListRepository.swift in Sources */,
 				215865EC29272990000FBDD8 /* PostCommentRepositoryType.swift in Sources */,
 				21D75A6829379B29008FD6BB /* SavedPostSceneDIContainer.swift in Sources */,
+				211E0A2D2939076500D56D4E /* CommonString.swift in Sources */,
 				215865BE2926E3FC000FBDD8 /* AppDIContainer.swift in Sources */,
 				215865E6292728B0000FBDD8 /* Comment.swift in Sources */,
 				21090CC92936AF470031988D /* CoordinatorType.swift in Sources */,
@@ -720,6 +732,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		211E0A2B2939057B00D56D4E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				211E0A2A2939057B00D56D4E /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		FA166B8F25ED248300A85D66 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

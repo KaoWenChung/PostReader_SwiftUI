@@ -34,7 +34,7 @@ final class PostDetailViewModel: PostDetailViewModelType {
     private var isSaved: Bool = false
     private(set) var isShowButtons: Bool = true
     @Published private(set) var postData: Post
-    @Published private(set) var saveButtonTitle: String = "Loading..."
+    @Published private(set) var saveButtonTitle: String = CommonString.loading.text
     @Published private(set) var saveButtonImage: String = "bookmark"
 
     init(withID id: Int,
@@ -42,7 +42,7 @@ final class PostDetailViewModel: PostDetailViewModelType {
          actions: PostDetailViewModelActions?) {
         self.showPostDetailUseCase = useCase
         self.id = id
-        self.postData = Post(id: id, title: "Loading...", body: "Loading...")
+        self.postData = Post(id: id, title: CommonString.loading.text, body: CommonString.loading.text)
         self.actions = actions
     }
 
@@ -57,7 +57,7 @@ final class PostDetailViewModel: PostDetailViewModelType {
     }
 
     private func updateButtonData() {
-        saveButtonTitle = isSaved ? "Saved" : "Save"
+        saveButtonTitle = isSaved ? CommonString.saved.text : CommonString.save.text
         saveButtonImage = isSaved ? "bookmark.fill" : "bookmark"
     }
 }
