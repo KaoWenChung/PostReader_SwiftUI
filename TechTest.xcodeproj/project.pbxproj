@@ -21,6 +21,7 @@
 		211E0A26293903C800D56D4E /* LocalString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211E0A25293903C800D56D4E /* LocalString.swift */; };
 		211E0A292939057B00D56D4E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 211E0A2B2939057B00D56D4E /* Localizable.strings */; };
 		211E0A2D2939076500D56D4E /* CommonString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211E0A2C2939076500D56D4E /* CommonString.swift */; };
+		211E0A2F29390D3C00D56D4E /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211E0A2E29390D3C00D56D4E /* NetworkServiceTests.swift */; };
 		215865AE2926B9DE000FBDD8 /* PostListContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865AD2926B9DE000FBDD8 /* PostListContentView.swift */; };
 		215865B02926CA05000FBDD8 /* PostListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865AF2926CA05000FBDD8 /* PostListItemView.swift */; };
 		215865B32926CF00000FBDD8 /* PostDetailContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865B22926CF00000FBDD8 /* PostDetailContentView.swift */; };
@@ -68,7 +69,6 @@
 		FA166B8525ED248300A85D66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA166B8425ED248300A85D66 /* AppDelegate.swift */; };
 		FA166B8E25ED248300A85D66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA166B8D25ED248300A85D66 /* Assets.xcassets */; };
 		FA166B9125ED248300A85D66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA166B8F25ED248300A85D66 /* LaunchScreen.storyboard */; };
-		FA166B9C25ED248400A85D66 /* TechTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA166B9B25ED248400A85D66 /* TechTestTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +96,7 @@
 		211E0A25293903C800D56D4E /* LocalString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalString.swift; sourceTree = "<group>"; };
 		211E0A2A2939057B00D56D4E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		211E0A2C2939076500D56D4E /* CommonString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonString.swift; sourceTree = "<group>"; };
+		211E0A2E29390D3C00D56D4E /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		215865AD2926B9DE000FBDD8 /* PostListContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListContentView.swift; sourceTree = "<group>"; };
 		215865AF2926CA05000FBDD8 /* PostListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListItemView.swift; sourceTree = "<group>"; };
 		215865B22926CF00000FBDD8 /* PostDetailContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailContentView.swift; sourceTree = "<group>"; };
@@ -142,7 +143,6 @@
 		FA166B9025ED248300A85D66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA166B9225ED248300A85D66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA166B9725ED248400A85D66 /* TechTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TechTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA166B9B25ED248400A85D66 /* TechTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechTestTests.swift; sourceTree = "<group>"; };
 		FA166B9D25ED248400A85D66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -544,9 +544,9 @@
 			isa = PBXGroup;
 			children = (
 				21F31BF4292AE4350044600E /* Infrastructure */,
-				FA166B9B25ED248400A85D66 /* TechTestTests.swift */,
 				21C67346292D118900279C28 /* PostListViewModelTests.swift */,
 				21F31BF2292AE3AD0044600E /* DataTransferServiceTests.swift */,
+				211E0A2E29390D3C00D56D4E /* NetworkServiceTests.swift */,
 				FA166B9D25ED248400A85D66 /* Info.plist */,
 			);
 			path = TechTestTests;
@@ -716,8 +716,8 @@
 				21F31BF3292AE3AD0044600E /* DataTransferServiceTests.swift in Sources */,
 				219DF04E292AF5F500A7864F /* NetworkSessionManagerMock.swift in Sources */,
 				21F31BF9292AE4EC0044600E /* NetworkConfig.swift in Sources */,
+				211E0A2F29390D3C00D56D4E /* NetworkServiceTests.swift in Sources */,
 				21C67347292D118900279C28 /* PostListViewModelTests.swift in Sources */,
-				FA166B9C25ED248400A85D66 /* TechTestTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

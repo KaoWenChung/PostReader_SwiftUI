@@ -7,9 +7,10 @@
 
 import Foundation
 
-public typealias TaskCancellable = Task<(Data, URLResponse), Error>
+public typealias URLTask = Task<(Data, URLResponse), Error>
 
 public enum NetworkError: Error {
+    case error(statusCode: Int, data: Data?)
     case notConnected
     case cancelled
     case generic(Error)
@@ -18,7 +19,7 @@ public enum NetworkError: Error {
 
 public protocol NetworkServiceType {
     @discardableResult
-    func request(endpoint: RequestableType) throws -> TaskCancellable
+    func request(endpoint: RequestableType) throws -> URLTask
 }
 
 public protocol NetworkSessionManagerType {
@@ -49,10 +50,13 @@ public struct NetworkService {
         self.logger = logger
     }
     
-    private func request(request: URLRequest) -> TaskCancellable {
+    private func request(request: URLRequest) -> URLTask {
         let task = Task {
             do {
                 let (data, response) = try await sessionManager.request(request)
+                if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 200 {
+                    throw NetworkError.error(statusCode: httpResponse.statusCode, data: data)
+                  }
                 logger.log(responseData: data, response: response)
                 logger.log(request: request)
                 return (data, response)
@@ -77,7 +81,7 @@ public struct NetworkService {
 
 extension NetworkService: NetworkServiceType {
     @discardableResult
-    public func request(endpoint: RequestableType) throws -> TaskCancellable {
+    public func request(endpoint: RequestableType) throws -> URLTask {
         do {
             let urlRequest = try endpoint.urlRequest(with: config)
             return request(request: urlRequest)

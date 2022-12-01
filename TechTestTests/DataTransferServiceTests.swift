@@ -15,14 +15,13 @@ private struct MockResponseData: Decodable {
 // MARK: - Tests
 final class DataTransferServiceTests: XCTestCase {
 
-    private let mockEndpoint = Endpoint<MockResponseData>(path: "https://mock.endpoint.com", method: .get)
-
     func testReceivedValidJSONResponse_decodeResponseToObject() {
         let expectation = expectation(description: "should decode response to object")
         let sut = makeSUT(mockData: #"{"name": "Mike"}"#)
         // when
         Task.init {
             do {
+                let mockEndpoint = Endpoint<MockResponseData>(path: "https://mock.endpoint.com", method: .get)
                 let (value, _) = try await sut.request(with: mockEndpoint)
                 XCTAssertEqual(value.name, "Mike")
                 expectation.fulfill()
@@ -40,6 +39,7 @@ final class DataTransferServiceTests: XCTestCase {
         // when
         Task.init {
             do {
+                let mockEndpoint = Endpoint<MockResponseData>(path: "https://mock.endpoint.com", method: .get)
                 let (_, _) = try await sut.request(with: mockEndpoint)
                 XCTFail("Should not successfully decode data")
             } catch {
@@ -54,9 +54,8 @@ final class DataTransferServiceTests: XCTestCase {
         // given
         let mockConfig = NetworkConfigurableMock()
         let mockData = mockData.data(using: .utf8)
-        let mockSessionManager = NetworkSessionManagerMock(response: HTTPURLResponse(), data: mockData!)
+        let mockSessionManager = NetworkSessionManagerMock(response: HTTPURLResponse(), data: mockData!, error: nil, expectation: nil)
         let networkService = NetworkService(config: mockConfig, sessionManager: mockSessionManager)
-        let mockEndpoint = Endpoint<MockResponseData>(path: "https://mock.endpoint.com", method: .get)
         
         return DataTransferService(networkService: networkService)
     }
