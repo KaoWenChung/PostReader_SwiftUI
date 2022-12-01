@@ -9,6 +9,7 @@ import SwiftUI
 
 protocol SavedPostCoordinatorDependenciesType {
     func makeSavedPostListContentView(actions: PostListViewModelActions) -> PostListContentView<SavedPostListViewModel>
+    func makeSavedPostDetailContentView(with content: Post) -> PostDetailContentView<SavedPostDetailViewModel>
 }
 
 protocol SavedPostCoordinatorType: CoordinatorType {
@@ -37,8 +38,8 @@ final class SavedPostCoordinator: SavedPostCoordinatorType {
     }
 
     private func showSavedPostDetails(_ post: Post) {
-//        let contentView = dependencies.makePostDetailContentView(withID: post.id, actions: PostDetailViewModelActions(showPostComment: showPostComments))
-//        let vc = UIHostingController(rootView: contentView)
-//        navigationController.pushViewController(vc, animated: true)
+        let contentView = dependencies.makeSavedPostDetailContentView(with: post)
+        let vc = UIHostingController(rootView: contentView)
+        navigationController.pushViewController(vc, animated: true)
     }
 }
