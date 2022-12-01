@@ -43,11 +43,6 @@ struct PostDetailContentView<T>: View where T: PostDetailViewModelType {
                     Image("text.bubble")
                     Text("Comment")
                 }
-//                NavigationLink(destination: postDIContainer.makePostCommentContentView(withID: viewModel.postData.id)) {
-//
-//                    Image("text.bubble")
-//                    Text("Comment")
-//                }
                 .padding(.leading)
                 Spacer()
                 Button {
@@ -62,10 +57,11 @@ struct PostDetailContentView<T>: View where T: PostDetailViewModelType {
     }
 }
 
-//struct PostDetailContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        let postDIContainer = AppDIContainer.makePostSceneDIContainer()
-//        return postDIContainer.makePostDetailContentView(withID: 1)
-//    }
-//}
-
+#if DEBUG
+struct PostDetailContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        let postDIContainer = AppDIContainer().makePostSceneDIContainer()
+        return postDIContainer.makePostDetailContentView(withID: 1, actions: nil)
+    }
+}
+#endif

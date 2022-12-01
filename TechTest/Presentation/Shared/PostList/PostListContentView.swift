@@ -23,20 +23,6 @@ struct PostListContentView<T>: View where T: PostListViewModelType {
             
         }
         .navigationBarTitle(Text("All Posts"), displayMode: .inline)
-//        NavigationView {
-            
-//                if viewModel is PostListViewModel {
-//                    let contentView = postDIContainer.makePostDetailContentView(withID: item.id)
-//                    NavigationLink(destination: contentView) {
-//                        PostListItemView(itemData: item)
-//                    }
-//                } else {
-//                    let contentView = postDIContainer.makeSavedPostDetailContentView(with: item)
-//                    NavigationLink(destination: contentView) {
-//                        PostListItemView(itemData: item)
-//                    }
-//                }
-//        }
         .listStyle(.plain)
         .onAppear {
             self.viewModel.onAppear()
@@ -46,10 +32,11 @@ struct PostListContentView<T>: View where T: PostListViewModelType {
 
 
 
-
-//struct SwiftUIView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        let postDIContainer = AppDIContainer.makePostSceneDIContainer()
-//        return postDIContainer.makePostListContentView()
-//    }
-//}
+#if DEBUG
+struct SwiftUIView_Previews: PreviewProvider {
+    static var previews: some View {
+        let postDIContainer = AppDIContainer().makePostSceneDIContainer()
+        return postDIContainer.makePostListContentView(actions: PostListViewModelActions(showPostDetail: { _ in }))
+    }
+}
+#endif

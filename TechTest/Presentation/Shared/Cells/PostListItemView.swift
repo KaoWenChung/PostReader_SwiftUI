@@ -25,8 +25,10 @@ struct PostListItemView: View {
     }
 }
 
+#if DEBUG
 struct PostListItemView_Previews: PreviewProvider {
     static var previews: some View {
         PostListItemView(itemData: Post(id: 1, title: "title", body: "body"))
     }
 }
+#endif
