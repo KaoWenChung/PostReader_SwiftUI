@@ -14,7 +14,7 @@ final class SavedPostListViewModel: PostListViewModelType {
     private let actions: PostListViewModelActions?
 
     @Published private(set) var items: [Post] = []
-    @Published private(set) var error: Error?
+    @Published var error: ErrorType? = nil
     
     init(showSavedPostsUseCase: ShowSavedPostsUseCaseType,
          actions: PostListViewModelActions?) {

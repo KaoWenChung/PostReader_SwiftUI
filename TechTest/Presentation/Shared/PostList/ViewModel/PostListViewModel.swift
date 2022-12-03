@@ -19,7 +19,7 @@ protocol PostListViewModelInputType {
 
 protocol PostListViewModelOutputType: ObservableObject {
     var items: [Post] { get }
-    var error: Error? { get }
+    var error: ErrorType? { get set }
     func didSelectItem(_ item: Post)
 }
 
@@ -31,7 +31,7 @@ final class PostListViewModel: PostListViewModelType {
     private let actions: PostListViewModelActions?
 
     @Published private(set) var items: [Post] = []
-    @Published private(set) var error: Error?
+    @Published var error: ErrorType? = nil
     
     init(showPostsUseCase: ShowPostsUseCaseType,
          actions: PostListViewModelActions?) {
@@ -47,7 +47,7 @@ final class PostListViewModel: PostListViewModelType {
                     self.items = value
                 }
             } catch let error as NetworkError {
-                self.error = error
+                self.error = ErrorType(error: error)
             }
         }
     }

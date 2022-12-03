@@ -27,10 +27,11 @@ struct PostListContentView<T>: View where T: PostListViewModelType {
         .onAppear {
             self.viewModel.onAppear()
         }
+        .alert(item: $viewModel.error) { appError in
+            Alert(title: Text("Error"), message: Text(appError.error.localizedDescription))
+        }
     }
 }
-
-
 
 #if DEBUG
 struct SwiftUIView_Previews: PreviewProvider {

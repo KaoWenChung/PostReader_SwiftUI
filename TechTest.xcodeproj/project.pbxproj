@@ -56,6 +56,7 @@
 		215866042927CB0B000FBDD8 /* SavedPostsResponseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215866032927CB0B000FBDD8 /* SavedPostsResponseStorage.swift */; };
 		215866062927CB66000FBDD8 /* CoreDataSavedPostsResponseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215866052927CB66000FBDD8 /* CoreDataSavedPostsResponseStorage.swift */; };
 		215866082927E255000FBDD8 /* SavedPostDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215866072927E255000FBDD8 /* SavedPostDetailViewModel.swift */; };
+		2195C104293A517300A1E95A /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2195C103293A517300A1E95A /* ErrorType.swift */; };
 		219DF04A292AEDA700A7864F /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F85432925991600B0EDB1 /* NetworkService.swift */; };
 		219DF04B292AEDEE00A7864F /* DataTransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F8541292598EE00B0EDB1 /* DataTransferService.swift */; };
 		219DF04C292AEE8900A7864F /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F85452925994000B0EDB1 /* Endpoint.swift */; };
@@ -133,6 +134,7 @@
 		215866032927CB0B000FBDD8 /* SavedPostsResponseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPostsResponseStorage.swift; sourceTree = "<group>"; };
 		215866052927CB66000FBDD8 /* CoreDataSavedPostsResponseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSavedPostsResponseStorage.swift; sourceTree = "<group>"; };
 		215866072927E255000FBDD8 /* SavedPostDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPostDetailViewModel.swift; sourceTree = "<group>"; };
+		2195C103293A517300A1E95A /* ErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
 		219DF04D292AF5F500A7864F /* NetworkSessionManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionManagerMock.swift; sourceTree = "<group>"; };
 		21C67346292D118900279C28 /* PostListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewModelTests.swift; sourceTree = "<group>"; };
 		21D75A6729379B29008FD6BB /* SavedPostSceneDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPostSceneDIContainer.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 		21090CC42936AB7A0031988D /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				2195C102293A515C00A1E95A /* ErrorType */,
 				211E0A24293903BD00D56D4E /* LocalString */,
 				215865C92926F531000FBDD8 /* CancellableType.swift */,
 				21090CC52936AB8A0031988D /* Coordinator */,
@@ -443,6 +446,14 @@
 			path = SavedPostsResponseStorage;
 			sourceTree = "<group>";
 		};
+		2195C102293A515C00A1E95A /* ErrorType */ = {
+			isa = PBXGroup;
+			children = (
+				2195C103293A517300A1E95A /* ErrorType.swift */,
+			);
+			path = ErrorType;
+			sourceTree = "<group>";
+		};
 		2198BCC32938F65A00172B9D /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -688,6 +699,7 @@
 				215865D229270BD1000FBDD8 /* ShowPostDetailUseCase.swift in Sources */,
 				210F85462925994000B0EDB1 /* Endpoint.swift in Sources */,
 				215865F029273407000FBDD8 /* CoreDataPostsResponseStorage.swift in Sources */,
+				2195C104293A517300A1E95A /* ErrorType.swift in Sources */,
 				215865FB2927C55F000FBDD8 /* SavedPostListViewModel.swift in Sources */,
 				210F854B2925AC4500B0EDB1 /* CoreDataStorage.xcdatamodeld in Sources */,
 				210F8542292598EE00B0EDB1 /* DataTransferService.swift in Sources */,
