@@ -22,7 +22,7 @@ final class SavedPostListViewModel: PostListViewModelType {
         self.actions = actions
     }
 
-    func onAppear() {
+    func reloadData() {
         showSavedPostsUseCase.execute() { result in
             DispatchQueue.main.async {
                 self.items = result

@@ -25,10 +25,13 @@ struct PostListContentView<T>: View where T: PostListViewModelType {
         .navigationBarTitle(Text(CommonString.allPosts.text), displayMode: .inline)
         .listStyle(.plain)
         .onAppear {
-            self.viewModel.onAppear()
+            self.viewModel.reloadData()
         }
         .alert(item: $viewModel.error) { appError in
-            Alert(title: Text("Error"), message: Text(appError.error.localizedDescription))
+            let button = Alert.Button.default(Text("Retry")) {
+                self.viewModel.reloadData()
+            }
+            return Alert(title: Text("Error"), message: Text(appError.errorDescription.text), dismissButton: button)
         }
     }
 }

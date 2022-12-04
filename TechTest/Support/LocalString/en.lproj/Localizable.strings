@@ -11,3 +11,7 @@
 "CommonString.comment" = "Comment";
 "CommonString.comment" = "Comment";
 "CommonString.comment" = "Comment";
+
+"ErrorDescription.cancelled" = "Task has been cancelled, please try again later";
+"ErrorDescription.notConnected" = "Something went wrong with networking";
+"ErrorDescription.urlGeneration" = "Something went wrong please try again later";

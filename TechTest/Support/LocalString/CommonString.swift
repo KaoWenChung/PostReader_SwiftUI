@@ -15,3 +15,9 @@ enum CommonString: LocallizedString {
     case saved
     case loading
 }
+
+enum ErrorDescription: LocallizedString {
+    case cancelled
+    case notConnected
+    case urlGeneration
+}
