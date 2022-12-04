@@ -14,7 +14,7 @@ struct PostListViewModelActions {
 }
 
 protocol PostListViewModelInputType {
-    func reloadData()
+    func reloadData() async
 }
 
 protocol PostListViewModelOutputType: ObservableObject {
@@ -43,18 +43,13 @@ final class PostListViewModel: PostListViewModelType {
 
 extension PostListViewModel {
 
-    func reloadData() {
-        Task.init {
-            do {
-                let (value, _) = try await showPostsUseCase.execute()
-                DispatchQueue.main.async {
-                    self.items = value
-                }
-            } catch {
-                DispatchQueue.main.async {
-                    self.error = ErrorType(errorDescription: ErrorDescription.notConnected)
-                }
-            }
+    @MainActor
+    func reloadData() async {
+        do {
+            let (value, _) = try await showPostsUseCase.execute()
+            items = value
+        } catch {
+            self.error = ErrorType(errorDescription: ErrorDescription.notConnected)
         }
     }
 
