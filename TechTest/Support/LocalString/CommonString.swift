@@ -14,6 +14,8 @@ enum CommonString: LocallizedString {
     case save
     case saved
     case loading
+    case error
+    case retry
 }
 
 enum ErrorDescription: LocallizedString {

@@ -7,10 +7,8 @@
 "CommonString.loading" = "Loading...";
 "CommonString.save" = "Save";
 "CommonString.saved" = "Saved";
-"CommonString.comment" = "Comment";
-"CommonString.comment" = "Comment";
-"CommonString.comment" = "Comment";
-"CommonString.comment" = "Comment";
+"CommonString.error" = "Error";
+"CommonString.retry" = "Retry";
 
 "ErrorDescription.cancelled" = "Task has been cancelled, please try again later";
 "ErrorDescription.notConnected" = "Something went wrong with networking";

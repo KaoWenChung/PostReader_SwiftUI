@@ -28,10 +28,10 @@ struct PostListContentView<T>: View where T: PostListViewModelType {
             self.viewModel.reloadData()
         }
         .alert(item: $viewModel.error) { appError in
-            let button = Alert.Button.default(Text("Retry")) {
+            let button = Alert.Button.default(Text(CommonString.retry.text)) {
                 self.viewModel.reloadData()
             }
-            return Alert(title: Text("Error"), message: Text(appError.errorDescription.text), dismissButton: button)
+            return Alert(title: Text(CommonString.error.text), message: Text(appError.errorDescription.text), dismissButton: button)
         }
     }
 }

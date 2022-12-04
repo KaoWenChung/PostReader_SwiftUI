@@ -26,6 +26,7 @@
 - Core Data
 - Offline
 - Unit testing
+- Localized string
 
 ## To-Do list of features and time I need:
 - [ ] Improve the coverage of unit testing - 2 hour
