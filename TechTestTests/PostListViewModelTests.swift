@@ -14,15 +14,12 @@ final class PostListViewModelTests: XCTestCase {
         func cancel() {}
     }
 
-    class ShouwPostsUseCaseFailMock: ShowPostsUseCaseType {
+    class ShouwPostsUseCaseFailedMock: ShowPostsUseCaseType {
         let error: Error?
-        let response: [Post]
         let expectation: XCTestExpectation
         init(error: Error?,
-             response: [Post],
              expectation: XCTestExpectation) {
             self.error = error
-            self.response = response
             self.expectation = expectation
         }
         func execute() async throws -> ([TechTest.Post], TechTest.CancellableType) {
@@ -30,6 +27,20 @@ final class PostListViewModelTests: XCTestCase {
                 expectation.fulfill()
                 throw error
             }
+            return ([], CancellableMock())
+        }
+    }
+
+    class ShouwPostsUseCaseSuccessMock: ShowPostsUseCaseType {
+        let response: [Post]
+        let expectation: XCTestExpectation
+        init(response: [Post],
+             expectation: XCTestExpectation) {
+            self.response = response
+            self.expectation = expectation
+        }
+        func execute() async throws -> ([TechTest.Post], TechTest.CancellableType) {
+            expectation.fulfill()
             return (response, CancellableMock())
         }
     }
@@ -37,11 +48,26 @@ final class PostListViewModelTests: XCTestCase {
     func testPostListUseCaseWithNetwokError() async {
         let expectation = expectation(description: "Should run error")
         let error = NetworkError.notConnected
-        let sut = PostListViewModel(showPostsUseCase: ShouwPostsUseCaseFailMock(error: error, response: [], expectation: expectation), actions: nil)
+        let sut = PostListViewModel(showPostsUseCase: ShouwPostsUseCaseFailedMock(error: error, expectation: expectation), actions: nil)
         await sut.reloadData()
         
         wait(for: [expectation], timeout: 0.1)
         XCTAssertNotNil(sut.error)
+    }
+
+    func testPostListUseCaseGetData() async {
+        let expectation = expectation(description: "Should get data")
+        let response: [Post] = [Post(id: 0, title: "TitleA", body: "BodyA"),
+                                Post(id: 1, title: "TitleB", body: "BodyB")]
+        let sut = PostListViewModel(showPostsUseCase: ShouwPostsUseCaseSuccessMock(response: response, expectation: expectation), actions: nil)
+        await sut.reloadData()
+        
+        wait(for: [expectation], timeout: 0.1)
+        XCTAssertEqual(sut.items.first?.id, 0)
+        XCTAssertEqual(sut.items.first?.title, "TitleA")
+        XCTAssertEqual(sut.items.first?.body, "BodyA")
+        XCTAssertEqual(sut.items.count, 2)
+        XCTAssertNil(sut.error)
     }
 
 }
