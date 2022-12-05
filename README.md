@@ -6,14 +6,24 @@
 - Run in Xcode 13 or newer.
 - Written in Swift 5 or newer.
 
-## Feature I implemented
-- Refactor the whole project into SwiftUI with MVVM + Clean Architecture
-- Add a button in the detail page, to a new page that shows a list of all comments on the post
-- Show comments and authors
-- Add a button that can save the post to be read offline
-- If the post had been saved, the state of the button should be changed
-- Add two buttons in the tab bar, one for the original post, and one for the offline posts
-- Add a new screen that looks and behaves identically to the original post list screen to present offline reading
+## Features
+### UI Implementation
+- Tab bar 
+- post scene
+  - posts list view
+  - post detail
+  - comment of post
+- favorite scene
+  - favorite posts
+### API Data Fetching
+- Get posts by get API https://jsonplaceholder.typicode.com/posts
+- Get comment of post by get API https://jsonplaceholder.typicode.com/posts/{postID}/comments/
+### Offline Persistent storage
+- Save and read favorite post
+### Functions Implementation
+- Save posts
+### Test Implementation
+- Unit testing
 
 ## Technologies:
 - Swift
@@ -29,8 +39,9 @@
 - Localized string
 
 ## To-Do list of features and time I need:
-- [ ] Improve the coverage of unit testing - 2 hour
-- [x] Fix TODO items - 1 hour
-- [x] Implement Error Handling - 1 hour
+- [ ] Improve the coverage of unit testing - 1 hour
+- [x] Fix TODO items
+- [x] Implement Error Handling
+- [ ] Implement UI tests - 1 hour
 - [ ] present the number of offline posts the bar button - 1 hour
 - [ ] Implement the offline comment of post - 1 hour
