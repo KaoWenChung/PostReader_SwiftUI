@@ -57,6 +57,10 @@
 		215866062927CB66000FBDD8 /* CoreDataSavedPostsResponseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215866052927CB66000FBDD8 /* CoreDataSavedPostsResponseStorage.swift */; };
 		215866082927E255000FBDD8 /* SavedPostDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215866072927E255000FBDD8 /* SavedPostDetailViewModel.swift */; };
 		2195C104293A517300A1E95A /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2195C103293A517300A1E95A /* ErrorType.swift */; };
+		2195C10A293EA04600A1E95A /* ShowPostsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2195C109293EA04600A1E95A /* ShowPostsUseCaseTests.swift */; };
+		2195C10C293EA1AE00A1E95A /* CancellableMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2195C10B293EA1AE00A1E95A /* CancellableMock.swift */; };
+		2195C10F293EA25000A1E95A /* ShowPostsUseCaseFailedMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2195C10E293EA25000A1E95A /* ShowPostsUseCaseFailedMock.swift */; };
+		2195C112293EA40800A1E95A /* Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2195C111293EA40800A1E95A /* Fixture.swift */; };
 		219DF04A292AEDA700A7864F /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F85432925991600B0EDB1 /* NetworkService.swift */; };
 		219DF04B292AEDEE00A7864F /* DataTransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F8541292598EE00B0EDB1 /* DataTransferService.swift */; };
 		219DF04C292AEE8900A7864F /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F85452925994000B0EDB1 /* Endpoint.swift */; };
@@ -135,6 +139,10 @@
 		215866052927CB66000FBDD8 /* CoreDataSavedPostsResponseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSavedPostsResponseStorage.swift; sourceTree = "<group>"; };
 		215866072927E255000FBDD8 /* SavedPostDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPostDetailViewModel.swift; sourceTree = "<group>"; };
 		2195C103293A517300A1E95A /* ErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
+		2195C109293EA04600A1E95A /* ShowPostsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPostsUseCaseTests.swift; sourceTree = "<group>"; };
+		2195C10B293EA1AE00A1E95A /* CancellableMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancellableMock.swift; sourceTree = "<group>"; };
+		2195C10E293EA25000A1E95A /* ShowPostsUseCaseFailedMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPostsUseCaseFailedMock.swift; sourceTree = "<group>"; };
+		2195C111293EA40800A1E95A /* Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixture.swift; sourceTree = "<group>"; };
 		219DF04D292AF5F500A7864F /* NetworkSessionManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionManagerMock.swift; sourceTree = "<group>"; };
 		21C67346292D118900279C28 /* PostListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewModelTests.swift; sourceTree = "<group>"; };
 		21D75A6729379B29008FD6BB /* SavedPostSceneDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPostSceneDIContainer.swift; sourceTree = "<group>"; };
@@ -454,6 +462,55 @@
 			path = ErrorType;
 			sourceTree = "<group>";
 		};
+		2195C105293E9F7E00A1E95A /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				2195C10D293EA24600A1E95A /* Mocks */,
+				2195C106293E9F8600A1E95A /* UseCases */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		2195C106293E9F8600A1E95A /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				2195C109293EA04600A1E95A /* ShowPostsUseCaseTests.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		2195C107293E9F9400A1E95A /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				2195C108293E9F9C00A1E95A /* PostsScene */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		2195C108293E9F9C00A1E95A /* PostsScene */ = {
+			isa = PBXGroup;
+			children = (
+				21C67346292D118900279C28 /* PostListViewModelTests.swift */,
+			);
+			path = PostsScene;
+			sourceTree = "<group>";
+		};
+		2195C10D293EA24600A1E95A /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				2195C10E293EA25000A1E95A /* ShowPostsUseCaseFailedMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		2195C110293EA3ED00A1E95A /* Fixture */ = {
+			isa = PBXGroup;
+			children = (
+				2195C111293EA40800A1E95A /* Fixture.swift */,
+			);
+			path = Fixture;
+			sourceTree = "<group>";
+		};
 		2198BCC32938F65A00172B9D /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -499,6 +556,8 @@
 		21F31BF5292AE4480044600E /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				211E0A2E29390D3C00D56D4E /* NetworkServiceTests.swift */,
+				21F31BF2292AE3AD0044600E /* DataTransferServiceTests.swift */,
 				21F31BF6292AE4500044600E /* Mocks */,
 			);
 			path = Network;
@@ -509,6 +568,7 @@
 			children = (
 				21F31BF7292AE4750044600E /* NetworkConfigurableMock.swift */,
 				219DF04D292AF5F500A7864F /* NetworkSessionManagerMock.swift */,
+				2195C10B293EA1AE00A1E95A /* CancellableMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -560,10 +620,10 @@
 		FA166B9A25ED248400A85D66 /* TechTestTests */ = {
 			isa = PBXGroup;
 			children = (
+				2195C110293EA3ED00A1E95A /* Fixture */,
+				2195C107293E9F9400A1E95A /* Presentation */,
+				2195C105293E9F7E00A1E95A /* Domain */,
 				21F31BF4292AE4350044600E /* Infrastructure */,
-				21C67346292D118900279C28 /* PostListViewModelTests.swift */,
-				21F31BF2292AE3AD0044600E /* DataTransferServiceTests.swift */,
-				211E0A2E29390D3C00D56D4E /* NetworkServiceTests.swift */,
 				FA166B9D25ED248400A85D66 /* Info.plist */,
 			);
 			path = TechTestTests;
@@ -729,10 +789,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2195C10A293EA04600A1E95A /* ShowPostsUseCaseTests.swift in Sources */,
 				219DF04C292AEE8900A7864F /* Endpoint.swift in Sources */,
+				2195C10C293EA1AE00A1E95A /* CancellableMock.swift in Sources */,
 				219DF04B292AEDEE00A7864F /* DataTransferService.swift in Sources */,
 				219DF04A292AEDA700A7864F /* NetworkService.swift in Sources */,
+				2195C112293EA40800A1E95A /* Fixture.swift in Sources */,
 				21F31BF8292AE4750044600E /* NetworkConfigurableMock.swift in Sources */,
+				2195C10F293EA25000A1E95A /* ShowPostsUseCaseFailedMock.swift in Sources */,
 				21F31BF3292AE3AD0044600E /* DataTransferServiceTests.swift in Sources */,
 				219DF04E292AF5F500A7864F /* NetworkSessionManagerMock.swift in Sources */,
 				21F31BF9292AE4EC0044600E /* NetworkConfig.swift in Sources */,
