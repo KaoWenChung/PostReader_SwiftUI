@@ -10,7 +10,11 @@ import XCTest
 
 final class ShowPostsUseCaseTests: XCTestCase {
     
-    class PostListRepositorySuccessMock: PostListRepositoryType {
+    enum PostListRepositoryError: Error {
+        case failedFetching
+    }
+
+    class PostListRepositorySuccessedMock: PostListRepositoryType {
         let response: [Post]
         let expectation: XCTestExpectation?
         
@@ -26,11 +30,28 @@ final class ShowPostsUseCaseTests: XCTestCase {
         }
         
     }
+
+    class PostListRepositoryFailedMock: PostListRepositoryType {
+        let error: Error
+        let expectation: XCTestExpectation?
+        
+        init(error: Error,
+             expectation: XCTestExpectation?) {
+            self.error = error
+            self.expectation = expectation
+        }
+
+        func fetchPostList() async throws -> ([Post], CancellableType) {
+            expectation?.fulfill()
+            throw error
+        }
+        
+    }
     
     func testShowPostsUseCase_whenSuccessfullyFetchesPosts() async {
         // given
         let expectation = expectation(description: "Fetch posts")
-        let postListRepository = PostListRepositorySuccessMock(response: Fixture.posts, expectation: expectation)
+        let postListRepository = PostListRepositorySuccessedMock(response: Fixture.posts, expectation: expectation)
         let sut = ShowPostsUseCase(postRepository: postListRepository)
 
         // when
@@ -46,5 +67,21 @@ final class ShowPostsUseCaseTests: XCTestCase {
         XCTAssertEqual(result.first?.title, "TitleA")
         XCTAssertEqual(result.first?.body, "BodyA")
         XCTAssertEqual(result.count, 2)
+    }
+
+    func testShowPostsUseCase_whenFailedFetchesPosts_failedFetching() async {
+        // given
+        let expectation = self.expectation(description: "Fetch posts should fail")
+        let postListRepository = PostListRepositoryFailedMock(error: PostListRepositoryError.failedFetching, expectation: expectation)
+        let sut = ShowPostsUseCase(postRepository: postListRepository)
+
+        // when
+        do {
+            _ = try await sut.execute()
+            XCTFail("Should not happen")
+        } catch {
+            XCTAssertEqual(error as! PostListRepositoryError, PostListRepositoryError.failedFetching)
+        }
+        await waitForExpectations(timeout: 0.1, handler: nil)
     }
 }
