@@ -24,6 +24,7 @@
 - Save posts
 ### Test Implementation
 - Unit testing
+- UI testing
 
 ## Technologies:
 - Swift
@@ -36,6 +37,7 @@
 - Core Data
 - Offline
 - Unit testing
+- UI testing
 - Localized string
 
 ## To-Do list of features and time I need:
