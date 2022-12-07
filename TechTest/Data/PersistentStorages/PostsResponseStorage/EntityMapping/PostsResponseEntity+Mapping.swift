@@ -36,7 +36,7 @@ extension Post {
 extension PostsRequest {
     func toEntity(in context: NSManagedObjectContext) -> PostsRequestEntity {
         let entity: PostsRequestEntity = .init(context: context)
-        entity.postID = Int32(postId)
+        entity.postID = Int64(postId)
         return entity
     }
 }

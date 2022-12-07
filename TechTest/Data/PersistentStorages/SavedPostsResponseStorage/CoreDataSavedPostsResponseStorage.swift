@@ -20,10 +20,12 @@ final class CoreDataSavedPostsResponseStorage {
 
     private func findAll(in managedObjectContext: NSManagedObjectContext) throws -> [Post] {
         var workouts: [Post] = []
-        let fetchRequest: NSFetchRequest<PostsResponseEntity> = PostsResponseEntity.fetchRequest()
+        let fetchRequest: NSFetchRequest<PostsRequestEntity> = PostsRequestEntity.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(PostsRequestEntity.postID), ascending: true)]
         do {
             // Perform Fetch Request
-            workouts = try managedObjectContext.fetch(fetchRequest).toDTOs()
+            let test = try managedObjectContext.fetch(fetchRequest)
+            workouts = test.compactMap { $0.response?.toDTO() }
         } catch {
             throw error
         }
