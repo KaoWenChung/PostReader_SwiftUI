@@ -9,10 +9,11 @@ import Combine
 import Dispatch
 
 protocol PostCommentViewModelInputType {
-    func onAppear()
+    func loadData() async
 }
 protocol PostCommentViewModelOutputType: ObservableObject {
     var items: [Comment] { get }
+    var error: ErrorType? { get set }
 }
 
 protocol PostCommentViewModelType: PostCommentViewModelInputType, PostCommentViewModelOutputType {
@@ -23,19 +24,24 @@ final class PostCommentViewModel: PostCommentViewModelType {
     private let showPostCommentUseCase: ShowPostCommentUseCaseType
     private let id: Int
     @Published private(set) var items: [Comment] = []
+    @Published var error: ErrorType? = nil
     
 
     init(withID id: Int, useCase: ShowPostCommentUseCaseType) {
         self.showPostCommentUseCase = useCase
         self.id = id
     }
+}
 
-    func onAppear() {
-        Task.init {
+extension PostCommentViewModel {
+    @MainActor
+    func loadData() async {
+        do {
             let value = try await showPostCommentUseCase.execute(withID: id)
-            DispatchQueue.main.async {
-                self.items = value
-            }
+            self.items = value
+        } catch {
+            self.error = ErrorType(errorDescription: ErrorDescription.notConnected)
         }
+        
     }
 }

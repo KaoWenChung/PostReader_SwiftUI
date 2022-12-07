@@ -21,7 +21,18 @@ struct PostCommentContentView<T>: View where T: PostCommentViewModelType{
         .navigationBarTitle(Text(CommonString.allComments.text), displayMode: .inline)
         .listStyle(.plain)
         .onAppear {
-            self.viewModel.onAppear()
+            loadData()
+        }
+        .alert(item: $viewModel.error) { appError in
+            let button = Alert.Button.default(Text(CommonString.retry.text)) {
+                loadData()
+            }
+            return Alert(title: Text(CommonString.error.text), message: Text(appError.errorDescription.text), dismissButton: button)
+        }
+    }
+    private func loadData() {
+        Task.init {
+            await viewModel.loadData()
         }
     }
 }
