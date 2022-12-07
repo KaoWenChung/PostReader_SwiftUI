@@ -28,9 +28,10 @@ final class CoreDataPostsResponseStorage {
         let request = fetchRequest(for: requestDto)
 
         do {
-            if let result = try context.fetch(request).first {
-                context.delete(result)
-            }
+            guard let result = try context.fetch(request).first,
+                  let response = result.response else { return }
+            context.delete(response)
+            context.delete(result)
         } catch {
             print(error)
         }
