@@ -18,7 +18,7 @@ final class CoreDataSavedPostsResponseStorage {
 
     // MARK: - Private
 
-    private func findAll(in managedObjectContext: NSManagedObjectContext) throws -> [Post] {
+    private func findAllPosts(in managedObjectContext: NSManagedObjectContext) throws -> [Post] {
         var workouts: [Post] = []
         let fetchRequest: NSFetchRequest<PostsRequestEntity> = PostsRequestEntity.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(PostsRequestEntity.postID), ascending: true)]
@@ -38,7 +38,7 @@ extension CoreDataSavedPostsResponseStorage: SavedPostsResponseStorageType {
     func getAllSavedPosts(completion: @escaping ([Post]) -> Void) {
         coreDataStorage.performBackgroundTask { context in
             do {
-                let value = try self.findAll(in: context)
+                let value = try self.findAllPosts(in: context)
                 completion(value)
             } catch {
                 // TODO: - Log to Crashlytics
