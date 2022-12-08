@@ -39,7 +39,7 @@ final class SavedPostSceneDIContainer {
     }
 
     func makeSavedPostListViewModel(actions: PostListViewModelActions) -> SavedPostListViewModel {
-        return SavedPostListViewModel(showSavedPostsUseCase: makeShowSavedPostsUseCase(), actions: actions)
+        return SavedPostListViewModel(title: CommonString.allSavedPosts.text, showSavedPostsUseCase: makeShowSavedPostsUseCase(), actions: actions)
     }
 
     // MARK: - Saved Post Detail

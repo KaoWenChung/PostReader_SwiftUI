@@ -52,7 +52,7 @@ final class PostSceneDIContainer {
     }
     
     func makePostListViewModel(actions: PostListViewModelActions) -> PostListViewModel {
-        return PostListViewModel(showPostsUseCase: makeShowPostsUseCase(), actions: actions)
+        return PostListViewModel(title: CommonString.allPosts.text, showPostsUseCase: makeShowPostsUseCase(), actions: actions)
     }
 
     // MARK: - Post Detail

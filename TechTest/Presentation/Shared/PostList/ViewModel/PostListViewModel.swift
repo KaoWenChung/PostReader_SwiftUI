@@ -18,6 +18,7 @@ protocol PostListViewModelInputType {
 }
 
 protocol PostListViewModelOutputType: ObservableObject {
+    var title: String { get }
     var items: [Post] { get }
     var error: ErrorType? { get set }
     func didSelectItem(_ item: Post)
@@ -30,11 +31,14 @@ final class PostListViewModel: PostListViewModelType {
     private let showPostsUseCase: ShowPostsUseCaseType
     private let actions: PostListViewModelActions?
 
+    let title: String
     @Published private(set) var items: [Post] = []
     @Published var error: ErrorType? = nil
     
-    init(showPostsUseCase: ShowPostsUseCaseType,
+    init(title: String,
+         showPostsUseCase: ShowPostsUseCaseType,
          actions: PostListViewModelActions?) {
+        self.title = title
         self.showPostsUseCase = showPostsUseCase
         self.actions = actions
     }

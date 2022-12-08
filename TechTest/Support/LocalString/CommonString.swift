@@ -10,6 +10,7 @@ import Foundation
 enum CommonString: LocallizedString {
     case comment
     case allPosts
+    case allSavedPosts
     case allComments
     case save
     case saved

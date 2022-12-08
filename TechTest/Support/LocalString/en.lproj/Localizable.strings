@@ -3,6 +3,7 @@
 
 "CommonString.comment" = "Comment";
 "CommonString.allPosts" = "All Posts";
+"CommonString.allSavedPosts" = "All Saved Posts";
 "CommonString.allComments" = "All Comments";
 "CommonString.loading" = "Loading...";
 "CommonString.save" = "Save";

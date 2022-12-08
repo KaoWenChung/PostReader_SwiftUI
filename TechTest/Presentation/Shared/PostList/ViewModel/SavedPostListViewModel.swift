@@ -12,12 +12,15 @@ final class SavedPostListViewModel: PostListViewModelType {
 
     private let showSavedPostsUseCase: ShowSavedPostsUseCaseType
     private let actions: PostListViewModelActions?
+    let title: String
 
     @Published private(set) var items: [Post] = []
     @Published var error: ErrorType? = nil
     
-    init(showSavedPostsUseCase: ShowSavedPostsUseCaseType,
+    init(title: String,
+         showSavedPostsUseCase: ShowSavedPostsUseCaseType,
          actions: PostListViewModelActions?) {
+        self.title = title
         self.showSavedPostsUseCase = showSavedPostsUseCase
         self.actions = actions
     }
