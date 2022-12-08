@@ -24,7 +24,9 @@ final class SavedPostListViewModel: PostListViewModelType {
         self.showSavedPostsUseCase = showSavedPostsUseCase
         self.actions = actions
     }
+}
 
+extension SavedPostListViewModel {
     func reloadData() {
         showSavedPostsUseCase.execute() { result in
             DispatchQueue.main.async {
@@ -32,9 +34,7 @@ final class SavedPostListViewModel: PostListViewModelType {
             }
         }
     }
-}
 
-extension SavedPostListViewModel {
     func didSelectItem(_ item: Post) {
         actions?.showPostDetail(item)
     }

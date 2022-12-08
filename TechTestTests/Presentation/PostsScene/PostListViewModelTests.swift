@@ -13,7 +13,7 @@ final class PostListViewModelTests: XCTestCase {
     func testPostListUseCaseWithNetwokError() async {
         let expectation = expectation(description: "Should run error")
         let error = NetworkError.notConnected
-        let sut = PostListViewModel(showPostsUseCase: ShowPostsUseCaseFailedMock(error: error, expectation: expectation), actions: nil)
+        let sut = PostListViewModel(title: "", showPostsUseCase: ShowPostsUseCaseFailedMock(error: error, expectation: expectation), actions: nil)
         await sut.reloadData()
         
         wait(for: [expectation], timeout: 0.1)
@@ -22,7 +22,7 @@ final class PostListViewModelTests: XCTestCase {
 
     func testPostListUseCaseGetData() async {
         let expectation = expectation(description: "Should get data")
-        let sut = PostListViewModel(showPostsUseCase: ShouwPostsUseCaseSuccessMock(response: Fixture.posts, expectation: expectation), actions: nil)
+        let sut = PostListViewModel(title: "", showPostsUseCase: ShouwPostsUseCaseSuccessMock(response: Fixture.posts, expectation: expectation), actions: nil)
         await sut.reloadData()
         
         wait(for: [expectation], timeout: 0.1)

@@ -72,6 +72,7 @@
 		21F31BF3292AE3AD0044600E /* DataTransferServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F31BF2292AE3AD0044600E /* DataTransferServiceTests.swift */; };
 		21F31BF8292AE4750044600E /* NetworkConfigurableMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F31BF7292AE4750044600E /* NetworkConfigurableMock.swift */; };
 		21F31BF9292AE4EC0044600E /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F8547292599D600B0EDB1 /* NetworkConfig.swift */; };
+		21F8A6A829422C68004714B6 /* PostItemViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F8A6A729422C68004714B6 /* PostItemViewModelTests.swift */; };
 		21FEA433293FDF8800C010A0 /* TechTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FEA432293FDF8800C010A0 /* TechTestUITests.swift */; };
 		2DBA14523B0FC3A3D13330EE /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1E2729C46B346322DC92 /* Post.swift */; };
 		FA166B8525ED248300A85D66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA166B8425ED248300A85D66 /* AppDelegate.swift */; };
@@ -158,6 +159,7 @@
 		21D75A6E2937AD58008FD6BB /* SavedPostCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPostCoordinator.swift; sourceTree = "<group>"; };
 		21F31BF2292AE3AD0044600E /* DataTransferServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferServiceTests.swift; sourceTree = "<group>"; };
 		21F31BF7292AE4750044600E /* NetworkConfigurableMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfigurableMock.swift; sourceTree = "<group>"; };
+		21F8A6A729422C68004714B6 /* PostItemViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostItemViewModelTests.swift; sourceTree = "<group>"; };
 		21FEA430293FDF8800C010A0 /* TechTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TechTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21FEA432293FDF8800C010A0 /* TechTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechTestUITests.swift; sourceTree = "<group>"; };
 		2DBA1E2729C46B346322DC92 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -499,6 +501,7 @@
 		2195C107293E9F9400A1E95A /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				21F8A6A529422C55004714B6 /* Shared */,
 				2195C108293E9F9C00A1E95A /* PostsScene */,
 			);
 			path = Presentation;
@@ -588,6 +591,22 @@
 				2195C10B293EA1AE00A1E95A /* CancellableMock.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		21F8A6A529422C55004714B6 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				21F8A6A629422C5F004714B6 /* Cells */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		21F8A6A629422C5F004714B6 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				21F8A6A729422C68004714B6 /* PostItemViewModelTests.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		21FEA431293FDF8800C010A0 /* TechTestUITests */ = {
@@ -865,6 +884,7 @@
 				21F31BF3292AE3AD0044600E /* DataTransferServiceTests.swift in Sources */,
 				219DF04E292AF5F500A7864F /* NetworkSessionManagerMock.swift in Sources */,
 				21F31BF9292AE4EC0044600E /* NetworkConfig.swift in Sources */,
+				21F8A6A829422C68004714B6 /* PostItemViewModelTests.swift in Sources */,
 				211E0A2F29390D3C00D56D4E /* NetworkServiceTests.swift in Sources */,
 				21C67347292D118900279C28 /* PostListViewModelTests.swift in Sources */,
 			);
