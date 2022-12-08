@@ -5,13 +5,14 @@
 //  Created by wyn on 2022/11/18.
 //
 
-import SwiftUI
+import Combine
 import Dispatch
 
 final class SavedPostListViewModel: PostListViewModelType {
 
     private let showSavedPostsUseCase: ShowSavedPostsUseCaseType
     private let actions: PostListViewModelActions?
+
     let title: String
 
     @Published private(set) var items: [Post] = []

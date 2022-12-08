@@ -6,8 +6,6 @@
 //
 
 import Combine
-import Dispatch
-import SwiftUI
 
 struct PostListViewModelActions {
     let showPostDetail: (Post) -> Void
@@ -32,6 +30,7 @@ final class PostListViewModel: PostListViewModelType {
     private let actions: PostListViewModelActions?
 
     let title: String
+
     @Published private(set) var items: [Post] = []
     @Published var error: ErrorType? = nil
     

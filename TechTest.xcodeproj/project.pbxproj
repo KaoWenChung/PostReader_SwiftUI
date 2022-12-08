@@ -200,10 +200,10 @@
 		21090CC42936AB7A0031988D /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				2195C102293A515C00A1E95A /* ErrorType */,
 				211E0A24293903BD00D56D4E /* LocalString */,
-				215865C92926F531000FBDD8 /* CancellableType.swift */,
+				2195C102293A515C00A1E95A /* ErrorType */,
 				21090CC52936AB8A0031988D /* Coordinator */,
+				215865C92926F531000FBDD8 /* CancellableType.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
