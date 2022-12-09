@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		210441F02943FE0C00052819 /* ShowSavedPostDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210441EF2943FE0C00052819 /* ShowSavedPostDetailUseCase.swift */; };
 		21090CC72936ADE40031988D /* AppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21090CC62936ADE40031988D /* AppFlowCoordinator.swift */; };
 		21090CC92936AF470031988D /* CoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21090CC82936AF470031988D /* CoordinatorType.swift */; };
 		210F85382925969800B0EDB1 /* PostListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F85372925969800B0EDB1 /* PostListRepository.swift */; };
@@ -98,6 +99,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		210441EF2943FE0C00052819 /* ShowSavedPostDetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowSavedPostDetailUseCase.swift; sourceTree = "<group>"; };
 		21090CC62936ADE40031988D /* AppFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowCoordinator.swift; sourceTree = "<group>"; };
 		21090CC82936AF470031988D /* CoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorType.swift; sourceTree = "<group>"; };
 		210F85372925969800B0EDB1 /* PostListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListRepository.swift; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 				215865B72926DC00000FBDD8 /* ShowPostsUseCase.swift */,
 				215865FC2927C5BF000FBDD8 /* ShowSavedPostsUseCase.swift */,
 				215865D129270BD1000FBDD8 /* ShowPostDetailUseCase.swift */,
+				210441EF2943FE0C00052819 /* ShowSavedPostDetailUseCase.swift */,
 				215865E729272900000FBDD8 /* ShowPostCommentUseCase.swift */,
 			);
 			path = UseCases;
@@ -845,6 +848,7 @@
 				215865F029273407000FBDD8 /* CoreDataPostsResponseStorage.swift in Sources */,
 				2195C104293A517300A1E95A /* ErrorType.swift in Sources */,
 				215865FB2927C55F000FBDD8 /* SavedPostListViewModel.swift in Sources */,
+				210441F02943FE0C00052819 /* ShowSavedPostDetailUseCase.swift in Sources */,
 				210F854B2925AC4500B0EDB1 /* CoreDataStorage.xcdatamodeld in Sources */,
 				210F8542292598EE00B0EDB1 /* DataTransferService.swift in Sources */,
 				215865B02926CA05000FBDD8 /* PostListItemView.swift in Sources */,

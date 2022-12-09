@@ -27,10 +27,18 @@ final class SavedPostSceneDIContainer {
         return ShowSavedPostsUseCase(postRepository: makeSavedPostListRepository())
     }
 
+    func makeShowSavedPostDetailUseCase() -> ShowPostDetailUseCaseType {
+        return ShowPostDetailUseCase(repository: makePostDetailRepository())
+    }
+
     // MARK: - Repositories
 
     func makeSavedPostListRepository() -> SavedPostListRepositoryType {
         return SavedPostListRepository(cache: savedPostsResponseCache)
+    }
+
+    func makePostDetailRepository() -> PostDetailRepositoryType {
+        return PostDetailRepository(dataTransferService: dependencies.dataTransferService, cache: postsResponseCache)
     }
 
     // MARK: - Saved Post List
@@ -48,7 +56,7 @@ final class SavedPostSceneDIContainer {
     }
 
     func makeSavedPostDetailViewModel(with content: Post) -> SavedPostDetailViewModel {
-        return SavedPostDetailViewModel(postData: content)
+        return SavedPostDetailViewModel(postData: content, useCase: makeShowSavedPostDetailUseCase())
     }
     
     // MARK: - Flow Coordinators

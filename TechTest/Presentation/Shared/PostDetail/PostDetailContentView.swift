@@ -35,24 +35,22 @@ struct PostDetailContentView<T>: View where T: PostDetailViewModelType {
             Spacer()
         }
         .navigationBarTitle(Text(viewModel.postData.title), displayMode: .inline)
-        if viewModel.isShowButtons {
-            HStack() {
-                Button {
-                    viewModel.didShowComment()
-                } label: {
-                    Image("text.bubble")
-                    Text(CommonString.comment.text)
-                }
-                .padding(.leading)
-                Spacer()
-                Button {
-                    viewModel.updateSaveStatus()
-                } label: {
-                    Image(viewModel.saveButtonImage)
-                    Text(viewModel.saveButtonTitle)
-                }
-                .padding(.trailing)
+        HStack() {
+            Button {
+                viewModel.didShowComment()
+            } label: {
+                Image("text.bubble")
+                Text(CommonString.comment.text)
             }
+            .padding(.leading)
+            Spacer()
+            Button {
+                viewModel.updateSaveStatus()
+            } label: {
+                Image(viewModel.saveButtonImage)
+                Text(viewModel.saveButtonTitle)
+            }
+            .padding(.trailing)
         }
     }
 }

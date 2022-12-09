@@ -8,7 +8,7 @@
 
 ## Features
 ### UI Implementation
-- Tab bar 
+- Tab bar
 - post scene
   - posts list view
   - post detail
@@ -42,8 +42,8 @@
 
 ## To-Do list of features and time I need:
 - [ ] Improve the coverage of unit testing - 1 hour
-- [x] Fix TODO items
+- [ ] Fix TODO items
 - [x] Implement Error Handling
-- [ ] Implement UI tests - 1 hour
+- [x] Implement UI tests - 1 hour
 - [ ] present the number of offline posts the bar button - 1 hour
 - [ ] Implement the offline comment of post - 1 hour

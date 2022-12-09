@@ -19,7 +19,6 @@ protocol PostDetailViewModelInputType {
 }
 protocol PostDetailViewModelOutputType: ObservableObject {
     var postData: Post { get }
-    var isShowButtons: Bool { get }
     var saveButtonTitle: String { get }
     var saveButtonImage: String { get }
 }
@@ -32,7 +31,6 @@ final class PostDetailViewModel: PostDetailViewModelType {
     private let actions: PostDetailViewModelActions?
     private let id: Int
     private var isSaved: Bool = false
-    private(set) var isShowButtons: Bool = true
     @Published private(set) var postData: Post
     @Published private(set) var saveButtonTitle: String = CommonString.loading.text
     @Published private(set) var saveButtonImage: String = "bookmark"
