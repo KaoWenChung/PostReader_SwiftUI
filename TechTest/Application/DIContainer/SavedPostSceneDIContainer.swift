@@ -51,12 +51,14 @@ final class SavedPostSceneDIContainer {
     }
 
     // MARK: - Saved Post Detail
-    func makeSavedPostDetailContentView(with content: Post) -> PostDetailContentView<SavedPostDetailViewModel> {
-        return PostDetailContentView(viewModel: makeSavedPostDetailViewModel(with: content))
+    func makeSavedPostDetailContentView(with content: Post,
+                                        actions: PostDetailViewModelActions?) -> PostDetailContentView<SavedPostDetailViewModel> {
+        return PostDetailContentView(viewModel: makeSavedPostDetailViewModel(with: content, actions: actions))
     }
 
-    func makeSavedPostDetailViewModel(with content: Post) -> SavedPostDetailViewModel {
-        return SavedPostDetailViewModel(postData: content, useCase: makeShowSavedPostDetailUseCase())
+    func makeSavedPostDetailViewModel(with content: Post,
+                                      actions: PostDetailViewModelActions?) -> SavedPostDetailViewModel {
+        return SavedPostDetailViewModel(postData: content, useCase: makeShowSavedPostDetailUseCase(), actions: actions)
     }
     
     // MARK: - Flow Coordinators

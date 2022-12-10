@@ -9,7 +9,8 @@ import Combine
 import Dispatch
 
 struct PostDetailViewModelActions {
-    let showPostComment: (Int) -> Void
+    let showPostComment: ((Int) -> Void)?
+    let didTapSavedButton: (() -> Void)?
 }
 
 protocol PostDetailViewModelInputType {
@@ -62,7 +63,7 @@ final class PostDetailViewModel: PostDetailViewModelType {
 
 extension PostDetailViewModel {
     func didShowComment() {
-        actions?.showPostComment(id)
+        actions?.showPostComment?(id)
     }
 
     func updateSaveStatus() {

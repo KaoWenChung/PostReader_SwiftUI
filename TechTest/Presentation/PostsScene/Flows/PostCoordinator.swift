@@ -35,7 +35,7 @@ final class PostCoordinator: PostCoordinatorType {
     }
 
     private func showPostDetails(_ post: Post) {
-        let contentView = dependencies.makePostDetailContentView(withID: post.id, actions: PostDetailViewModelActions(showPostComment: showPostComments))
+        let contentView = dependencies.makePostDetailContentView(withID: post.id, actions: PostDetailViewModelActions(showPostComment: showPostComments, didTapSavedButton: nil))
         let vc = UIHostingController(rootView: contentView)
         navigationController.pushViewController(vc, animated: true)
     }

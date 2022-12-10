@@ -6,8 +6,8 @@
 "CommonString.allSavedPosts" = "All Saved Posts";
 "CommonString.allComments" = "All Comments";
 "CommonString.loading" = "Loading...";
-"CommonString.save" = "Save";
-"CommonString.saved" = "Saved";
+"CommonString.save" = "Add to favorite";
+"CommonString.saved" = "Remove from favorite";
 "CommonString.error" = "Error";
 "CommonString.retry" = "Retry";
 
