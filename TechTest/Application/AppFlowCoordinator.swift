@@ -13,7 +13,7 @@ protocol AppFlowCoordinatorType: CoordinatorType {
 }
 
 final class AppFlowCoordinator: AppFlowCoordinatorType {
-    enum TabbarTitle: LocallizedString {
+    enum TabbarTitle: LocallizedStringType {
         case post
         case bookMark
     }

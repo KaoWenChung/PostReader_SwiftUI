@@ -9,5 +9,5 @@ import SwiftUI
 
 struct ErrorType: Identifiable {
     let id = UUID()
-    let errorDescription: LocallizedString
+    let errorDescription: LocallizedStringType
 }

@@ -19,7 +19,7 @@
 		210F8548292599D600B0EDB1 /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F8547292599D600B0EDB1 /* NetworkConfig.swift */; };
 		210F854B2925AC4500B0EDB1 /* CoreDataStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 210F85492925AC4500B0EDB1 /* CoreDataStorage.xcdatamodeld */; };
 		210F8554292675B800B0EDB1 /* PostListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F8553292675B800B0EDB1 /* PostListViewModel.swift */; };
-		211E0A26293903C800D56D4E /* LocalString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211E0A25293903C800D56D4E /* LocalString.swift */; };
+		211E0A26293903C800D56D4E /* LocallizedStringType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211E0A25293903C800D56D4E /* LocallizedStringType.swift */; };
 		211E0A292939057B00D56D4E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 211E0A2B2939057B00D56D4E /* Localizable.strings */; };
 		211E0A2D2939076500D56D4E /* CommonString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211E0A2C2939076500D56D4E /* CommonString.swift */; };
 		211E0A2F29390D3C00D56D4E /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211E0A2E29390D3C00D56D4E /* NetworkServiceTests.swift */; };
@@ -111,7 +111,7 @@
 		210F8547292599D600B0EDB1 /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
 		210F854A2925AC4500B0EDB1 /* CoreDataStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataStorage.xcdatamodel; sourceTree = "<group>"; };
 		210F8553292675B800B0EDB1 /* PostListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewModel.swift; sourceTree = "<group>"; };
-		211E0A25293903C800D56D4E /* LocalString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalString.swift; sourceTree = "<group>"; };
+		211E0A25293903C800D56D4E /* LocallizedStringType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocallizedStringType.swift; sourceTree = "<group>"; };
 		211E0A2A2939057B00D56D4E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		211E0A2C2939076500D56D4E /* CommonString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonString.swift; sourceTree = "<group>"; };
 		211E0A2E29390D3C00D56D4E /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
@@ -337,7 +337,7 @@
 		211E0A24293903BD00D56D4E /* LocalString */ = {
 			isa = PBXGroup;
 			children = (
-				211E0A25293903C800D56D4E /* LocalString.swift */,
+				211E0A25293903C800D56D4E /* LocallizedStringType.swift */,
 				211E0A2C2939076500D56D4E /* CommonString.swift */,
 				211E0A2B2939057B00D56D4E /* Localizable.strings */,
 			);
@@ -852,7 +852,7 @@
 				210F854B2925AC4500B0EDB1 /* CoreDataStorage.xcdatamodeld in Sources */,
 				210F8542292598EE00B0EDB1 /* DataTransferService.swift in Sources */,
 				215865B02926CA05000FBDD8 /* PostListItemView.swift in Sources */,
-				211E0A26293903C800D56D4E /* LocalString.swift in Sources */,
+				211E0A26293903C800D56D4E /* LocallizedStringType.swift in Sources */,
 				21D75A6F2937AD58008FD6BB /* SavedPostCoordinator.swift in Sources */,
 				215865FF2927C822000FBDD8 /* SavedPostListRepositoryType.swift in Sources */,
 				210F85382925969800B0EDB1 /* PostListRepository.swift in Sources */,
