@@ -7,10 +7,7 @@
 
 import Foundation
 
-protocol LocallizedStringType {
-    var prefix: String { get }
-    var text: String { get }
-}
+protocol LocallizedStringType {}
 
 extension LocallizedStringType {
     var prefix: String { return "\(type(of: self))" }

@@ -12,7 +12,7 @@ final class SavedPostDetailViewModel: PostDetailViewModelType {
 
     private(set) var postData: Post
     private(set) var saveButtonTitle: String = CommonString.saved.text
-    private(set) var saveButtonImage: String = "bookmark.fill"
+    private(set) var saveButtonImage: String = ImageContent.fillBookmark
     
     init(postData: Post,
          useCase: ShowPostDetailUseCaseType,

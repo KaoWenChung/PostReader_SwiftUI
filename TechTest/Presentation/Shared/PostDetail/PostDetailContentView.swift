@@ -18,7 +18,7 @@ struct PostDetailContentView<T>: View where T: PostDetailViewModelType {
     var body: some View {
         VStack {
             HStack {
-                VStack(alignment: .leading, spacing: 5){
+                VStack(alignment: .leading, spacing: UIContent.stackViewSpacing){
                     Text(viewModel.postData.title)
                         .font(.system(.title))
                         .fontWeight(.bold)
@@ -39,7 +39,7 @@ struct PostDetailContentView<T>: View where T: PostDetailViewModelType {
             Button {
                 viewModel.didShowComment()
             } label: {
-                Image("text.bubble")
+                Image(ImageContent.bubbleText)
                 Text(CommonString.comment.text)
             }
             .padding(.leading)
