@@ -12,20 +12,18 @@
   - post list
   - favorite post list
 - Implement a list to show posts
-  - select one itme of the post will show post detail
-  - tap the comment button will show the comments of this post
-  - tap save to save to favorite posts
+  - select one of the posts to see post detail
+  - tap the comment button to see the comments on this post
+  - tap the save button to save to favorite posts
 - Implement favorite posts to show a list of favorite posts
 ### API Data Fetching
 - Get posts by get API https://jsonplaceholder.typicode.com/posts
-- Get comment of post by get API https://jsonplaceholder.typicode.com/posts/{postID}/comments/
+- Get comments of post by get API https://jsonplaceholder.typicode.com/posts/{postID}/comments/
 ### Offline Persistent storage
-- Use Core Data to implement offline persistent storage with the following features:
-  - Save the favorite posts
-  - Show the favorite posts
-  - Delete the favorite posts
-### Localized Contnet
-- Used Protocol Oriented Programming with enumeration to define and use localized strings.
+- Use Core Data to implement persistent offline storage with the following features:
+  - Read/ Write/ Delete the favorite posts
+### Localized Content
+- Used Extension Protocol with enumeration to define and use localized strings.
 ### Test Implementation
 - Unit testing
   - Implement dependency injection and mock dependencies to improve the testability of code.
@@ -35,21 +33,18 @@
 - Swift
 - SwiftUI
 - Combine
-- MVVM
+- MVVM-Coordinator
 - OOP
 - POP
 - Clean Architecture
-- Concurrency
-- Coordinator
-- Core Data
-- Offline
+- Concurrency(await async)
+- Core Data(offline storage)
 - Unit testing
 - UI testing
 - Localized string
 
 ## To-Do list of features and time I need:
 - [ ] Improve the coverage of unit testing - 1 hour
-- [ ] Fix TODO items
 - [x] Implement Error Handling
 - [x] Implement UI tests - 1 hour
 - [ ] present the number of offline posts the bar button - 1 hour
