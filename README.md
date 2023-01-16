@@ -44,7 +44,7 @@
 - Localized string
 
 ## To-Do list of features and time I need:
-- [ ] Improve the coverage of unit testing - 1 hour
+- [x] Improve the coverage of unit testing - 1 hour
 - [x] Implement Error Handling
 - [x] Implement UI tests - 1 hour
 - [ ] present the number of offline posts the bar button - 1 hour
