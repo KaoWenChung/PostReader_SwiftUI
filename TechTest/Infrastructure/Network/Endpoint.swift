@@ -8,7 +8,7 @@
 import Foundation
 
 public enum HTTPMethod: String {
-    case get     = "GET"
+    case get = "GET"
 }
 
 public protocol ResponseRequestable: Requestable {

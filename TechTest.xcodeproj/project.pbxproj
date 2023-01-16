@@ -25,6 +25,7 @@
 		211E0A2F29390D3C00D56D4E /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211E0A2E29390D3C00D56D4E /* NetworkServiceTests.swift */; };
 		211E0A3129390FF200D56D4E /* CommentResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211E0A3029390FF200D56D4E /* CommentResponseDTO.swift */; };
 		211E0A33293911AF00D56D4E /* PostResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211E0A32293911AF00D56D4E /* PostResponseDTO.swift */; };
+		21468CCD2975B3D900649FE2 /* LocallizedStringTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21468CCC2975B3D900649FE2 /* LocallizedStringTypeTests.swift */; };
 		21569D8F29549718003D84AE /* Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21569D8E29549718003D84AE /* Contents.swift */; };
 		215865AE2926B9DE000FBDD8 /* PostListContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865AD2926B9DE000FBDD8 /* PostListContentView.swift */; };
 		215865B02926CA05000FBDD8 /* PostListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215865AF2926CA05000FBDD8 /* PostListItemView.swift */; };
@@ -118,6 +119,7 @@
 		211E0A2E29390D3C00D56D4E /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		211E0A3029390FF200D56D4E /* CommentResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentResponseDTO.swift; sourceTree = "<group>"; };
 		211E0A32293911AF00D56D4E /* PostResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostResponseDTO.swift; sourceTree = "<group>"; };
+		21468CCC2975B3D900649FE2 /* LocallizedStringTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocallizedStringTypeTests.swift; sourceTree = "<group>"; };
 		21569D8E29549718003D84AE /* Contents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contents.swift; sourceTree = "<group>"; };
 		215865AD2926B9DE000FBDD8 /* PostListContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListContentView.swift; sourceTree = "<group>"; };
 		215865AF2926CA05000FBDD8 /* PostListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListItemView.swift; sourceTree = "<group>"; };
@@ -345,6 +347,14 @@
 				211E0A2B2939057B00D56D4E /* Localizable.strings */,
 			);
 			path = LocalString;
+			sourceTree = "<group>";
+		};
+		21468CCB2975B3CC00649FE2 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				21468CCC2975B3D900649FE2 /* LocallizedStringTypeTests.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		215865B12926CEDE000FBDD8 /* PostDetail */ = {
@@ -673,6 +683,7 @@
 			isa = PBXGroup;
 			children = (
 				2195C110293EA3ED00A1E95A /* Fixture */,
+				21468CCB2975B3CC00649FE2 /* Common */,
 				2195C107293E9F9400A1E95A /* Presentation */,
 				2195C105293E9F7E00A1E95A /* Domain */,
 				21F31BF4292AE4350044600E /* Infrastructure */,
@@ -890,6 +901,7 @@
 				21F31BF8292AE4750044600E /* NetworkConfigurableMock.swift in Sources */,
 				2195C10F293EA25000A1E95A /* ShowPostsUseCaseFailedMock.swift in Sources */,
 				21F31BF3292AE3AD0044600E /* DataTransferServiceTests.swift in Sources */,
+				21468CCD2975B3D900649FE2 /* LocallizedStringTypeTests.swift in Sources */,
 				219DF04E292AF5F500A7864F /* NetworkSessionManagerMock.swift in Sources */,
 				21F31BF9292AE4EC0044600E /* NetworkConfig.swift in Sources */,
 				21F8A6A829422C68004714B6 /* PostItemViewModelTests.swift in Sources */,
