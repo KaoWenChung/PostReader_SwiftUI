@@ -1,4 +1,3 @@
-# TechnicalTest.iOS
 * Without any third party library.
 
 ## Requirements
