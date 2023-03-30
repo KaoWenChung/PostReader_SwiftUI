@@ -20,7 +20,6 @@ struct PostListContentView<T>: View where T: PostListViewModelType {
                 .onTapGesture {
                     viewModel.didSelectItem(item)
                 }
-            
         }
         .navigationBarTitle(Text(viewModel.title), displayMode: .inline)
         .listStyle(.plain)
@@ -31,7 +30,9 @@ struct PostListContentView<T>: View where T: PostListViewModelType {
             let button = Alert.Button.default(Text(CommonString.retry.text)) {
                 reloadData()
             }
-            return Alert(title: Text(CommonString.error.text), message: Text(appError.errorDescription.text), dismissButton: button)
+            return Alert(title: Text(CommonString.error.text),
+                         message: Text(appError.errorDescription.text),
+                         dismissButton: button)
         }
     }
 

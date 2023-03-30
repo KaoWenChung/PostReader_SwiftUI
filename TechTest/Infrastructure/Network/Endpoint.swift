@@ -13,7 +13,7 @@ public enum HTTPMethod: String {
 
 public protocol ResponseRequestable: Requestable {
     associatedtype Response
-    
+
     var responseDecoder: ResponseDecoderType { get }
 }
 
@@ -27,7 +27,7 @@ public protocol Requestable {
     var bodyParametersEncodable: Encodable? { get }
     var bodyParameters: [String: Any] { get }
     var bodyEncoding: BodyEncoding { get }
-    
+
     func urlRequest(with networkConfig: NetworkConfigurableType) throws -> URLRequest
 }
 
@@ -37,9 +37,9 @@ public enum BodyEncoding {
 }
 
 public class Endpoint<R>: ResponseRequestableType {
-    
+
     public typealias Response = R
-    
+
     public let path: String
     public let isFullPath: Bool
     public let method: HTTPMethod
@@ -50,15 +50,15 @@ public class Endpoint<R>: ResponseRequestableType {
     public let bodyParameters: [String: Any]
     public let bodyEncoding: BodyEncoding
     public let responseDecoder: ResponseDecoderType
-    
+
     init(path: String,
          isFullPath: Bool = false,
          method: HTTPMethod,
-         headerParameters: [String : String] = [:],
+         headerParameters: [String: String] = [:],
          queryParametersEncodable: Encodable? = nil,
-         queryParameters: [String : Any] = [:],
+         queryParameters: [String: Any] = [:],
          bodyParametersEncodable: Encodable? = nil,
-         bodyParameters: [String : Any] = [:],
+         bodyParameters: [String: Any] = [:],
          bodyEncoding: BodyEncoding = .jsonSerializationData,
          responseDecoder: ResponseDecoderType = JSONResponseDecoder()) {
         self.path = path
@@ -84,7 +84,7 @@ public protocol RequestableType {
     var bodyParametersEncodable: Encodable? { get }
     var bodyParameters: [String: Any] { get }
     var bodyEncoding: BodyEncoding { get }
-    
+
     func urlRequest(with networkConfig: NetworkConfigurableType) throws -> URLRequest
 }
 
@@ -148,6 +148,6 @@ private extension Encodable {
     func toDictionary() throws -> [String: Any]? {
         let data = try JSONEncoder().encode(self)
         let jsonData = try JSONSerialization.jsonObject(with: data)
-        return jsonData as? [String : Any]
+        return jsonData as? [String: Any]
     }
 }

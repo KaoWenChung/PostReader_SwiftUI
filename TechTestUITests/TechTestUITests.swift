@@ -12,7 +12,7 @@ final class TechTestUITests: XCTestCase {
         continueAfterFailure = false
         XCUIApplication().launch()
     }
-    
+
     func testOpenPostDetails_tapSaveButtonTwice() {
         let app = XCUIApplication()
         app.collectionViews.cells.staticTexts["qui est esse"].tap()

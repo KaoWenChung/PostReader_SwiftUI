@@ -18,7 +18,7 @@ struct PostDetailContentView<T>: View where T: PostDetailViewModelType {
     var body: some View {
         VStack {
             HStack {
-                VStack(alignment: .leading, spacing: UIContent.stackViewSpacing){
+                VStack(alignment: .leading, spacing: UIContent.stackViewSpacing) {
                     Text(viewModel.postData.title)
                         .font(.system(.title))
                         .fontWeight(.bold)
@@ -35,7 +35,7 @@ struct PostDetailContentView<T>: View where T: PostDetailViewModelType {
             Spacer()
         }
         .navigationBarTitle(Text(viewModel.postData.title), displayMode: .inline)
-        HStack() {
+        HStack {
             Button {
                 viewModel.didShowComment()
             } label: {

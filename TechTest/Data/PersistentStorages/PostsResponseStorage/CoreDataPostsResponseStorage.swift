@@ -8,15 +8,12 @@
 import CoreData
 
 final class CoreDataPostsResponseStorage {
-
     private let coreDataStorage: CoreDataStorage
 
     init(coreDataStorage: CoreDataStorage = CoreDataStorage.shared) {
         self.coreDataStorage = coreDataStorage
     }
-
     // MARK: - Private
-
     private func fetchRequest(for requestDto: PostsRequest) -> NSFetchRequest<PostsRequestEntity> {
         let request: NSFetchRequest = PostsRequestEntity.fetchRequest()
         request.predicate = NSPredicate(format: "postID = %ld", requestDto.postId)
@@ -47,7 +44,6 @@ extension CoreDataPostsResponseStorage: PostsResponseStorageType {
 
                 completion(requestEntity?.response?.toDTO())
             } catch {
-                // TODO: - Log to Crashlytics
                 debugPrint("CoreDataPostsResponseStorage Unresolved error \(error), \((error as NSError).userInfo)")
             }
         }
@@ -63,7 +59,6 @@ extension CoreDataPostsResponseStorage: PostsResponseStorageType {
 
                 try context.save()
             } catch {
-                // TODO: - Log to Crashlytics
                 debugPrint("CoreDataPostsResponseStorage Unresolved error \(error), \((error as NSError).userInfo)")
             }
         }
@@ -75,10 +70,8 @@ extension CoreDataPostsResponseStorage: PostsResponseStorageType {
                 self.deleteResponse(for: request, in: context)
                 try context.save()
             } catch {
-                // TODO: - Log to Crashlytics
                 debugPrint("CoreDataPostsResponseStorage Unresolved error \(error), \((error as NSError).userInfo)")
             }
         }
     }
 }
-

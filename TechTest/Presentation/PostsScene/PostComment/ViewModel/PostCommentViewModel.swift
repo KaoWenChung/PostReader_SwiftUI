@@ -17,15 +17,14 @@ protocol PostCommentViewModelOutputType: ObservableObject {
 }
 
 protocol PostCommentViewModelType: PostCommentViewModelInputType, PostCommentViewModelOutputType {
-    
+
 }
 final class PostCommentViewModel: PostCommentViewModelType {
 
     private let showPostCommentUseCase: ShowPostCommentUseCaseType
     private let id: Int
     @Published private(set) var items: [Comment] = []
-    @Published var error: ErrorType? = nil
-    
+    @Published var error: ErrorType?
 
     init(withID id: Int, useCase: ShowPostCommentUseCaseType) {
         self.showPostCommentUseCase = useCase
@@ -42,6 +41,5 @@ extension PostCommentViewModel {
         } catch {
             self.error = ErrorType(errorDescription: ErrorDescription.notConnected)
         }
-        
     }
 }

@@ -21,7 +21,7 @@ final class SavedPostSceneDIContainer {
     // MARK: - Persistent Storage
     lazy var postsResponseCache: PostsResponseStorageType = CoreDataPostsResponseStorage()
     lazy var savedPostsResponseCache: SavedPostsResponseStorageType = CoreDataSavedPostsResponseStorage()
-    
+
     // MARK: - UseCase
     func makeShowSavedPostsUseCase() -> ShowSavedPostsUseCaseType {
         return ShowSavedPostsUseCase(postRepository: makeSavedPostListRepository())
@@ -42,17 +42,24 @@ final class SavedPostSceneDIContainer {
     }
 
     // MARK: - Saved Post List
-    func makeSavedPostListContentView(actions: PostListViewModelActions) -> PostListContentView<SavedPostListViewModel> {
+    func makeSavedPostListContentView(
+        actions: PostListViewModelActions
+    ) -> PostListContentView<SavedPostListViewModel> {
         return PostListContentView(viewModel: makeSavedPostListViewModel(actions: actions))
     }
 
     func makeSavedPostListViewModel(actions: PostListViewModelActions) -> SavedPostListViewModel {
-        return SavedPostListViewModel(title: CommonString.allSavedPosts.text, showSavedPostsUseCase: makeShowSavedPostsUseCase(), actions: actions)
+        let title = CommonString.allSavedPosts.text
+        return SavedPostListViewModel(title: title,
+                                      showSavedPostsUseCase: makeShowSavedPostsUseCase(),
+                                      actions: actions)
     }
 
     // MARK: - Saved Post Detail
-    func makeSavedPostDetailContentView(with content: Post,
-                                        actions: PostDetailViewModelActions?) -> PostDetailContentView<SavedPostDetailViewModel> {
+    func makeSavedPostDetailContentView(
+        with content: Post,
+        actions: PostDetailViewModelActions?
+    ) -> PostDetailContentView<SavedPostDetailViewModel> {
         return PostDetailContentView(viewModel: makeSavedPostDetailViewModel(with: content, actions: actions))
     }
 
@@ -60,9 +67,11 @@ final class SavedPostSceneDIContainer {
                                       actions: PostDetailViewModelActions?) -> SavedPostDetailViewModel {
         return SavedPostDetailViewModel(postData: content, useCase: makeShowSavedPostDetailUseCase(), actions: actions)
     }
-    
+
     // MARK: - Flow Coordinators
-    func makeSavedPostFlowCoordinator(navigationController: UINavigationController = UINavigationController()) -> SavedPostCoordinator {
+    func makeSavedPostFlowCoordinator(
+        navigationController: UINavigationController = UINavigationController()
+    ) -> SavedPostCoordinator {
         return SavedPostCoordinator(navigationController: navigationController, dependencies: self)
     }
 

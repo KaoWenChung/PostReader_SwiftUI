@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PostCommentContentView<T>: View where T: PostCommentViewModelType{
+struct PostCommentContentView<T>: View where T: PostCommentViewModelType {
     @ObservedObject private var viewModel: T
 
     init(viewModel: T) {
@@ -27,7 +27,9 @@ struct PostCommentContentView<T>: View where T: PostCommentViewModelType{
             let button = Alert.Button.default(Text(CommonString.retry.text)) {
                 loadData()
             }
-            return Alert(title: Text(CommonString.error.text), message: Text(appError.errorDescription.text), dismissButton: button)
+            return Alert(title: Text(CommonString.error.text),
+                         message: Text(appError.errorDescription.text),
+                         dismissButton: button)
         }
     }
     private func loadData() {

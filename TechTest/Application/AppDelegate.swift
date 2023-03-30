@@ -13,8 +13,9 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     let appDIContainer = AppDIContainer()
     var appFlowCoordinator: AppFlowCoordinator?
-    
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         appFlowCoordinator = AppFlowCoordinator(appDIContainer: appDIContainer)
         let rootViewController = appFlowCoordinator?.start()

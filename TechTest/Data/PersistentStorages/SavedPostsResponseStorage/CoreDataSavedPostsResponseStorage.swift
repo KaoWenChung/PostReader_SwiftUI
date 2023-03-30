@@ -20,7 +20,8 @@ final class CoreDataSavedPostsResponseStorage {
     private func findAllPosts(in managedObjectContext: NSManagedObjectContext) throws -> [Post] {
         var workouts: [Post] = []
         let fetchRequest: NSFetchRequest<PostsResponseEntity> = PostsResponseEntity.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(PostsResponseEntity.request.postID), ascending: true)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(PostsResponseEntity.request.postID),
+                                                         ascending: true)]
         do {
             // Perform Fetch Request
             workouts = try managedObjectContext.fetch(fetchRequest).toDTOs()
@@ -39,10 +40,8 @@ extension CoreDataSavedPostsResponseStorage: SavedPostsResponseStorageType {
                 let value = try self.findAllPosts(in: context)
                 completion(value)
             } catch {
-                // TODO: - Log to Crashlytics
                 debugPrint("CoreDataPostsResponseStorage Unresolved error \(error), \((error as NSError).userInfo)")
             }
         }
     }
 }
-

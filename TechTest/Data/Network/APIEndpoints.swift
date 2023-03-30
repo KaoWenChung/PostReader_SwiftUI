@@ -5,7 +5,6 @@
 //  Created by wyn on 2022/11/17.
 //
 
-
 struct APIEndpoints {
     static func getPostList() -> Endpoint<[PostResponseDTO]> {
         return Endpoint(path: "posts",
@@ -22,4 +21,3 @@ struct APIEndpoints {
                         method: .get)
     }
 }
-

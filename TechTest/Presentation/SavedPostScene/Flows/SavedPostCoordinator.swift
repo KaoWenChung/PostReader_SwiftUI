@@ -9,7 +9,10 @@ import SwiftUI
 
 protocol SavedPostCoordinatorDependenciesType {
     func makeSavedPostListContentView(actions: PostListViewModelActions) -> PostListContentView<SavedPostListViewModel>
-    func makeSavedPostDetailContentView(with content: Post, actions: PostDetailViewModelActions?) -> PostDetailContentView<SavedPostDetailViewModel>
+    func makeSavedPostDetailContentView(
+        with content: Post,
+        actions: PostDetailViewModelActions?
+    ) -> PostDetailContentView<SavedPostDetailViewModel>
 }
 
 protocol SavedPostCoordinatorType: CoordinatorType {
@@ -19,7 +22,7 @@ protocol SavedPostCoordinatorType: CoordinatorType {
 final class SavedPostCoordinator: SavedPostCoordinatorType {
     let navigationController: UINavigationController
     private let dependencies: SavedPostCoordinatorDependenciesType
-    
+
     init(navigationController: UINavigationController = .init(),
          dependencies: SavedPostCoordinatorDependenciesType) {
         self.navigationController = navigationController
@@ -27,16 +30,18 @@ final class SavedPostCoordinator: SavedPostCoordinatorType {
     }
 
     func start() -> UIViewController {
-        let contentView = dependencies.makeSavedPostListContentView(actions: PostListViewModelActions(showPostDetail: showSavedPostDetails))
-        let vc = UIHostingController(rootView: contentView)
-        navigationController.pushViewController(vc, animated: true)
+        let actions = PostListViewModelActions(showPostDetail: showSavedPostDetails)
+        let contentView = dependencies.makeSavedPostListContentView(actions: actions)
+        let viewcontroller = UIHostingController(rootView: contentView)
+        navigationController.pushViewController(viewcontroller, animated: true)
         return navigationController
     }
 
     private func showSavedPostDetails(_ post: Post) {
-        let contentView = dependencies.makeSavedPostDetailContentView(with: post, actions: PostDetailViewModelActions(showPostComment: nil, didTapSavedButton: didTapSavedButton))
-        let vc = UIHostingController(rootView: contentView)
-        navigationController.pushViewController(vc, animated: true)
+        let actions = PostDetailViewModelActions(showPostComment: nil, didTapSavedButton: didTapSavedButton)
+        let contentView = dependencies.makeSavedPostDetailContentView(with: post, actions: actions)
+        let viewcontroller = UIHostingController(rootView: contentView)
+        navigationController.pushViewController(viewcontroller, animated: true)
     }
 
     private func didTapSavedButton() {

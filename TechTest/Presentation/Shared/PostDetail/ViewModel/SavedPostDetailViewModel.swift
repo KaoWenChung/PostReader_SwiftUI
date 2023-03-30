@@ -6,14 +6,14 @@
 //
 
 final class SavedPostDetailViewModel: PostDetailViewModelType {
-    
+
     private let showPostDetailUseCase: ShowPostDetailUseCaseType
     private let actions: PostDetailViewModelActions?
 
     private(set) var postData: Post
     private(set) var saveButtonTitle: String = CommonString.saved.text
     private(set) var saveButtonImage: String = ImageContent.fillBookmark
-    
+
     init(postData: Post,
          useCase: ShowPostDetailUseCaseType,
          actions: PostDetailViewModelActions?) {
@@ -29,7 +29,7 @@ extension SavedPostDetailViewModel {
         showPostDetailUseCase.delete(request)
         actions?.didTapSavedButton?()
     }
-    
+
     func onAppear() {}
 
     func didShowComment() {

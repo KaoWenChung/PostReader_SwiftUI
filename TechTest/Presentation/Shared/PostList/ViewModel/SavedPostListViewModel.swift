@@ -16,8 +16,8 @@ final class SavedPostListViewModel: PostListViewModelType {
     let title: String
 
     @Published private(set) var items: [Post] = []
-    @Published var error: ErrorType? = nil
-    
+    @Published var error: ErrorType?
+
     init(title: String,
          showSavedPostsUseCase: ShowSavedPostsUseCaseType,
          actions: PostListViewModelActions?) {
@@ -29,7 +29,7 @@ final class SavedPostListViewModel: PostListViewModelType {
 
 extension SavedPostListViewModel {
     func reloadData() {
-        showSavedPostsUseCase.execute() { result in
+        showSavedPostsUseCase.execute { result in
             DispatchQueue.main.async {
                 self.items = result
             }

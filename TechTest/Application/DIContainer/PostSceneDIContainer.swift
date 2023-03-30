@@ -7,7 +7,6 @@
 import SwiftUI
 
 final class PostSceneDIContainer {
-    
     struct Dependencies {
         let dataTransferService: DataTransferServiceType
     }
@@ -24,7 +23,7 @@ final class PostSceneDIContainer {
     func makeShowPostsUseCase() -> ShowPostsUseCaseType {
         return ShowPostsUseCase(postRepository: makePostListRepository())
     }
-    
+
     func makeShowPostDetailUseCase() -> ShowPostDetailUseCaseType {
         return ShowPostDetailUseCase(repository: makePostDetailRepository())
     }
@@ -50,16 +49,19 @@ final class PostSceneDIContainer {
     func makePostListContentView(actions: PostListViewModelActions) -> PostListContentView<PostListViewModel> {
         return PostListContentView(viewModel: makePostListViewModel(actions: actions))
     }
-    
+
     func makePostListViewModel(actions: PostListViewModelActions) -> PostListViewModel {
-        return PostListViewModel(title: CommonString.allPosts.text, showPostsUseCase: makeShowPostsUseCase(), actions: actions)
+        return PostListViewModel(title: CommonString.allPosts.text,
+                                 showPostsUseCase: makeShowPostsUseCase(),
+                                 actions: actions)
     }
 
     // MARK: - Post Detail
-    func makePostDetailContentView(withID id: Int, actions: PostDetailViewModelActions?) -> PostDetailContentView<PostDetailViewModel> {
+    func makePostDetailContentView(withID id: Int,
+                                   actions: PostDetailViewModelActions?) -> PostDetailContentView<PostDetailViewModel> {
         return PostDetailContentView(viewModel: makePostDetailViewModel(withID: id, actions: actions))
     }
-    
+
     func makePostDetailViewModel(withID id: Int, actions: PostDetailViewModelActions?) -> PostDetailViewModel {
         return PostDetailViewModel(withID: id, useCase: makeShowPostDetailUseCase(), actions: actions)
     }
@@ -68,12 +70,14 @@ final class PostSceneDIContainer {
     func makePostCommentContentView(withID id: Int) -> PostCommentContentView<PostCommentViewModel> {
         return PostCommentContentView(viewModel: makePostCommentViewModel(withID: id))
     }
-    
+
     func makePostCommentViewModel(withID id: Int) -> PostCommentViewModel {
         return PostCommentViewModel(withID: id, useCase: makeShowPostCommentUseCase())
     }
     // MARK: - Flow Coordinators
-    func makePostFlowCoordinator(navigationController: UINavigationController = UINavigationController()) -> PostCoordinator {
+    func makePostFlowCoordinator(
+        navigationController: UINavigationController = UINavigationController()
+    ) -> PostCoordinator {
         return PostCoordinator(navigationController: navigationController, dependencies: self)
     }
 

@@ -33,7 +33,7 @@ extension PostDetailRepository: PostDetailRepositoryType {
             }
         }
     }
- 
+
     func fetchPostDetail(withID id: Int, completion: @escaping (Post) -> Void) {
         let cacheRequest = PostsRequest(id: id)
         cache.getResponse(for: cacheRequest) { result in
@@ -46,8 +46,6 @@ extension PostDetailRepository: PostDetailRepositoryType {
                 let (data, _) = try await self.dataTransferService.request(with: endpoint)
                 completion(data.toDomain())
             }
-            
         }
-        
     }
 }

@@ -32,8 +32,8 @@ final class PostListViewModel: PostListViewModelType {
     let title: String
 
     @Published private(set) var items: [Post] = []
-    @Published var error: ErrorType? = nil
-    
+    @Published var error: ErrorType?
+
     init(title: String,
          showPostsUseCase: ShowPostsUseCaseType,
          actions: PostListViewModelActions?) {
